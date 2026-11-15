@@ -1,0 +1,52 @@
+/* The desktop window's shared instrument strip, outside the animated page. */
+.room-statusbar {
+  position:fixed; z-index:25; inset:auto 0 0 var(--sidebar-width, 0px);
+  display:flex; align-items:center; gap:20px; min-height:40px; box-sizing:border-box;
+  padding:7px clamp(12px, 2vw, 32px) calc(7px + env(safe-area-inset-bottom, 0px));
+  border-top:1px solid var(--line); background:var(--panel);
+  color:var(--muted); font:500 12px/1.4 "Segoe UI","Microsoft YaHei UI",system-ui,sans-serif;
+  font-variant-numeric:tabular-nums;
+}
+.room-status-readings, .room-status-metric, .room-status-source, .room-status-service {
+  display:inline-flex; align-items:center; white-space:nowrap;
+}
+.room-status-readings {gap:18px}
+.room-status-metric {gap:4px}
+.room-status-metric svg {
+  width:16px; height:16px; margin-right:2px; fill:none; stroke:var(--cyan);
+  stroke-width:1.65; stroke-linecap:round; stroke-linejoin:round;
+}
+.room-status-metric strong {color:var(--text);font-size:15px;line-height:1;font-weight:650;margin-left:2px}
+.room-status-unit {font-size:11px}
+.room-status-source {border-inline-start:1px solid var(--line);padding-inline-start:17px;gap:8px}
+.room-status-source time {font-size:11px;color:var(--muted)}
+.room-status-source[data-tone="warn"] {color:var(--amber)}
+.room-status-service {margin-left:auto;gap:7px}
+.room-status-service i {
+  width:7px;height:7px;border:1px solid currentColor;border-radius:50%;box-sizing:border-box;
+}
+.room-status-service[data-tone="ok"] i {color:var(--green);background:currentColor}
+.room-status-service[data-tone="error"] {color:var(--red)}
+body:has(.room-statusbar) {padding-bottom:calc(44px + env(safe-area-inset-bottom, 0px))}
+html:has(.room-statusbar) {scroll-padding-bottom:calc(48px + env(safe-area-inset-bottom, 0px))}
+@media (max-width:760px) {
+  .room-statusbar {gap:12px;padding-inline:12px}
+  .room-status-readings {gap:11px}
+  .room-status-source {padding-inline-start:11px}
+}
+@media (max-width:560px) {
+  .room-statusbar {display:grid;grid-template-columns:1fr auto;gap:6px 10px;min-height:58px}
+  .room-status-readings {grid-column:1;grid-row:1;gap:14px}
+  .room-status-service {grid-column:2;grid-row:1}
+  .room-status-source {grid-column:1/-1;grid-row:2;border:0;padding:0;font-size:11px}
+  body:has(.room-statusbar) {padding-bottom:calc(62px + env(safe-area-inset-bottom, 0px))}
+  html:has(.room-statusbar) {scroll-padding-bottom:calc(66px + env(safe-area-inset-bottom, 0px))}
+}
+@media (max-width:345px) {
+  .room-statusbar {gap:5px 6px;padding-inline:8px}
+  .room-status-readings {gap:8px}
+  .room-status-metric svg {display:none}
+}
+@media (forced-colors:active) {
+  .room-status-service i {border-color:CanvasText}
+}

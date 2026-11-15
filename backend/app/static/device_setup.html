@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/><script src="/static/console_theme.js"></script><script src="/static/console_motion.js"></script>
+<meta content="dark" name="color-scheme"/>
+<meta content="default-src 'self'; script-src 'self'; style-src 'self'; connect-src 'self'; img-src 'none'; base-uri 'none'; form-action 'self'; object-src 'none'" http-equiv="Content-Security-Policy"/>
+<title>梦盾 · 设备蓝牙配网</title>
+<link href="/static/device_setup.css" rel="stylesheet"/>
+<script defer="" src="/static/device_setup.js"></script>
+<link href="/static/console_theme.css" rel="stylesheet"/><link href="/static/console_motion.css" rel="stylesheet"/><link href="/static/console_status.css" rel="stylesheet"/></head>
+<body>
+<div class="shell">
+<header class="page-header">
+<div><span class="eyebrow">DREAMSHIELD · LOCAL DEVICE SETUP</span><h1>把梦盾带回家</h1><p class="subtitle">电脑蓝牙配网 → 加入家庭 Wi-Fi → 验证并接入监控。</p></div>
+<a class="button secondary" href="/">返回监控控制台 <span aria-hidden="true">↗</span></a>
+</header>
+<div class="privacy-banner"><span aria-hidden="true" class="shield-mark">◇</span><div><strong>只在电脑本机操作，不向云端发送 Wi-Fi 凭据</strong><p>网页交给本机 Python 服务，由 Windows 蓝牙建立带独立配网码的安全会话。本页不把凭据写入浏览器存储，提交后清空输入；请勿另行允许密码管理器保存。</p></div></div>
+<div class="alert" hidden="" id="serviceAlert" role="status"></div>
+<div class="layout">
+<main class="stack">
+<section aria-labelledby="discoverHeading" class="card">
+<div class="card-head"><div class="heading-label"><span class="step-number">01</span><div><span class="step-caption">DISCOVER &amp; CONNECT</span><h2 id="discoverHeading">找到你的设备</h2></div></div><span class="badge" id="bleBadge">未连接</span></div>
+<div class="card-body">
+<div class="preflight"><div><span>Python BLE 依赖</span><strong id="dependencyStatus">正在检查…</strong></div><div><span>电脑蓝牙</span><strong id="bluetoothStatus">尚未执行扫描</strong></div><div><span>安全会话</span><strong>Security 1 + 独立配网码</strong></div></div>
+<p class="muted">未配置过的设备首次启动会开启约 5 分钟 BLE；在实体 USB 串口（115200）发送小写 <code>p</code>，查看本轮的 32 位独立配网码。已配置的设备可发送 <code>p</code> 或长按 BOOT 约 3 秒，重新进入配网；配网码仍需从物理串口查看。无需把 Wi-Fi 信息写进代码重新编译。</p>
+<div class="button-row"><button class="button primary" id="scanDevicesButton" type="button">扫描附近梦盾设备</button><button class="button secondary" disabled="" id="disconnectButton" type="button">断开蓝牙连接</button></div>
+<div aria-label="可配网的设备" class="device-list" id="deviceList"><div class="empty-state"><span aria-hidden="true" class="empty-icon">⌁</span><strong>还没有开始扫描</strong><p>点击上方按钮。进入此页不会自动扫描或向设备发送任何凭据。</p></div></div>
+<form autocomplete="off" class="connection-form" id="connectForm">
+<label for="pairingCode">32 位独立配网码 <small>不是 Wi-Fi 密码，也不是安卓 APP 配对 JSON</small></label>
+<div class="form-row"><input aria-describedby="pairingCodeHelp" autocomplete="off" id="pairingCode" maxlength="32" placeholder="从实体 USB 串口发送 p 后查看" spellcheck="false" type="password"/><button class="button primary" disabled="" id="connectDeviceButton" type="submit">校验并连接</button></div>
+<p class="field-note" id="pairingCodeHelp">先选中上面的目标设备，再输入它的配网码。提交后会清空输入；不要公开截图、转发配网码或填写其他设备的码。</p>
+</form>
+<p class="feedback" id="connectionFeedback" role="status"></p>
+</div>
+</section>
+<section aria-labelledby="wifiHeading" class="card">
+<div class="card-head"><div class="heading-label"><span class="step-number">02</span><div><span class="step-caption">YOUR HOME WI-FI</span><h2 id="wifiHeading">选择家庭 Wi-Fi</h2></div></div><span class="badge muted" id="wifiBadge">等待蓝牙连接</span></div>
+<div class="card-body">
+<div class="section-row"><p class="muted">由 ESP32 扫描它能连接的 <strong>2.4 GHz</strong> 网络，不是电脑的 Wi-Fi 列表。</p><button class="button secondary" disabled="" id="scanWifiButton" type="button">让设备扫描 Wi-Fi</button></div>
+<div class="wifi-list" id="wifiList"><div class="compact-empty">安全会话就绪后，可扫描附近 Wi-Fi，或手动填写隐藏网络名称。</div></div>
+<form autocomplete="off" id="wifiForm">
+<div class="wifi-fields"><label for="wifiSsid">Wi-Fi 名称（SSID）<input autocomplete="off" id="wifiSsid" maxlength="32" placeholder="精确填写名称，大小写和空格都要一致" spellcheck="false" type="text"/></label><label for="wifiPassword">Wi-Fi 密码<input autocomplete="new-password" id="wifiPassword" maxlength="64" placeholder="8–63 个 UTF-8 字节；中文等占多个字节" spellcheck="false" type="password"/></label></div>
+<p class="field-note">密码按 UTF-8 字节数校验，空格不会自动删去；本版不支持 64 位十六进制原始密钥。</p>
+<div class="notice"><strong>本版不支持无密码的开放 Wi-Fi。</strong>不要把“扫描不到网络”当成“无需密码”。隐藏 SSID 可手动填写；5 GHz 专用网络、登录认证页面和企业认证网络不适用于本次配网。</div>
+<div class="button-row"><button class="button primary" disabled="" id="configureWifiButton" type="submit">发送配置并等待连接结果</button></div>
+<p class="field-note">点击后会清空名称、密码和配网码输入。只有设备明确报告连网并取得地址，才算 Wi-Fi 配网成功；“凭据已发送”不是成功。</p>
+</form>
+<p class="feedback" id="wifiFeedback" role="status"></p>
+</div>
+</section>
+<section aria-labelledby="adoptHeading" class="card result-card">
+<div class="card-head"><div class="heading-label"><span class="step-number">03</span><div><span class="step-caption">VERIFY &amp; ADOPT</span><h2 id="adoptHeading">接入梦盾监控</h2></div></div><span class="badge muted" id="adoptBadge">未验证</span></div>
+<div class="card-body">
+<div class="result-grid"><div><span>设备报告的网络</span><strong id="resultSsid">—</strong></div><div><span>设备报告的 Wi-Fi 地址</span><strong class="mono" id="resultIp">—</strong></div><div><span>已连接的配网设备</span><strong id="resultDevice">—</strong></div></div>
+<p class="muted" id="resultExplanation">完成上方配网后，还需要从电脑验证摄像头设备身份与接口。取得 Wi-Fi IP 不等于已接入监控。</p>
+<p class="field-note">成功连上 Wi-Fi 后，设备会保留 BLE 约 15 秒供电脑读取结果，再停止 BLE 并初始化摄像头。建议等 15–20 秒后点击验证；若暂时无法访问（502），等待后手动重试，不会自动采用地址。</p>
+<div class="button-row"><button class="button primary" disabled="" id="adoptDeviceButton" type="button">验证设备并设为监控地址</button><a class="button secondary" hidden="" href="/" id="openMonitorLink">前往监控控制台</a></div>
+<p class="feedback" id="adoptFeedback" role="status"></p>
+<p class="field-note">只有点击此按钮并验证身份成功，才会更改电脑监控地址；定时抓拍、温湿度记录和自动 AI 会主动关闭。请回监控页检查画面和传感器，再按需重新开启这些任务。</p>
+</div>
+</section>
+</main>
+<aside class="stack sidebar">
+<section aria-labelledby="progressHeading" class="card progress-card"><div class="card-head"><h2 id="progressHeading">当前进度</h2><span class="badge muted" id="operationBadge">等待操作</span></div><div class="card-body"><ol class="progress-steps" id="progressSteps"><li id="phaseScan"><span class="progress-dot"></span><div><strong>发现设备</strong><small>手动扫描蓝牙广播</small></div></li><li id="phaseConnect"><span class="progress-dot"></span><div><strong>建立安全会话</strong><small>选设备 + 独立配网码</small></div></li><li id="phaseConfigure"><span class="progress-dot"></span><div><strong>发送 Wi-Fi 配置</strong><small>名称和密码仅用于本次配网</small></div></li><li id="phaseVerify"><span class="progress-dot"></span><div><strong>确认设备连网</strong><small>等待设备报告有效 Wi-Fi 地址</small></div></li><li id="phaseAdopt"><span class="progress-dot"></span><div><strong>验证并接入监控</strong><small>电脑检查身份与接口后采用地址</small></div></li></ol><div class="progress-summary"><strong id="operationTitle">准备就绪后，开始扫描</strong><p id="operationMessage">此页只读取配网状态，不自动执行任何操作。</p></div><button class="button warning full-width" disabled="" id="cancelOperationButton" type="button">取消当前配网任务</button><p class="field-note">关闭网页不保证停止后台任务。取消也不能撤回设备已经收到的配置。</p></div></section>
+<section class="card help-card"><div class="card-head"><h2>开始前，检查这四件事</h2></div><div class="card-body"><ol class="checklist"><li><strong>电脑具备可用蓝牙</strong><p>在 Windows“设置 → 蓝牙和设备”中打开蓝牙。没有蓝牙硬件的电脑需要 USB 蓝牙适配器。</p></li><li><strong>Python 服务已安装 BLE 依赖</strong><p>若页面提示依赖缺失，请按项目中文教程安装后重新启动服务器。“依赖已安装”不等于电脑蓝牙硬件已测试。</p></li><li><strong>开发板运行支持 BLE 配网的固件</strong><p>旧固件不会出现配网广播。上传对应固件后，在 USB 串口 115200 发送 p；BLE 名称类似 DreamShield-XXXXXX。</p></li><li><strong>使用可连接的 2.4 GHz 家庭网络</strong><p>可与电脑同处一个路由器网络；避免访客隔离、AP 隔离或需要网页登录的热点。</p></li></ol></div></section>
+<div class="small-print">配网只配置设备网络，不打开 AI、不发送红外或空调指令。请把独立配网码保留在可信范围内。</div>
+</aside>
+</div>
+<footer>DreamShield · 本机蓝牙配网工具 · 设备身份验证与监控设置分开进行</footer>
+</div>
+<section class="room-statusbar" aria-label="房间状态" data-feed="standalone">
+<div class="room-status-readings">
+      <span class="room-status-metric">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 14.5V5a3 3 0 0 1 6 0v9.5a5 5 0 1 1-6 0Z"/><path d="M12 8v9"/><circle cx="12" cy="18" r="1.3"/></svg>
+        <span>室温</span><strong id="roomTemperature">—</strong><span class="room-status-unit">°C</span>
+      </span>
+      <span class="room-status-metric">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.8c-2 3-7 8.4-7 12.4a7 7 0 0 0 14 0c0-4-5-9.4-7-12.4Z"/><path d="M8.5 15.5c.2 1.7 1.2 2.7 2.6 3"/></svg>
+        <span>湿度</span><strong id="roomHumidity">—</strong><span class="room-status-unit">%RH</span>
+      </span>
+    </div>
+    <span class="room-status-source" data-tone="neutral"><span id="roomSensorState">等待读数</span><time id="roomMeasuredTime"></time></span>
+    <span class="room-status-service" data-tone="neutral"><i aria-hidden="true"></i><span id="consoleServerStatus">正在读取服务</span></span>
+</section>
+<script src="/static/console_status.js"></script>
+</body>
+</html>

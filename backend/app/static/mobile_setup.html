@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>梦盾助手 · 连接手机</title>
+<style>
+:root{color-scheme:dark;font-family:system-ui,"Microsoft YaHei",sans-serif;background:#08141f;color:#eaf1fa}*{box-sizing:border-box}body{margin:0;padding:36px 20px;background:radial-gradient(ellipse at top right,#183940,transparent 65%)}main{max-width:980px;margin:auto}h1{font-size:clamp(28px,4vw,42px);margin:10px 0}h2{font-size:22px;margin-top:0}p,li{line-height:1.8;color:#a9bdce}section{background:#0e202d;border:1px solid #24404f;border-radius:26px;padding:26px;margin:22px 0}button,a.button{background:#84e0cf;color:#08242b;border:0;border-radius:100px;padding:13px 22px;font:inherit;cursor:pointer;display:inline-block;text-decoration:none;margin:4px;transition:transform .15s,background .15s}button.secondary{background:#233c4b;color:#dbe9f2}button.danger{background:#572d39;color:#ffdae0}button:disabled{opacity:.4;cursor:default}button:active,a.button:active{transform:scale(.97)}textarea{width:100%;min-height:110px;border:1px solid #355565;border-radius:16px;background:#081721;color:#c6e4f0;padding:14px;font:13px/1.6 monospace;resize:vertical;overflow-wrap:anywhere}select{max-width:100%;background:#122d3b;color:#def6f2;border:1px solid #355565;border-radius:12px;padding:11px;font:inherit}code{overflow-wrap:anywhere;color:#9be9da}.status{color:#84e0cf}.note{font-size:14px}.warn{color:#ffcf91}#message{white-space:pre-wrap}label{display:block;margin:12px 0}.pair-grid{display:grid;grid-template-columns:300px minmax(0,1fr);gap:28px;align-items:center}.qr-box{background:#fff;padding:6px;border-radius:20px;width:300px;height:300px;display:flex;align-items:center;justify-content:center}.qr-box img{width:288px;height:288px}.qr-box p{color:#33454e;text-align:center;padding:20px}details{margin-top:20px}summary{cursor:pointer;color:#a9bdce}#payload{min-height:180px}.eyebrow{letter-spacing:.12em;text-transform:uppercase;font-size:13px;color:#84e0cf}@media(max-width:700px){body{padding:22px 14px}.pair-grid{grid-template-columns:1fr}.qr-box{margin:auto}section{padding:20px}}
+</style>
+</head>
+<body><main>
+<p class="eyebrow">DreamShield / Wi-Fi Companion</p><h1>让梦盾随手可见</h1>
+<p>电脑保持运行，手机与电脑连接同一 Wi-Fi。配对一次，APP 会记住服务器，之后直接打开即可连接。</p>
+<section><h2>1 · 扫码，或复制一条连接码</h2><p id="status" class="status">正在检查手机服务…</p>
+<label>电脑局域网地址 <select id="addresses" aria-label="电脑局域网地址"></select></label>
+<div class="pair-grid"><div class="qr-box"><img id="qr" alt="本机生成的梦盾连接二维码" hidden><p id="qrEmpty">服务就绪后显示二维码</p></div><div>
+<p>用手机系统相机扫描左侧二维码，选择用<strong>梦盾助手</strong>打开。APP 导入后点击连接并确认电脑。</p>
+<p class="note">相机不能打开时，点击“复制连接码”，把整条码传到手机，在 APP → 设置 → 连接电脑中粘贴。</p>
+<textarea id="connectionCode" readonly aria-label="梦盾连接码" spellcheck="false" placeholder="DS1:…"></textarea>
+<button id="copy" disabled>复制连接码</button><button id="download" class="secondary" disabled>下载连接文件</button>
+<button id="renew" class="secondary" disabled>刷新连接码</button>
+</div></div>
+<p id="expiry" class="note"></p><p class="note">连接码 5 分钟内有效，只能配对一次。过期时点击“刷新连接码”。地址选错时选择实际 Wi-Fi 地址，二维码和连接码会一起更新。</p>
+<details><summary>高级信息与旧版 APP 兼容</summary><p class="note">旧版 APP 可复制下面的 JSON 配对信息。</p><textarea id="payload" readonly aria-label="手机配对信息" spellcheck="false"></textarea><p class="note">证书 SHA-256：<code id="fingerprint">—</code></p></details>
+</section>
+<section><h2>2 · 连接后查看设备</h2><p>APP 连接的是这台电脑上的梦盾服务器。若“服务器已连接、设备离线”，请先让开发板运行摄像头主程序，并在电脑网页中填写正确的设备地址。</p><a class="button" href="/" target="_blank" rel="noopener">打开电脑监控网页</a><p class="note warn">电脑需保持开机。Windows 防火墙仅允许所使用的可信局域网；不要设置公网端口转发。</p></section>
+<section><h2>管理已配对手机</h2><p id="sessions">—</p><button id="revoke" class="danger" disabled>撤销所有手机访问</button><p class="note">撤销后需要重新配对，不会停止电脑上的记录任务。</p></section>
+<p id="message" role="status" aria-live="polite"></p><p class="note">二维码在本机生成，不经过第三方网站。连接码包含临时配对信息，请只发到自己的手机；AI 密钥仍只保留在电脑。</p>
+</main><script>
+let current=null,selectedOption=null;
+const $=id=>document.getElementById(id);
+function makePayload(){
+  const available=Boolean(current?.enabled&&current?.pairing_available);
+  const p=current?.pairing_payload?JSON.parse(current.pairing_payload):null;
+  if(p)p.base_url=$('addresses').value||p.base_url;
+  $('payload').value=available&&p?JSON.stringify(p,null,2):'';
+  selectedOption=available?(current.connection_options||[]).find(o=>o.base_url===$('addresses').value)||null:null;
+  $('connectionCode').value=selectedOption?.connection_code||'';
+  const qr=selectedOption?.qr_svg_data_url||'';
+  if(qr.startsWith('data:image/svg+xml;base64,')){$('qr').src=qr;$('qr').hidden=false;$('qrEmpty').hidden=true;}
+  else{$('qr').removeAttribute('src');$('qr').hidden=true;$('qrEmpty').hidden=false;$('qrEmpty').textContent=available?'二维码暂不可用，请复制连接码':'刷新连接码后显示二维码';}
+  $('copy').disabled=!selectedOption;$('download').disabled=!selectedOption;
+}
+function render(info){
+  current=info;const previous=$('addresses').value;$('addresses').replaceChildren();
+  for(const url of info.urls||[]){const o=document.createElement('option');o.value=url;o.textContent=url;$('addresses').append(o);}
+  if((info.urls||[]).includes(previous))$('addresses').value=previous;
+  makePayload();$('fingerprint').textContent=info.certificate_sha256||'—';
+  $('status').textContent=!info.enabled?'手机服务未启动：请运行新的手机连接启动脚本。':!(info.urls||[]).length?'没有检测到局域网地址，请检查电脑 Wi-Fi/网线。':info.pairing_available?'手机服务已就绪 · 等待连接':'连接码已使用或过期，请刷新连接码';
+  $('renew').disabled=!info.enabled;$('revoke').disabled=!info.enabled;
+  const deadline=info.pairing_expires_at?new Date(info.pairing_expires_at).toLocaleString():'—';$('expiry').textContent='连接码有效至：'+deadline;
+  const sessions=info.sessions||[];$('sessions').textContent=sessions.length?sessions.map(s=>(s.device_name||'Android 手机')+' · 到期 '+new Date(s.expires_at).toLocaleString()).join('；'):'尚未配对手机';
+}
+async function refresh(){try{const r=await fetch('/api/mobile/setup',{cache:'no-store'});const data=await r.json();if(!r.ok)throw Error(data.error||'读取失败');render(data);}catch(e){$('message').textContent=e.message;}}
+async function mutate(path){try{const r=await fetch(path,{method:'POST',headers:{'Content-Type':'application/json'},body:'{}'});const d=await r.json();if(!r.ok)throw Error(d.error||'操作失败');render(d);$('message').textContent=path.endsWith('/revoke')?'已撤销所有手机访问。':'已生成新的 5 分钟连接码。';}catch(e){$('message').textContent=e.message;}}
+$('addresses').addEventListener('change',makePayload);$('renew').addEventListener('click',()=>mutate('/api/mobile/pairing/renew'));
+$('revoke').addEventListener('click',()=>{if(confirm('撤销所有手机访问？这不会停止电脑后台记录。'))mutate('/api/mobile/revoke');});
+$('copy').addEventListener('click',async()=>{try{await navigator.clipboard.writeText($('connectionCode').value);$('message').textContent='已复制。传到自己的手机后，在 APP → 设置 → 连接电脑中粘贴。';}catch(e){$('connectionCode').select();$('message').textContent='请在连接码文本框中按 Ctrl+C 复制。';}});
+$('download').addEventListener('click',()=>{if(!selectedOption)return;const blob=new Blob([selectedOption.connection_code+'\n'],{type:'text/plain;charset=utf-8'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='DreamShield-连接码.txt';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);});
+refresh();setInterval(refresh,10000);
+</script></body></html>

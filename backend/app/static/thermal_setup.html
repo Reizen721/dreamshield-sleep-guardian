@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/><script src="/static/console_theme.js"></script><script src="/static/console_motion.js"></script>
+<meta content="dark" name="color-scheme"/>
+<meta content="default-src 'self'; script-src 'self'; style-src 'self'; connect-src 'self'; img-src 'none'; base-uri 'none'; form-action 'self'; object-src 'none'" http-equiv="Content-Security-Policy"/>
+<title>热像判别 · DreamShield</title>
+<link href="/static/thermal_setup.css" rel="stylesheet"/>
+<link href="/static/thermal_model.css" rel="stylesheet"/>
+<script defer="" src="/static/thermal_setup.js"></script>
+<script defer="" src="/static/thermal_model.js"></script>
+<script defer src="/static/thermal_closed_loop.js"></script>
+<link href="/static/console_theme.css" rel="stylesheet"/><link href="/static/console_motion.css" rel="stylesheet"/><link href="/static/console_status.css" rel="stylesheet"/></head>
+<body>
+<div class="shell">
+<nav class="thermal-navigation" aria-label="控制台页面"><a href="/">房间总览</a><a href="/thermal-setup" aria-current="page">热像判别</a><a href="/history">观察记录</a><a href="/connections">连接与设备</a><a href="/settings">运行设置</a></nav>
+<header class="page-header">
+<div><h1>热像判别</h1><p class="subtitle">本地识别被子覆盖状态，与实时热图一起查看。</p></div>
+<div class="button-row"><a class="button" href="/">返回控制台</a></div>
+</header>
+<p class="scope-note">热像板观察床面，原控制板提供温湿度与红外。先核对本地判别，再按需启用下方联合闭环。模型仍在验证中；仅开启本地观察不会上传热图或调温。</p>
+<div class="feedback error" hidden="" id="serviceAlert" role="alert"></div>
+<main class="layout">
+<section aria-labelledby="previewHeading" class="preview-section">
+<div class="section-heading"><h2 id="previewHeading">床面热图</h2><span class="badge" id="captureState">等待配置</span></div>
+<div class="preview-actions"><button class="button primary" disabled="" id="startPreview" type="button">开始实时预览</button><button class="button" disabled="" id="stopPreview" type="button">停止预览</button></div>
+<div class="thermal-view" id="thermalView">
+<canvas aria-label="最新80乘62温度矩阵的伪彩热图" height="62" hidden="" id="thermalCanvas" width="80"></canvas>
+<div class="empty-state" id="emptyPreview"><strong>还没有温度帧</strong><p>保存热像板地址后，点击“开始实时预览”。画面保留在内存中，点击保存才会写入电脑。</p></div>
+<div class="simulation-flag" hidden="" id="simulationFlag">模拟数据 · SIMULATED_ONLY</div>
+<div class="stale-flag" hidden="" id="staleFlag">缓存画面 · 等待新帧</div>
+</div>
+<div class="thermal-scale" hidden="" id="thermalScale"><span id="scaleMin">—</span><span aria-hidden="true" class="scale-bar"></span><span id="scaleMax">—</span></div>
+<dl class="frame-facts">
+<div><dt>最低 / 最高温</dt><dd id="frameTemperature">—</dd></div>
+<div><dt>帧号</dt><dd id="frameNumber">—</dd></div>
+<div><dt>距接收时间</dt><dd id="frameAge">—</dd></div>
+<div><dt>已保存帧数</dt><dd id="savedCount">0</dd></div>
+</dl>
+<p class="footnote">色阶按当前帧温度范围显示。接收时间不等于传感器曝光时间；本图显示目标表面热分布。</p>
+</section>
+<section aria-labelledby="modelHeading" class="thermal-model-section">
+<div class="section-heading"><div><h2 id="modelHeading">本地模型观察</h2><p class="subtitle small">电脑本地运行 · 床头柜机位 · 实验版 v003</p></div><span class="badge" id="modelRunState">未开启</span></div>
+<p class="model-limit">模型仍会漏判部分未覆盖状态。“不确定”表示模型分歧或得分不足；即使给出明确类别，也需要核对。这里的结果不发送给空调或云端。</p>
+<div class="model-layout">
+<div class="model-output">
+<p class="model-source" id="modelSource">尚未进行判别</p><p class="model-answer" id="modelAnswer" role="status" aria-live="polite">等待观察</p><p class="model-explanation" id="modelExplanation">开启热像实时预览后可查看模型输出。</p>
+<dl class="model-facts" id="modelFacts" hidden><div><dt>主模型</dt><dd id="modelPrimary">—</dd></div><div><dt>辅助模型</dt><dd id="modelSecondary">—</dd></div><div><dt>主模型最高分</dt><dd id="modelScore">—</dd></div><div><dt>数据时间</dt><dd id="modelTime">—</dd></div></dl>
+<p class="footnote">最高分未经概率校准，不等于真实准确率。此处是单帧结果；时间确认、VLM 核对及调温判断见下方联合闭环。</p>
+</div>
+<div class="model-controls">
+<label class="model-check"><input id="modelPoseConfirmed" type="checkbox"/><span>机位、朝向和床面范围与床头柜训练时一致</span></label>
+<p class="field-note">已换机位、移动镜头或改变床面布局时，请先恢复原有机位与床面范围再分析；当前模型沿用训练时的床面范围和空床背景。</p>
+<label for="modelInterval">持续观察间隔</label><div class="interval-field"><input id="modelInterval" type="number" min="2" max="60" step="1" value="5"/><span>秒（默认 5 秒）</span></div>
+<div class="button-row"><button class="button" id="modelAnalyze" type="button" disabled>分析当前帧</button><button class="button primary" id="modelStart" type="button" disabled>开始持续观察</button><button class="button" id="modelStop" type="button" disabled>停止观察</button></div>
+<p class="field-note">先开启床面热图的实时预览。模型复用预览帧，不额外拍照或保存训练数据。关闭网页后持续观察仍会运行；服务器重启后需手动重开。</p>
+</div>
+
+</div>
+<p class="feedback" id="modelFeedback" role="status" aria-live="polite">首次分析需要加载模型，请稍候。</p>
+</section>
+<section aria-labelledby="loopHeading" class="history-section thermal-loop">
+<div class="section-heading"><div><h2 id="loopHeading">热像联合闭环</h2><p class="subtitle small">本地观察 → VLM 核对 → 温控规则 → 发射回执与环境反馈</p></div><span class="badge" id="loopState">未开启</span></div>
+<p class="field-note">只上传前后两张灰度热图，不调用 OV2640。VLM 不直接生成空调指令；分歧、过期、无人或数据故障时保持不调节。发送回执不代表空调已响应。</p>
+<div class="loop-columns">
+<form id="loopForm">
+<label for="loopMode">工作方式</label><select id="loopMode"><option value="review">仅建议 · 不发送红外</option><option value="automatic">自动调节 · 允许发送红外</option></select>
+<label class="model-check"><input type="checkbox" id="loopPose"/>机位、床面范围与训练时一致</label>
+<label class="model-check"><input type="checkbox" id="loopCloud"/>同意上传热图到已配置的 VLM 服务（会产生 API 用量）</label>
+<label class="model-check" id="loopControlRow" hidden><input type="checkbox" id="loopControl"/>允许按已保存策略自动调温；已核对空调处于开机制冷</label>
+<p class="field-note">自动模式先在房间总览启用空调控制会话，在运行设置开启温湿度记录（间隔 ≤30 秒）。无需开启 OV2640 定时抓拍或原自动 AI。</p>
+<details><summary>核对频率与调用上限</summary>
+<label for="loopInterval">常规核对间隔（秒）</label><input id="loopInterval" type="number" min="30" max="120" step="1" value="60"/>
+<label for="loopHour">每小时最多调用次数</label><input id="loopHour" type="number" min="2" max="120" step="1" value="60"/>
+<label for="loopSession">本次服务器运行最多调用次数</label><input id="loopSession" type="number" min="2" max="500" step="1" value="100"/>
+<p class="field-note">变化或不确定时可提前核对，最短遵循持续确认间隔。达到预算会停止闭环；停止再开启不会清空调用计数。</p>
+</details>
+<div class="button-row"><button class="button primary" id="loopStart" type="submit" disabled>开始联合闭环</button><button class="button" id="loopStop" type="button" disabled>停止闭环</button></div>
+</form>
+<div class="loop-observation" aria-live="polite" role="status">
+<h3 id="loopVerdict">等待开启</h3><p id="loopReason">默认仅建议；开启后需等待至少两次热像观察。</p>
+<dl class="loop-facts"><dt>VLM 核对</dt><dd id="loopVlm">尚无结果</dd><dt>调节判断</dt><dd id="loopAction">尚未生成建议</dd><dt>环境反馈</dt><dd id="loopFeedback">尚无发送记录</dd><dt>当前策略</dt><dd id="loopPolicy">正在读取</dd></dl>
+<a href="/settings">修改轻享 / 均衡 / 高效 / 自定义策略</a>
+</div></div><p class="feedback" id="loopMessage" role="status">开启与发送权限仅在本次会话有效，服务器重启后默认关闭。</p>
+</section>
+<section aria-labelledby="setupHeading" class="setup-section">
+<h2 id="setupHeading">连接热像板</h2>
+<form id="thermalForm">
+<label for="thermalUrl">热像板地址</label>
+<input aria-describedby="thermalUrlNote" autocapitalize="off" autocomplete="off" id="thermalUrl" name="thermalUrl" placeholder="tcp://192.168.1.94:3333" required="" spellcheck="false" type="text"/>
+<p class="field-note" id="thermalUrlNote">原厂 SenXor 固件：tcp://设备IP:3333；Web 固件：http://设备IP。连接前先断开电脑 SenXor 软件，原厂板一次只供一个客户端预览。</p>
+<label for="controlUrl">当前配对的控制板</label>
+<input aria-describedby="controlNote" id="controlUrl" readonly="" type="text" value="正在读取…"/>
+<p class="field-note" id="controlNote">沿用日常控制台的设备地址；未配置控制板也可独立预览。修改控制板后，请重新核对并保存设置。</p>
+<label for="captureInterval">定时保存间隔</label>
+<div class="interval-field"><input id="captureInterval" max="60" min="1" name="captureInterval" required="" step="1" type="number" value="2"/><span>秒</span></div>
+<p class="field-note">默认2秒，可设1～60秒。定时保存开启后，关闭本页仍会继续；服务器重启后需手动重开。</p>
+<button class="button" id="saveThermal" type="submit">保存连接设置</button>
+</form>
+<div class="capture-actions">
+
+<p class="field-note preview-note">实时预览不自动保存。关闭网页不会断开连接；切回 SenXor 前，请停止预览和定时保存。停止后保留最后一帧并标为缓存。</p>
+<button class="button" disabled="" id="captureThermal" type="button">保存一帧到电脑</button>
+<div class="button-row"><button class="button" disabled="" id="startThermal" type="button">开始定时保存</button><button class="button" disabled="" id="stopThermal" type="button">停止定时保存</button></div>
+</div>
+<p aria-live="polite" class="feedback" id="actionFeedback" role="status">尚未开始预览或定时保存。</p>
+<p class="footnote">更改连接设置会停止热像任务。单次保存只写入一帧，不会启动定时保存。</p>
+</section>
+<section aria-labelledby="historyHeading" class="history-section">
+<div class="section-heading"><div><h2 id="historyHeading">保存记录</h2><p class="subtitle small">原始二进制与温度矩阵保存在电脑服务器。</p></div><button class="button compact" id="refreshHistory" type="button">刷新记录</button></div>
+<p class="muted" id="historyEmpty">尚无保存记录。</p>
+<div class="history-scroll"><table hidden="" id="historyTable"><thead><tr><th scope="col">接收时间</th><th scope="col">帧号</th><th scope="col">数据来源</th><th scope="col">温度矩阵</th></tr></thead><tbody id="historyBody"></tbody></table></div>
+</section>
+</main>
+<footer>DreamShield · 电脑本地判别 · 实验模型 v003</footer>
+</div>
+<section class="room-statusbar" aria-label="房间状态" data-feed="thermal">
+<div class="room-status-readings">
+      <span class="room-status-metric">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 14.5V5a3 3 0 0 1 6 0v9.5a5 5 0 1 1-6 0Z"/><path d="M12 8v9"/><circle cx="12" cy="18" r="1.3"/></svg>
+        <span>室温</span><strong id="roomTemperature">—</strong><span class="room-status-unit">°C</span>
+      </span>
+      <span class="room-status-metric">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.8c-2 3-7 8.4-7 12.4a7 7 0 0 0 14 0c0-4-5-9.4-7-12.4Z"/><path d="M8.5 15.5c.2 1.7 1.2 2.7 2.6 3"/></svg>
+        <span>湿度</span><strong id="roomHumidity">—</strong><span class="room-status-unit">%RH</span>
+      </span>
+    </div>
+    <span class="room-status-source" data-tone="neutral"><span id="roomSensorState">等待读数</span><time id="roomMeasuredTime"></time></span>
+    <span class="room-status-service" data-tone="neutral"><i aria-hidden="true"></i><span id="consoleServerStatus">正在读取服务</span></span>
+</section>
+<script src="/static/console_status.js"></script>
+</body>
+</html>

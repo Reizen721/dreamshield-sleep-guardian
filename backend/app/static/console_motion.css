@@ -1,0 +1,27 @@
+/* Animate bounded areas in the destination. Its sidebar and live instrument bar
+   keep their position; a long history table never becomes a full-page texture. */
+:root {
+  --console-enter: 12px;
+  --console-entry-animation: console-page-in;
+  --console-motion-ease: cubic-bezier(.2,.8,.25,1);
+}
+:root[data-console-direction="backward"] { --console-enter: -12px; }
+
+html[data-console-motion="enter"] :is(
+  .console-header .page-heading, .page-header h1,
+  .home-primary > :first-child > .card-head, .home-secondary > :first-child > .card-head,
+  .settings-primary > :first-child > .card-head, .settings-secondary > :first-child > .card-head,
+  .connections-layout > :nth-child(-n+2) > .card-head,
+  .section-tabs, .shell:not(.console-shell) main > section:first-child h2
+) {
+  animation: var(--console-entry-animation) 180ms var(--console-motion-ease) backwards;
+}
+
+@keyframes console-page-in {
+  from { opacity: .38; transform: translateX(var(--console-enter)); }
+  to   { opacity: 1;   transform: translateX(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  :root { --console-entry-animation: none; }
+}

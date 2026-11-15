@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/><script src="/static/console_theme.js"></script><script src="/static/console_motion.js"></script>
+<title>DreamShield · 睡眠卫士</title>
+<style>
+    :root {
+      color-scheme: dark;
+      --bg: #071018;
+      --panel: #0d1a24;
+      --panel-2: #122433;
+      --line: #20384a;
+      --text: #eef7fb;
+      --muted: #91a9b8;
+      --cyan: #5ee7e7;
+      --blue: #79a9ff;
+      --green: #7ce6a1;
+      --amber: #ffcf70;
+      --red: #ff7b84;
+      --shadow: 0 22px 55px rgba(0, 0, 0, .28);
+    }
+    * { box-sizing: border-box; }
+    [hidden] { display: none !important; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at 15% -10%, rgba(55, 190, 193, .18), transparent 32rem),
+        radial-gradient(circle at 95% 10%, rgba(80, 119, 235, .15), transparent 28rem),
+        var(--bg);
+      color: var(--text);
+    }
+    button, input, select, textarea { font: inherit; }
+    button { cursor: pointer; }
+    .shell { width: min(1420px, calc(100% - 32px)); margin: 0 auto; padding: 30px 0 64px; }
+    header { display: flex; justify-content: space-between; gap: 24px; align-items: flex-end; margin-bottom: 24px; }
+    .eyebrow { color: var(--cyan); font-weight: 800; letter-spacing: .16em; text-transform: uppercase; font-size: 12px; }
+    h1 { margin: 8px 0 5px; font-size: clamp(28px, 4vw, 40px); letter-spacing: -.045em; }
+    h2 { margin: 0; font-size: 20px; }
+    h3 { margin: 0 0 10px; font-size: 15px; }
+    p { line-height: 1.55; }
+    .subtitle { margin: 0; color: var(--muted); }
+    .phase { display: flex; gap: 8px; flex-wrap: wrap; justify-content: flex-end; }
+    .phase span { border: 1px solid var(--line); background: rgba(12, 29, 41, .82); padding: 8px 11px; border-radius: 999px; color: var(--muted); font-size: 12px; }
+    .phase .active { border-color: rgba(94, 231, 231, .55); color: var(--cyan); }
+    a.button { display: inline-block; text-decoration: none; }
+    .console-nav { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 22px; }
+    .console-nav a[aria-current="page"] { color: var(--cyan); border-color: var(--cyan); background: rgba(94, 231, 231, .09); }
+    .fold { margin-top: 15px; padding-top: 13px; border-top: 1px solid var(--line); }
+    summary { cursor: pointer; color: var(--muted); font-size: 13px; }
+    summary:hover { color: var(--text); }
+    .card > summary { padding: 20px; color: var(--text); font-size: 18px; font-weight: 750; }
+    .telemetry.camera-readings { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .telemetry.camera-readings strong { font-size: 24px; }
+    .section-link { color: var(--cyan); font-size: 13px; }
+    .page-status { margin: 0 0 18px; color: var(--red); }
+    body[data-console-page="settings"] .grid, body[data-console-page="history"] .grid, body[data-console-page="lab"] .grid { grid-template-columns: 1fr; }
+    body[data-console-page="settings"] .shell { max-width: 940px; }
+    body[data-console-page="history"] .gallery { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+    .grid { display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(330px, .75fr); gap: 20px; align-items: start; }
+    .stack { display: grid; gap: 20px; align-content: start; }
+    .card { background: linear-gradient(145deg, rgba(17, 36, 50, .97), rgba(10, 25, 35, .97)); border: 1px solid var(--line); border-radius: 20px; box-shadow: var(--shadow); overflow: hidden; }
+    .card-head { padding: 19px 20px; border-bottom: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center; gap: 14px; }
+    .card-body { padding: 20px; }
+    .status-pill { display: inline-flex; align-items: center; gap: 7px; color: var(--muted); font-size: 12px; }
+    .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--amber); box-shadow: 0 0 12px currentColor; }
+    .dot.ok { background: var(--green); }
+    .dot.bad { background: var(--red); }
+    .form-row { display: grid; grid-template-columns: 1fr auto; gap: 10px; }
+    input[type="text"], input[type="number"], input[type="datetime-local"], select, textarea {
+      width: 100%; border: 1px solid var(--line); background: #08141d; color: var(--text); border-radius: 11px; padding: 11px 12px; outline: none;
+    }
+    input:focus, select:focus, textarea:focus { border-color: var(--cyan); box-shadow: 0 0 0 3px rgba(94, 231, 231, .1); }
+    .button { border: 1px solid var(--line); background: var(--panel-2); color: var(--text); padding: 10px 14px; border-radius: 11px; font-weight: 750; }
+    .button:hover { border-color: var(--blue); transform: translateY(-1px); }
+    .button.primary { background: linear-gradient(135deg, #46bec3, #4f7ce8); border-color: transparent; color: #041016; }
+    .button.warning { border-color: rgba(255, 207, 112, .45); color: var(--amber); }
+    .button:disabled { opacity: .5; cursor: wait; transform: none; }
+    .button-row { display: flex; gap: 9px; flex-wrap: wrap; margin-top: 13px; }
+    .policy-modes { border: 0; padding: 0; margin: 0 0 16px; min-width: 0; }
+    .policy-modes legend { margin-bottom: 10px; font-weight: 750; font-size: 14px; }
+    .policy-mode-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(135px, 1fr)); gap: 9px; }
+    .policy-mode { display: grid; grid-template-columns: 18px 1fr; gap: 5px 9px; padding: 15px 12px; margin: 0; border: 1px solid var(--line); border-radius: 14px; background: #08141d; cursor: pointer; transition: border-color .16s, background .16s; }
+    .policy-mode input { grid-row: span 2; margin: 3px 0 0; accent-color: var(--cyan); }
+    .policy-mode strong { color: var(--text); font-size: 15px; }
+    .policy-mode span { line-height: 1.5; }
+    .policy-mode:has(input:checked) { border-color: var(--cyan); background: rgba(94, 231, 231, .09); }
+    .policy-mode:focus-within { outline: 2px solid var(--cyan); outline-offset: 3px; }
+    #policySettingsSection input[readonly] { background: rgba(18, 36, 51, .6); color: #c6dae6; }
+    .camera-frame { position: relative; margin-top: 16px; min-height: 340px; display: grid; place-items: center; background: #02070b; border: 1px solid var(--line); border-radius: 15px; overflow: hidden; }
+    .camera-frame img { display: block; width: 100%; min-height: 340px; max-height: 640px; object-fit: contain; }
+    .camera-placeholder { padding: 28px; text-align: center; color: var(--muted); }
+    .camera-placeholder strong { color: var(--text); font-size: 18px; }
+    .camera-placeholder p { margin-bottom: 0; font-size: 13px; }
+    .camera-frame::after { content: ""; position: absolute; inset: 0; pointer-events: none; background-image: linear-gradient(to right, transparent 33.2%, rgba(255,255,255,.22) 33.33%, transparent 33.5%, transparent 66.5%, rgba(255,255,255,.22) 66.66%, transparent 66.8%), linear-gradient(to bottom, transparent 33.2%, rgba(255,255,255,.22) 33.33%, transparent 33.5%, transparent 66.5%, rgba(255,255,255,.22) 66.66%, transparent 66.8%); }
+    .telemetry { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 13px; }
+    .metric { background: rgba(5, 16, 24, .72); border: 1px solid var(--line); border-radius: 12px; padding: 11px; }
+    .metric small { display: block; color: var(--muted); margin-bottom: 5px; }
+    .metric strong { font-size: 16px; }
+    .schedule { display: grid; grid-template-columns: 1fr 120px; gap: 10px; align-items: end; }
+    label { display: block; color: var(--muted); font-size: 12px; margin-bottom: 6px; }
+    .toggle-line { margin-top: 13px; display: flex; align-items: center; gap: 9px; color: var(--muted); }
+    .notice { border-left: 3px solid var(--amber); padding: 10px 12px; background: rgba(255, 207, 112, .07); color: #d7c79f; border-radius: 0 10px 10px 0; font-size: 13px; }
+    .gallery { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+    .thumb { color: var(--text); text-decoration: none; border: 1px solid var(--line); border-radius: 11px; overflow: hidden; background: #071018; }
+    .thumb img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+    .thumb div { padding: 8px; font-size: 11px; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .metadata-link { display: block; padding: 8px; color: var(--cyan); font-size: 12px; }
+    .history-scroll { overflow: auto; max-height: 340px; }
+    .history-table { width: 100%; border-collapse: collapse; font-size: 13px; white-space: nowrap; }
+    .history-table th, .history-table td { text-align: left; padding: 10px; border-bottom: 1px solid var(--line); }
+    .history-table th { color: var(--muted); }
+    .environment-panel { margin-top: 16px; padding: 14px; border: 1px solid var(--line); border-radius: 14px; background: rgba(5, 16, 24, .5); }
+    .environment-panel h3 { margin-bottom: 12px; }
+    .environment-inputs { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
+    .environment-inputs label { margin: 0; min-width: 0; }
+    .environment-inputs span { display: block; min-height: 2.4em; margin-bottom: 6px; }
+    .environment-inputs code { color: var(--cyan); font-size: 10px; }
+    .panel-subtitle { margin: 16px 0 9px; color: var(--text); font-size: 13px; font-weight: 800; }
+    .fixed-context { margin: 12px 0 0; padding: 10px 12px; border: 1px solid rgba(94, 231, 231, .25); border-radius: 10px; color: var(--muted); background: rgba(94, 231, 231, .05); }
+    .fixed-context code { color: var(--cyan); }
+    .metric.wide { grid-column: span 2; }
+    .automatic-settings { display: grid; gap: 12px; }
+    .ac-state-fields { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+    .ac-state-fields > div { min-width: 0; }
+    .ac-command-preview { overflow-wrap: anywhere; border: 1px solid rgba(255, 207, 112, .4); border-radius: 10px; padding: 12px; color: var(--amber); }
+    @media (max-width: 620px) { .ac-state-fields { grid-template-columns: 1fr; } }
+    .automatic-images { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin: 16px 0; }
+    .automatic-images figure { margin: 0; min-width: 0; padding: 10px; border: 1px solid var(--line); border-radius: 12px; }
+    .automatic-images img { width: 100%; aspect-ratio: 4 / 3; object-fit: contain; background: #02070b; }
+    .automatic-images figcaption { font-size: 12px; color: var(--muted); overflow-wrap: anywhere; }
+    .automatic-history { margin: 10px 0 0; padding-left: 22px; color: var(--muted); font-size: 13px; }
+    .automatic-history li { margin-bottom: 8px; overflow-wrap: anywhere; }
+    .automatic-history a { color: var(--cyan); margin-left: 8px; }
+    .automatic-log { font-size: 12px; }
+    textarea { min-height: 292px; resize: vertical; line-height: 1.5; }
+    .result { margin-top: 17px; display: none; }
+    .result.visible { display: block; }
+    .result-top { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; margin-bottom: 12px; }
+    .verdict { padding: 8px 11px; border-radius: 999px; font-weight: 850; background: rgba(121, 169, 255, .12); color: var(--blue); }
+    .verdict.risk { color: var(--amber); background: rgba(255, 207, 112, .12); }
+    .verdict.safe { color: var(--green); background: rgba(124, 230, 161, .12); }
+    .result-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+    pre { white-space: pre-wrap; word-break: break-word; background: #061019; border: 1px solid var(--line); border-radius: 12px; padding: 13px; color: #b9d5e5; max-height: 380px; overflow: auto; }
+    .muted { color: var(--muted); }
+    .error { color: var(--red); }
+    footer { text-align: center; color: var(--muted); margin-top: 28px; font-size: 12px; }
+    @media (max-width: 980px) { .grid { grid-template-columns: 1fr; } .telemetry { grid-template-columns: repeat(2, 1fr); } .environment-inputs { grid-template-columns: repeat(2, 1fr); } header { align-items: flex-start; flex-direction: column; } .phase { justify-content: flex-start; } }
+    @media (max-width: 620px) { .shell { width: min(100% - 18px, 1420px); padding-top: 18px; } .card-body, .card-head { padding: 15px; } .form-row, .schedule, .automatic-images, .environment-inputs { grid-template-columns: 1fr; } .gallery, body[data-console-page="history"] .gallery { grid-template-columns: repeat(2, 1fr); } .camera-frame, .camera-frame img { min-height: 230px; } .result-grid { grid-template-columns: 1fr; } .metric.wide { grid-column: span 1; } }
+  </style>
+<link href="/static/console_shell.css" rel="stylesheet"/><link href="/static/console_theme.css" rel="stylesheet"/><link href="/static/console_motion.css" rel="stylesheet"/><link href="/static/console_status.css" rel="stylesheet"/></head>
+<body><a class="skip-link" href="#consoleMain">跳到主要内容</a>
+<div class="shell console-shell"><aside class="console-sidebar" id="consoleSidebar"><a aria-label="梦盾房间总览" class="console-brand" href="/"><span class="brand-mark"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.65" viewbox="0 0 24 24"><path d="M12 2 3.5 5.5v6c0 5.2 4.2 8.8 8.5 10.5 4.3-1.7 8.5-5.3 8.5-10.5v-6L12 2Z"></path><path d="M15.5 7a5 5 0 1 0 2 7 4.5 4.5 0 0 1-2-7Z"></path></svg></span><span><strong>梦盾</strong><small>DreamShield</small></span></a><nav aria-label="控制台页面" class="console-nav"><a data-console-nav="home" href="/"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.65" viewbox="0 0 24 24"><rect height="7" rx="1.5" width="7" x="3" y="3"></rect><rect height="7" rx="1.5" width="7" x="14" y="3"></rect><rect height="7" rx="1.5" width="7" x="3" y="14"></rect><rect height="7" rx="1.5" width="7" x="14" y="14"></rect></svg><span>房间总览</span></a><a class="thermal-nav-link" aria-label="热像判别" title="热像判别" href="/thermal-setup"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.65" viewBox="0 0 24 24"><path d="M4 8V4h4m8 0h4v4M4 16v4h4m8 0h4v-4"/><path d="M8 12h2l2-4 2 8 2-4"/></svg><span>热像判别</span></a><a data-console-nav="history" href="/history"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.65" viewbox="0 0 24 24"><path d="M3 12a9 9 0 1 0 2.5-6.2M3 3v5h5M12 7v5l3 2"></path></svg><span>观察记录</span></a><a data-console-nav="connections" href="/connections"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.65" viewbox="0 0 24 24"><rect height="10" rx="2" width="13" x="3" y="4"></rect><path d="M6 20h8M10 14v6"></path><rect height="11" rx="1.5" width="5" x="17" y="10"></rect></svg><span>连接与设备</span></a><a data-console-nav="settings" href="/settings"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.65" viewbox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"></path><circle cx="9" cy="6" r="2"></circle><circle cx="16" cy="12" r="2"></circle><circle cx="8" cy="18" r="2"></circle></svg><span>运行设置</span></a></nav><div class="sidebar-bottom"><div class="local-service"><span class="service-indicator"></span><div><small id="sidebarServiceStatus">正在读取服务</small></div></div></div></aside><main class="console-main" id="consoleMain" tabindex="-1"><header class="console-header"><div class="page-heading"><h1 id="consolePageTitle">房间总览</h1><p class="subtitle" hidden="" id="consolePageDescription">查看房间画面、环境与后台任务。</p></div><div class="header-actions"><button aria-checked="false" aria-label="暗色模式" class="button theme-toggle" id="consoleThemeToggle" role="switch" title="切换外观" type="button"><svg aria-hidden="true" class="theme-moon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24"><path d="M20.8 13.3A8.8 8.8 0 0 1 10.7 3.2a9 9 0 1 0 10.1 10.1Z"></path></svg><svg aria-hidden="true" class="theme-sun" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg></button><a class="button" href="/connections">连接手机</a></div></header><p class="page-status" hidden="" id="consoleStatusError" role="status"></p><p class="device-context" hidden="">当前主板 <span id="consoleConfiguredDevice">正在读取设置…</span></p><div class="home-layout" data-console-pages="home" hidden=""><div class="home-primary"><section class="card" data-console-pages="home" hidden="" id="cameraSection">
+<div class="card-head">
+<h2>房间画面</h2>
+<span class="status-pill"><span class="dot" id="deviceDot"></span><span id="deviceState">尚未连接</span></span>
+</div>
+<div class="card-body">
+<div class="camera-frame">
+<div class="camera-placeholder" id="cameraPlaceholder" role="status"><strong id="cameraPlaceholderTitle">尚未加载画面</strong><p id="cameraPlaceholderMessage">连接设备后刷新或开始网页监控</p></div>
+<img alt="ESP32 camera monitor" hidden="" id="cameraImage"/>
+</div>
+<div class="button-row">
+<button class="button primary" id="monitorButton">开始网页监控</button>
+<button class="button" id="downloadButton">下载当前 JPEG</button>
+<button class="button" id="saveButton">保存图片与读数</button>
+</div>
+</div>
+</section><section class="card" data-console-pages="home history" hidden="" id="automaticAiResultSection">
+<div class="card-head"><h2>自动 AI 最近判决</h2><a class="section-link" data-console-pages="home" hidden="" href="/history">历史记录 →</a></div>
+<div class="card-body">
+<p class="muted" id="automaticAiResultMeta">尚无自动判决。请先连接设备并载入 API 密钥，再明确同意图片上传并开启。</p>
+<div class="result-grid">
+<div class="metric"><small>当前覆盖状态 / 事件</small><strong id="automaticAiVisualEvent">—</strong></div>
+<div class="metric"><small>视觉证据分（非概率、非准确率）</small><strong id="automaticAiConfidence">—</strong></div>
+<div class="metric"><small>确认帧判定</small><strong id="automaticAiConfirmationState">—</strong></div>
+<div class="metric"><small>本次环境温度 · SHT31</small><strong id="automaticAiTemperature">—</strong></div>
+<div class="metric"><small>本次相对湿度 · SHT31</small><strong id="automaticAiHumidity">—</strong></div>
+<div class="metric"><small>本次红外发射 / 默认模拟</small><strong id="automaticAiExecution">否 · dry_run · execute=false</strong></div>
+</div>
+<p class="muted" id="automaticAiEnvironmentStatus">等待本次真实传感器数据。</p>
+<p class="muted" id="automaticAiControlSummary">默认模拟建议；实验发射须单独开启。</p>
+<p class="muted" id="automaticAiIrOutcome">本次尚无实验发射记录。</p>
+<details class="fold" id="automaticAiEvidenceDetails"><summary>本次图片与判决详情</summary>
+<p class="muted">下方温湿度属于本次判决，非当前实时读数。服务器按配置预取确认帧（默认后图约 20 秒），仅在需要确认持续未覆盖时追加判决。手动保存与网页监控不会触发自动 AI。</p>
+<div class="automatic-images">
+<figure><img alt="Automatic AI before frame" hidden="" id="automaticAiBeforeImage"/><figcaption id="automaticAiBeforeCaption">前图：—</figcaption></figure>
+<figure><img alt="Automatic AI after frame" hidden="" id="automaticAiAfterImage"/><figcaption id="automaticAiAfterCaption">后图：—</figcaption></figure>
+<figure><img alt="Automatic AI confirmation frame" hidden="" id="automaticAiConfirmationImage"/><figcaption id="automaticAiConfirmationCaption">确认帧：—</figcaption></figure>
+</div>
+<a class="metadata-link" hidden="" id="automaticAiResultLink" rel="noopener noreferrer" target="_blank">查看本次完整 JSON</a>
+<details><summary class="muted">查看最近判决的结构化记录</summary><pre class="automatic-log" id="automaticAiResultJson">尚无记录</pre></details>
+</details>
+<details class="fold" id="automaticAiHistoryDetails"><summary>最近 20 条自动任务（包含等待与失败）</summary>
+<div class="button-row"><button class="button" id="refreshAutomaticAiHistory">刷新判决记录</button></div>
+<ul class="automatic-history" id="automaticAiHistory"><li>尚无自动任务。</li></ul>
+</details>
+</div>
+</section><section class="card" data-console-pages="home history" hidden="" id="gallerySection">
+<div class="card-head"><h2>最近保存的抓拍</h2><button class="button" id="refreshGallery">刷新</button></div>
+<div class="card-body">
+<div class="gallery" id="gallery"><p class="muted">尚无保存图片。</p></div>
+<p data-console-pages="home" hidden=""><a class="section-link" href="/history">查看更多抓拍与记录 →</a></p>
+</div>
+</section></div><aside aria-label="环境与后台任务" class="home-secondary"><section class="card environment-overview"><div class="card-head"><h2>房间环境</h2><span class="subtle-label">SHT31</span></div><div class="card-body"><div class="telemetry camera-readings">
+<div class="metric"><small>温度</small><strong id="metricTemperature">—</strong></div>
+<div class="metric"><small>湿度</small><strong id="metricHumidity">—</strong></div>
+</div><p aria-live="polite" class="muted" id="environmentStatus">等待真实传感器数据。</p></div></section><section class="card task-card" data-console-pages="home" hidden="" id="scheduleSection">
+<div class="card-head"><h2>定时抓拍</h2><span class="status-pill" id="scheduleBadge">已关闭</span></div>
+<div class="card-body"><p class="muted" id="nextCapture">下一次抓拍：—</p><details class="task-fold"><summary>调整抓拍计划</summary>
+<div class="schedule">
+<div><label for="captureInterval">抓拍间隔（秒）</label><input id="captureInterval" max="86400" min="5" type="number" value="60"/></div>
+<button class="button primary" id="saveSchedule">保存设置</button>
+</div>
+<label class="toggle-line"><input id="scheduleEnabled" type="checkbox"/> 浏览器关闭后仍由本地服务器定时保存</label>
+<div class="notice">定时保存图片及温湿度；AI 上传需单独开启。</div>
+</details></div>
+</section><section class="card task-card" data-console-pages="home" hidden="" id="automaticAiSection">
+<div class="card-head"><h2>AI 观察</h2><span class="status-pill" id="automaticAiBadge">默认关闭</span></div>
+<div class="card-body">
+<details id="automaticAiSettings"><summary>调用间隔与预算</summary>
+<div class="automatic-settings" style="margin-top:14px">
+<div><label for="automaticAiInterval">AI 对比最短间隔（秒）</label><input id="automaticAiInterval" max="3600" min="60" step="1" type="number" value="60"/></div>
+<div><label for="automaticAiHourlyLimit">每小时最多模型调用（含确认 / 失败）</label><input id="automaticAiHourlyLimit" max="120" min="2" step="1" type="number" value="20"/></div>
+<div><label for="automaticAiSessionLimit">本次服务器运行最多模型调用（含确认 / 失败）</label><input id="automaticAiSessionLimit" max="500" min="2" step="1" type="number" value="50"/></div>
+</div>
+</details>
+<label class="toggle-line"><input id="automaticAiConsent" type="checkbox"/> 我同意将选中的卧室图片上传当前模型服务商，并承担 API 费用。</label>
+<div class="button-row">
+<button class="button primary" disabled="" id="enableAutomaticAi">开启自动 AI</button>
+<button class="button warning" disabled="" id="stopAutomaticAi">停止自动 AI</button>
+</div>
+<p aria-live="polite" class="muted" id="automaticAiStatus">等待本地服务状态。</p>
+<p class="muted" id="automaticAiBudget">调用次数：—</p>
+<p aria-live="polite" id="automaticAiFeedback"></p>
+<div class="notice">开启后启动抓拍与环境记录；停止 AI 不会停止记录。<a class="section-link" href="/settings">记录设置</a></div>
+<details class="fold" id="automaticAiOperatingDetails"><summary>运行方式与注意事项</summary><p class="muted">默认关闭，服务器重启后需重新开启。浏览器可关闭，电脑和本地服务器必须保持运行。SHT31 默认每 15 秒记录，自动控制允许 5–30 秒间隔；首张定时图片作为基线，后续按间隔与预算选择图片对比；不是每张图都调用 AI。</p></details>
+</div>
+</section><section class="card" data-console-pages="home" hidden="" id="acControlSection">
+<div class="card-head"><h2>空调控制</h2><span class="status-pill" id="acControlBadge">默认禁用</span></div>
+<div class="card-body"><h3 style="margin-top:20px">自动睡眠控制 <span class="status-pill" id="acAutomaticBadge">默认暂停</span></h3>
+<p class="muted">需先开启自动 AI，且空调已知状态为开机制冷；默认每次调整 ±1 °C，采用已保存策略。</p>
+<details class="fold" id="acAutomaticSettings"><summary>自动控制参数与温度范围</summary>
+<div class="ac-state-fields">
+<div><label for="acAutomaticMin">允许设定温度下界（°C）</label><input id="acAutomaticMin" max="30" min="16" step="1" type="number" value="24"/></div>
+<div><label for="acAutomaticMax">允许设定温度上界（°C）</label><input id="acAutomaticMax" max="30" min="16" step="1" type="number" value="28"/></div>
+<div><label for="acAmbientLower">环境温度下限（°C）</label><input id="acAmbientLower" max="32" min="18" step="0.5" type="number" value="24"/></div>
+<div><label for="acAmbientUpper">环境温度上限（°C）</label><input id="acAmbientUpper" max="32" min="18" step="0.5" type="number" value="28"/></div>
+</div>
+<p class="muted">此处只读显示；请在<a href="/settings">设置 → 判别与采样参数</a>统一修改。环境上下限至少相差 2 °C。无人、画面不确定、待确认或最后状态未知时保持不发射；SHT31 缓存最多沿用 300 秒，超时仅显示，不形成趋势。</p>
+<p class="muted">自动控制不会改变模式、风速或摆风。</p>
+<p class="muted">同一次未盖被最多调节一次（默认升高 1 °C）；同类的可靠盖回或空床观察至少两次、跨度 60 秒后才解除事件锁。本事件期间不能借环境低温分支重复升温；恢复后再按环境条件判断。</p></details>
+<div class="button-row"><button class="button primary" disabled="" id="enableAcAutomatic">开启自动睡眠控制</button><button class="button" disabled="" id="pauseAcAutomatic">暂停自动控制</button></div>
+<p aria-live="polite" class="muted" id="acAutomaticStatus">自动控制尚未开启。</p>
+<p><span class="muted">本次未盖被事件：</span><span aria-live="polite" id="acCoverageEvent">尚无事件记录</span></p>
+<p aria-live="polite" id="acControlFeedback"></p>
+<details class="task-fold" id="acManualControls"><summary>手动空调控制与启用授权</summary>
+<div class="notice">实验控制：本地发射回执不能确认空调实际响应。页面加载不会发送，服务器重启后需重新启用。</div>
+<div class="ac-state-fields" style="margin-top:14px">
+<div><label for="acPower">电源状态</label><select id="acPower"><option value="on">开机</option><option value="off">关机</option></select></div>
+<div><label for="acCommandMode">运行模式</label><select id="acCommandMode"><option value="cool">制冷</option><option value="auto">自动</option><option value="dry">除湿</option><option value="fan">送风</option><option value="heat">制热</option></select></div>
+<div><label for="acSetpoint">设定温度（°C）</label><input id="acSetpoint" max="30" min="16" step="1" type="number" value="26"/></div>
+<div><label for="acFan">风速</label><select id="acFan"><option value="auto">自动风速</option><option value="low">低风</option><option value="medium">中风</option><option value="high">高风</option></select></div>
+<div><label for="acSwingVertical">上下摆风</label><select id="acSwingVertical"><option value="off">关闭</option><option value="on">开启</option></select></div>
+<div><label for="acSwingHorizontal">左右摆风</label><select id="acSwingHorizontal"><option value="off">关闭</option><option value="on">开启</option></select></div>
+</div>
+<details class="fold" id="acProtocolDetails"><summary>协议与附加功能说明</summary>
+<p class="muted" id="acProtocolConstraint">YAPOFB14 / Kelvinator 基本 128 位状态；不提供定时、静音、强劲或 iFeel。</p>
+<p class="muted">基础控制会将附加功能固定关闭，含辅热、显示灯和空调自身 Wi-Fi，以及 Sleep、Quiet、Turbo、定时、iFeel、XFan、Econo；不会保持这些功能的空调现场值，不影响梦盾 Wi-Fi。</p>
+</details>
+<label class="toggle-line"><input id="acControlConsent" type="checkbox"/> 我同意启用基础实验控制，以当前编辑状态作为初始假设；理解可能发送开机或关机，附加功能固定关闭，含辅热、显示灯和空调自身 Wi-Fi（不影响梦盾 Wi-Fi），且不能确认空调实际响应。</label>
+<div class="button-row"><button class="button warning" disabled="" id="enableAcControl">启用控制 · 不立即发送</button><button class="button" disabled="" id="disableAcControl">禁用控制</button></div>
+<p aria-live="polite" class="ac-command-preview" id="acCommandPreview">请编辑完整状态并核对开关、模式后，再明确发送。</p>
+<div class="button-row"><button class="button warning" disabled="" id="sendAcManual">明确发送编辑状态</button></div>
+<p class="muted">手动发送不需要自动 AI，会暂停自动睡眠控制，且不会自行恢复。禁用控制本身不发送关机命令。</p>
+<p><span class="muted">最后命令 / 用户假设：</span><strong id="acControlState">未知，不是空调实况</strong></p>
+<p aria-live="polite" class="muted" id="acControlStatus">等待本地服务状态。</p>
+<p id="acControlLastOutcome">尚无本地发射回执</p><p class="muted" id="acControlLastReceipt">尚无发射记录</p>
+<p><span class="muted">冷却剩余：</span><span id="acControlCooldown">—</span></p>
+</details></div>
+</section></aside></div><div class="history-layout" data-console-pages="history" hidden=""><nav aria-label="记录分类" class="section-tabs"><a href="#historyGallery">抓拍图库</a><a href="#environmentHistorySection">环境记录</a><a href="#historyAiResults">AI 观察</a></nav><div id="historyGallery"></div><section class="card" data-console-pages="history" hidden="" id="environmentHistorySection" style="margin-top:20px">
+<div class="card-head"><h2>最近温湿度记录</h2><button class="button" id="refreshEnvironmentHistory">刷新记录</button></div>
+<div class="card-body">
+<p class="muted">显示当前设备地址最近 60 次服务器观察（包括失败），不是全部传感器样本。时间是电脑接收时间；相同重启编号与样本序号不算新采样。</p>
+<div class="history-scroll">
+<table class="history-table"><thead><tr><th>接收时间</th><th>温度</th><th>湿度</th><th>状态</th><th>样本 / 重启编号</th><th>来源</th></tr></thead>
+<tbody id="environmentHistoryRows"><tr><td colspan="6">暂无记录</td></tr></tbody>
+</table>
+</div>
+</div>
+</section><div id="historyAiResults"></div></div><div class="settings-layout" data-console-pages="settings" hidden=""><div class="settings-primary"><section class="card" data-console-pages="settings" hidden="" id="policySettingsSection">
+<div class="card-head"><h2>判别与采样参数</h2><button class="button" id="loadPolicySettings">重新读取</button></div>
+<div class="card-body">
+<p class="muted">选择适合你的响应节奏，默认使用均衡。选择自定义后可逐项调参。</p>
+<fieldset aria-describedby="policyPresetDescription" class="policy-modes">
+<legend>策略模式</legend>
+<div class="policy-mode-grid">
+<label class="policy-mode" for="policyPresetLight"><input disabled="" id="policyPresetLight" name="policyPreset" type="radio" value="light"/><strong>轻享</strong><span>耐心观察 · 较少调节</span></label>
+<label class="policy-mode" for="policyPresetBalanced"><input checked="" disabled="" id="policyPresetBalanced" name="policyPreset" type="radio" value="balanced"/><strong>均衡</strong><span>日常使用 · 默认推荐</span></label>
+<label class="policy-mode" for="policyPresetEfficient"><input disabled="" id="policyPresetEfficient" name="policyPreset" type="radio" value="efficient"/><strong>高效</strong><span>更快响应 · 更频繁观察</span></label>
+<label class="policy-mode" for="policyPresetCustom"><input disabled="" id="policyPresetCustom" name="policyPreset" type="radio" value="custom"/><strong>自定义</strong><span>按需设置每一项参数</span></label>
+</div>
+</fieldset>
+<p aria-live="polite" class="muted" id="policyPresetDescription">正在读取已保存模式…</p>
+<div class="environment-inputs">
+<label for="policyAmbientLower">室温触发下限（18–32 °C）<input id="policyAmbientLower" max="32" min="18" step="0.5" type="number" value="24"/></label>
+<label for="policyAmbientUpper">室温触发上限（18–32 °C）<input id="policyAmbientUpper" max="32" min="18" step="0.5" type="number" value="28"/></label>
+<label for="policyMinSetpoint">空调允许设定下界（°C）<input id="policyMinSetpoint" max="30" min="16" step="1" type="number" value="24"/></label>
+<label for="policyMaxSetpoint">空调允许设定上界（°C）<input id="policyMaxSetpoint" max="30" min="16" step="1" type="number" value="28"/></label>
+<label for="policyPersistence">越界持续时间（30–600 秒）<input id="policyPersistence" max="600" min="30" step="1" type="number" value="45"/></label>
+<label for="policyStep">单次调温幅度（1–2 °C）<input id="policyStep" max="2" min="1" step="1" type="number" value="1"/></label>
+<label for="policyCooldown">命令冷却（60–3600 秒）<input id="policyCooldown" max="3600" min="60" step="1" type="number" value="300"/></label>
+<label for="policyConfirmation">确认图目标延迟（20–50 秒）<input id="policyConfirmation" max="50" min="20" step="1" type="number" value="20"/></label>
+<label for="policyPollInterval">服务器温湿度轮询（5–30 秒）<input id="policyPollInterval" max="30" min="5" step="1" type="number" value="15"/></label>
+</div>
+<p class="muted">室温上下限至少相差 2 °C；持续时间仍需至少 3 个独立样本，不能只靠等待。每事件仅一次的锁、60秒恢复观察和画面质量门槛不会因增强调温幅度而取消。</p>
+<p class="muted" id="policyCustomHint">预设参数仅供查看；选择“自定义”可逐项修改。</p>
+<div class="button-row"><button class="button" id="resetPolicySettings">恢复均衡默认 · 不保存</button><button class="button primary" disabled="" id="savePolicySettings">保存策略 · 不发红外</button></div>
+<p aria-live="polite" class="muted" id="policySettingsStatus">参数尚未读取。</p>
+<h3>SHT31 设备物理采样</h3>
+<label for="sensorSampleInterval">物理采样间隔（5–30 秒）<input id="sensorSampleInterval" max="30" min="5" step="1" type="number" value="15"/></label>
+<button class="button" disabled="" id="applySensorSettings">应用到设备 · 暂停自动任务</button>
+<p aria-live="polite" class="muted" id="sensorSettingsStatus">15 秒只是默认输入，当前设备是否支持及实际值未知。此按钮会访问已配置的设备；旧固件需更新。</p>
+</div>
+</section></div><div class="settings-secondary"><section class="card" data-console-pages="settings" hidden="" id="environmentRecordingSection">
+<div class="card-head"><h2>温湿度后台记录</h2><span class="status-pill" id="environmentRecordingBadge">已关闭</span></div>
+<div class="card-body">
+<label for="environmentInterval">当前记录间隔（秒，随策略保存）</label>
+<input id="environmentInterval" max="3600" min="5" readonly="" step="1" type="number" value="15"/>
+<p class="muted">间隔由上方策略统一设置；选择“自定义”可以单独修改。</p>
+<label class="toggle-line"><input id="environmentRecordingEnabled" type="checkbox"/> 开启服务器后台记录</label>
+<button class="button primary" disabled="" id="saveEnvironmentRecording">保存记录设置</button>
+<p class="muted" id="environmentRecordingStatus">尚无记录</p>
+<p><a class="section-link" href="/history">查看温湿度历史 →</a></p>
+<div class="notice">关闭网页仍继续；停止服务器才会停止。记录功能不拍图、不调用模型；实验发射另行开启后，真实温湿度可参与受限判断。另行保存图片时仍会记录一次读数。</div>
+</div>
+</section><section class="card" data-console-pages="settings" hidden="" id="serviceStatusSection">
+<div class="card-head"><h2>本地服务状态</h2></div>
+<div class="card-body">
+<p><span class="muted">VLM 提供商：</span><strong id="vlmProvider">—</strong></p>
+<p><span class="muted">VLM 模型：</span><strong id="vlmModel">—</strong></p>
+<p><span class="muted">API 密钥：</span><strong id="keyState">检查中</strong></p>
+<p><span class="muted">最近抓拍：</span><span id="lastCapture">—</span></p>
+<p><span class="muted">最近错误：</span><span id="lastError">无</span></p>
+</div>
+</section></div></div><div class="connections-layout" data-console-pages="connections" hidden="">
+<section class="card invite-panel"><div class="card-head"><h2>连接你的手机</h2><span class="status-pill" id="mobileServiceBadge">正在检查</span></div><div class="card-body"><p class="connection-intro">配对一次，随时查看房间。</p><p class="muted">新连接码不影响已有授权；可随时手动断开。</p><div class="invite-grid"><div class="pairing-qr"><img alt="本机生成的手机连接二维码" hidden="" id="mobileConnectionQr"/><div id="mobileQrEmpty"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 48 48"><path d="M5 5h14v14H5zm24 0h14v14H29zM5 29h14v14H5zm24 0h6v6h-6zm10 0h4v14H29v-4h10z"></path></svg><span>生成连接码后<br/>用手机扫码连接</span></div></div><div class="invitation-controls"><label for="mobileAddress">电脑局域网地址</label><select disabled="" id="mobileAddress"><option>正在读取地址…</option></select><p class="muted" id="mobileInvitationState">连接码仅用于新增配对，5 分钟内有效。</p><button class="button primary" disabled="" id="generateMobileCode">生成连接码</button><button class="button" disabled="" id="copyMobileCode">复制连接码</button></div></div><label class="code-label" for="mobileConnectionCode">也可以在 APP 内粘贴完整连接码</label><textarea id="mobileConnectionCode" placeholder="生成后将在这里显示 DS1 连接码" readonly="" rows="3" spellcheck="false"></textarea><p aria-live="polite" class="muted" id="mobileConnectionFeedback" role="status"></p><details class="fold"><summary>连接说明</summary><p class="muted">手机与电脑连接同一 Wi-Fi。在 APP 的“连接电脑”页面导入连接码。关闭网页不会断开手机；电脑服务需要保持运行。</p><p class="muted">旧版手机请覆盖升级到 0.5.8，保留现有连接信息并取消本地到期限制。</p></details></div></section>
+<section class="card phone-list-panel"><div class="card-head"><h2>已授权的手机 <span class="count-label" id="mobileSessionCount">—</span></h2><button class="button" disabled="" id="refreshMobileConnections">刷新</button></div><div class="card-body"><div aria-live="polite" id="mobileSessionList"><p class="muted">正在读取已连接手机…</p></div></div></section>
+<section class="card board-panel" id="boardConnection"><div class="card-head"><h2>Freenove 主板</h2><a class="section-link" href="/device-setup">配置 Wi-Fi</a></div><div class="card-body"><div id="boardAddressControls"><label for="deviceUrl">设备地址</label><div class="form-row">
+<input id="deviceUrl" spellcheck="false" type="text" value="http://dreamshield-camera.local"/>
+<button class="button primary" id="connectButton">连接并刷新</button>
+</div></div><div id="boardDiagnostics"><details class="fold" id="cameraDiagnostics"><summary>设备运行详情</summary>
+<div class="telemetry">
+<div class="metric"><small>设备</small><strong id="metricDevice">—</strong></div>
+<div class="metric"><small>运行时间</small><strong id="metricUptime">—</strong></div>
+<div class="metric"><small>抓拍 / 失败</small><strong id="metricCapture">—</strong></div>
+<div class="metric"><small>Wi-Fi RSSI</small><strong id="metricRssi">—</strong></div>
+</div>
+</details><details class="card" data-console-pages="settings" hidden="" id="advancedSettingsSection">
+<summary>高级设置 · 设备配网</summary>
+<div class="card-body"><p class="muted">仅在设备需要连接新 Wi-Fi 时使用。</p><a class="button" href="/device-setup">蓝牙 Wi-Fi 配网</a></div>
+</details></div></div></section></div></main></div>
+<section class="room-statusbar" aria-label="房间状态" data-feed="console">
+<div class="room-status-readings">
+      <span class="room-status-metric">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 14.5V5a3 3 0 0 1 6 0v9.5a5 5 0 1 1-6 0Z"/><path d="M12 8v9"/><circle cx="12" cy="18" r="1.3"/></svg>
+        <span>室温</span><strong id="roomTemperature">—</strong><span class="room-status-unit">°C</span>
+      </span>
+      <span class="room-status-metric">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.8c-2 3-7 8.4-7 12.4a7 7 0 0 0 14 0c0-4-5-9.4-7-12.4Z"/><path d="M8.5 15.5c.2 1.7 1.2 2.7 2.6 3"/></svg>
+        <span>湿度</span><strong id="roomHumidity">—</strong><span class="room-status-unit">%RH</span>
+      </span>
+    </div>
+    <span class="room-status-source" data-tone="neutral"><span id="roomSensorState">等待读数</span><time id="roomMeasuredTime"></time></span>
+    <span class="room-status-service" data-tone="neutral"><i aria-hidden="true"></i><span id="consoleServerStatus">正在读取服务</span></span>
+</section>
+<script src="/static/console_status.js"></script>
+<script src="/static/console_navigation.js"></script><script>
+    const consoleContext = DreamShieldConsoleNavigation.apply(document, window.location.pathname);
+  </script><script src="/static/environment.js"></script><script src="/static/sensor_fallback.js"></script><script src="/static/ac_control.js"></script><script src="/static/automatic_ai.js"></script><script src="/static/policy_settings.js"></script><script>
+    const ui = id => document.getElementById(id);
+    // Reflected DOM properties still invalidate style and accessibility state on a
+    // redundant assignment. Compare the live value so form edits remain authoritative.
+    function updateField(id, property, value) {
+      const node = ui(id);
+      if (node[property] !== value) node[property] = value;
+    }
+
+    function whileVisible(callback, interval) {
+      let timer = null;
+      const resume = () => {
+        if (timer !== null) clearInterval(timer);
+        timer = document.hidden ? null : setInterval(callback, interval);
+        if (timer !== null) void callback();
+      };
+      if (!document.hidden) timer = setInterval(callback, interval);
+      document.addEventListener?.('visibilitychange', resume);
+      return () => {
+        if (timer !== null) clearInterval(timer);
+        document.removeEventListener?.('visibilitychange', resume);
+      };
+    }
+    const consolePage = consoleContext.page;
+    const consoleFeatures = consoleContext.features;
+    let monitorTimer = null;
+    let configLoaded = false;
+    let deviceRefreshBusy = false;
+    let liveEnvironment = null;
+    let effectiveEnvironment = null;
+    let effectiveEnvironmentReceivedAt = 0;
+    let environmentFallbackVisible = false;
+    let environmentRequestStart = 0;
+    let environmentDeviceUrl = '';
+    let historyBusy = false;
+    let historyRows = new Map();
+    let statusRequest = null;
+    let trailingStatusRequest = null;
+    const automaticAiController = DreamShieldAutomaticAi.createController(document, {
+      api,
+      shouldLoadHistory: () => consolePage === 'history' || (consolePage === 'home' && ui('automaticAiHistoryDetails').open),
+      beforeEnable: async () => {
+        await api('/api/config', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({
+          device_base_url: deviceBaseUrl(), capture_interval_seconds: Number(ui('captureInterval').value)
+        })});
+      },
+      onUpdated: async data => {
+        if (data.config) {
+          ui('scheduleEnabled').checked = data.config.schedule_enabled;
+          ui('environmentRecordingEnabled').checked = data.config.environment_recording_enabled;
+          ui('environmentInterval').value = data.config.environment_interval_seconds ?? 15;
+        }
+        await pollAppStatus();
+      }
+    });
+    const acControlController = DreamShieldAcControl.createController(document, {
+      api,
+      onUpdated: async () => { await pollAppStatus(); }
+    });
+    const policySettingsController = DreamShieldPolicySettings.createController(document, {
+      api, onSaved: async () => { await pollAppStatus(); }
+    });
+
+    async function saveEnvironmentRecording() {
+      const button = ui('saveEnvironmentRecording'); button.disabled = true;
+      try {
+        await api('/api/config', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({
+          device_base_url: deviceBaseUrl(),
+          environment_recording_enabled: ui('environmentRecordingEnabled').checked
+        })});
+        await pollAppStatus();
+        await loadEnvironmentHistory();
+      } catch (error) { alert(error.message); }
+      finally { button.disabled = false; }
+    }
+
+    async function loadEnvironmentHistory() {
+      if (!consoleFeatures.environmentHistory || !configLoaded || historyBusy) return;
+      historyBusy = true;
+      const requestedUrl = deviceBaseUrl();
+      try {
+        const data = await api(`/api/environment/history?base_url=${encodeURIComponent(requestedUrl)}&limit=60`, {signal: AbortSignal.timeout(8000)});
+        if (requestedUrl !== deviceBaseUrl()) return;
+        const rows = ui('environmentHistoryRows');
+        if (!data.items.length) {
+          if (historyRows.has('empty')) return;
+          rows.replaceChildren();
+          const row = rows.insertRow(); const cell = row.insertCell(); cell.colSpan = 6;
+          cell.textContent = '暂无记录；请开启后台记录，或保存一张图片。';
+          historyRows = new Map([['empty', row]]);
+          return;
+        }
+        const next = new Map();
+        for (const item of data.items) {
+          const key = JSON.stringify([item.record_id ?? next.size, item.received_at, item.valid, item.ambient_temperature_c,
+            item.relative_humidity_percent, item.error, item.status, item.sample_sequence, item.boot_id, item.source]);
+          if (historyRows.has(key)) {
+            next.set(key, historyRows.get(key));
+            continue;
+          }
+          const row = document.createElement('tr');
+          const values = [new Date(item.received_at).toLocaleString('zh-CN',{hour12:false}),
+            item.valid ? `${item.ambient_temperature_c.toFixed(2)} °C` : '—',
+            item.valid ? `${item.relative_humidity_percent.toFixed(2)} %RH` : '—',
+            item.valid ? '采集时有效' : `不可用：${item.error || item.status}`,
+            `${item.sample_sequence ?? '—'} / ${item.boot_id || '—'}`,
+            item.source === 'capture' ? '图片保存' : '定时记录'];
+          for (const value of values) row.insertCell().textContent = value;
+          next.set(key, row);
+        }
+        // A typical new sample only removes the oldest row and prepends one.
+        if (!historyRows.size) rows.replaceChildren();
+        for (const [key, row] of historyRows) if (!next.has(key)) row.remove();
+        let cursor = rows.firstElementChild;
+        for (const row of next.values()) {
+          if (row !== cursor) rows.insertBefore(row, cursor);
+          cursor = row.nextElementSibling;
+        }
+        historyRows = next;
+      } catch (error) {
+        if (requestedUrl !== deviceBaseUrl()) return;
+        historyRows.clear();
+        const rows = ui('environmentHistoryRows'); rows.replaceChildren();
+        const row = rows.insertRow(), cell = row.insertCell(); cell.colSpan = 6; cell.textContent = `记录读取失败：${error.message}`;
+        historyRows.set('error', row);
+      } finally { historyBusy = false; }
+    }
+
+    function showEnvironmentFailure(message) {
+      liveEnvironment = null;
+      if (renderEnvironmentFallback()) return;
+      updateField('metricTemperature', 'textContent', '—');
+      updateField('metricHumidity', 'textContent', '—');
+      updateField('environmentStatus', 'textContent', message);
+    }
+
+    function renderEnvironmentFallback() {
+      const room = DreamShieldRoomStatus.readingFor(deviceBaseUrl());
+      const reading = DreamShieldSensorFallback.view(effectiveEnvironment, deviceBaseUrl(),
+        Math.max(0, performance.now() - effectiveEnvironmentReceivedAt));
+      if (room?.shared || (room?.measuredAt != null && (room.tone === 'ok' || !reading.visible))) {
+        updateField('metricTemperature', 'textContent', room.detailTemperature);
+        updateField('metricHumidity', 'textContent', room.detailHumidity);
+        updateField('environmentStatus', 'textContent', room.detail);
+        environmentFallbackVisible = true;
+        return true;
+      }
+      if (!reading.visible) {
+        if (environmentFallbackVisible) {
+          updateField('metricTemperature', 'textContent', '—');
+          updateField('metricHumidity', 'textContent', '—');
+          updateField('environmentStatus', 'textContent', '当前温湿度及同设备缓存不可用');
+        }
+        environmentFallbackVisible = false;
+        return false;
+      }
+      updateField('metricTemperature', 'textContent', reading.temperature);
+      updateField('metricHumidity', 'textContent', reading.humidity);
+      updateField('environmentStatus', 'textContent', reading.detail);
+      environmentFallbackVisible = true;
+      return true;
+    }
+
+    function renderLiveEnvironment() {
+      if (!liveEnvironment || DreamShieldRoomStatus.readingFor(deviceBaseUrl())?.shared) { renderEnvironmentFallback(); return; }
+      if (environmentDeviceUrl !== deviceBaseUrl()) {
+        showEnvironmentFailure('设备地址已变化，请重新连接');
+        return;
+      }
+      const reading = DreamShieldEnvironment.view(liveEnvironment, performance.now() - environmentRequestStart);
+      if (!reading.valid && renderEnvironmentFallback()) return;
+      environmentFallbackVisible = false;
+      updateField('metricTemperature', 'textContent', reading.temperature);
+      updateField('metricHumidity', 'textContent', reading.humidity);
+      updateField('environmentStatus', 'textContent', reading.detail);
+    }
+    if (consoleFeatures.camera) whileVisible(renderLiveEnvironment, 500);
+
+    async function api(path, options = {}) {
+      const response = await fetch(path, options);
+      const type = response.headers.get('content-type') || '';
+      const payload = type.includes('application/json') ? await response.json() : await response.blob();
+      if (!response.ok) throw new Error(payload.error || `HTTP ${response.status}`);
+      return payload;
+    }
+
+    function deviceBaseUrl() { return ui('deviceUrl').value.trim(); }
+    function setDeviceState(ok, text) {
+      ui('deviceDot').className = 'dot ' + (ok ? 'ok' : 'bad');
+      ui('deviceState').textContent = text;
+    }
+
+    function showCameraPlaceholder(title, message) {
+      ui('cameraImage').hidden = true;
+      ui('cameraImage').removeAttribute('src');
+      ui('cameraPlaceholderTitle').textContent = title;
+      ui('cameraPlaceholderMessage').textContent = message;
+      ui('cameraPlaceholder').hidden = false;
+    }
+
+    async function refreshDevice() {
+      if (deviceRefreshBusy) return;
+      deviceRefreshBusy = true;
+      const requestedUrl = deviceBaseUrl();
+      const base = encodeURIComponent(requestedUrl);
+      const requestStart = performance.now();
+      try {
+        const status = await api(`/api/device/status?base_url=${base}&t=${Date.now()}`, {signal: AbortSignal.timeout(8000)});
+        if (requestedUrl !== deviceBaseUrl()) return;
+        window.dispatchEvent(new CustomEvent('dreamshield:device-reading', {detail: {status, deviceUrl: requestedUrl, requestStart}}));
+        ui('metricDevice').textContent = status.device_id || status.sensor || 'ESP32';
+        ui('metricUptime').textContent = `${status.uptime_seconds ?? '—'} s`;
+        ui('metricCapture').textContent = `${status.capture_count ?? '—'} / ${status.capture_failures ?? '—'}`;
+        ui('metricRssi').textContent = status.rssi_dbm == null ? '—' : `${status.rssi_dbm} dBm`;
+        liveEnvironment = status.environment || {};
+        environmentRequestStart = requestStart;
+        environmentDeviceUrl = requestedUrl;
+        if (!status.environment) showEnvironmentFailure('设备固件没有温湿度字段，请上传 0.4.0 或更新版本');
+        else renderLiveEnvironment();
+        if (consoleFeatures.camera) ui('cameraImage').src = `/api/device/snapshot?base_url=${base}&t=${Date.now()}`;
+        setDeviceState(true, '设备在线');
+      } catch (error) {
+        if (requestedUrl !== deviceBaseUrl()) return;
+        window.dispatchEvent(new CustomEvent('dreamshield:device-reading', {detail: {status: null, deviceUrl: requestedUrl, requestStart}}));
+        setDeviceState(false, error.message);
+        if (consoleFeatures.camera) showCameraPlaceholder('画面暂不可用', '设备离线或请求失败，请重新连接后刷新。');
+        showEnvironmentFailure('设备离线或请求失败；旧温湿度已隐藏');
+      } finally {
+        deviceRefreshBusy = false;
+      }
+    }
+
+    function toggleMonitor() {
+      if (monitorTimer) {
+        monitorTimer(); monitorTimer = null;
+        ui('monitorButton').textContent = '开始网页监控';
+      } else {
+        refreshDevice();
+        monitorTimer = whileVisible(refreshDevice, 3000);
+        ui('monitorButton').textContent = '停止网页监控';
+      }
+    }
+
+    async function downloadSnapshot() {
+      const button = ui('downloadButton'); button.disabled = true;
+      try {
+        const base = encodeURIComponent(deviceBaseUrl());
+        const response = await fetch(`/api/device/snapshot?base_url=${base}&t=${Date.now()}`);
+        if (!response.ok) { const error = await response.json(); throw new Error(error.error); }
+        const blob = await response.blob();
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = `dreamshield-${new Date().toISOString().replace(/[:.]/g, '-')}.jpg`;
+        link.click(); URL.revokeObjectURL(url);
+      } catch (error) { alert(error.message); }
+      finally { button.disabled = false; }
+    }
+
+    async function saveCapture() {
+      const button = ui('saveButton'); button.disabled = true; button.textContent = '保存中...';
+      try {
+        await api('/api/capture', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({device_base_url:deviceBaseUrl()})});
+        await loadGallery(); await pollAppStatus(); await loadEnvironmentHistory();
+      } catch (error) { alert(error.message); }
+      finally { button.disabled = false; button.textContent = '保存图片与读数'; }
+    }
+
+    async function saveSchedule() {
+      try {
+        await api('/api/config', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({
+          device_base_url: deviceBaseUrl(),
+          capture_interval_seconds: Number(ui('captureInterval').value),
+          schedule_enabled: ui('scheduleEnabled').checked
+        })});
+        await pollAppStatus();
+      } catch (error) { alert(error.message); }
+    }
+
+    function pollAppStatus(afterWrite = true) {
+      if (statusRequest) {
+        if (!afterWrite) return statusRequest;
+        // A settings POST that finished during a read must see a newer snapshot.
+        if (!trailingStatusRequest) trailingStatusRequest = statusRequest.then(() => {
+          trailingStatusRequest = null;
+          return pollAppStatus(false);
+        });
+        return trailingStatusRequest;
+      }
+      statusRequest = readAppStatus().finally(() => { statusRequest = null; });
+      return statusRequest;
+    }
+
+    async function readAppStatus() {
+      try {
+        const data = await api('/api/app/status', {signal: AbortSignal.timeout(8000)});
+        const boardUnreachable = typeof data.last_error === 'string' && data.last_error.startsWith('Cannot reach the ESP32 device');
+        const captureError = boardUnreachable ? '上次抓拍未完成，主板没有响应。' : data.last_error ? `上次抓拍失败：${data.last_error}` : '';
+        updateField('consoleStatusError', 'textContent', captureError);
+        updateField('consoleStatusError', 'className', boardUnreachable ? 'page-status board-warning' : 'page-status');
+        updateField('consoleStatusError', 'hidden', !data.last_error);
+        updateField('consoleConfiguredDevice', 'textContent', data.config.device_base_url);
+        updateField('saveEnvironmentRecording', 'disabled', false);
+        if (!configLoaded) {
+          ui('deviceUrl').value = data.config.device_base_url;
+          ui('captureInterval').value = data.config.capture_interval_seconds;
+          ui('scheduleEnabled').checked = data.config.schedule_enabled;
+          ui('environmentRecordingEnabled').checked = data.config.environment_recording_enabled;
+          ui('environmentInterval').value = data.config.environment_interval_seconds ?? 15;
+          configLoaded = true;
+        }
+        updateField('scheduleBadge', 'textContent', data.config.schedule_enabled ? '运行中' : '已关闭');
+        updateField('environmentRecordingBadge', 'textContent', data.config.environment_recording_enabled ? '记录中' : '已关闭');
+        updateField('environmentRecordingStatus', 'textContent', data.last_environment_error
+          ? `最近记录异常：${data.last_environment_error}`
+          : (data.last_environment ? `最近观察：${new Date(data.last_environment.received_at).toLocaleString('zh-CN',{hour12:false})}` : '尚无记录'));
+        updateField('vlmProvider', 'textContent', data.vlm_provider);
+        updateField('vlmModel', 'textContent', data.vlm_model);
+        updateField('keyState', 'textContent', data.vlm_key_configured ? '已安全载入' : '未配置');
+        updateField('keyState', 'className', data.vlm_key_configured ? '' : 'error');
+        updateField('lastCapture', 'textContent', data.last_capture ? `${data.last_capture.captured_at} (${data.last_capture.source})` : '—');
+        updateField('lastError', 'textContent', data.last_error || '无');
+        updateField('lastError', 'className', data.last_error ? 'error' : '');
+        updateField('nextCapture', 'textContent', data.next_capture_epoch_ms ? `下一次抓拍：${new Date(data.next_capture_epoch_ms).toLocaleString('zh-CN',{hour12:false})}` : '下一次抓拍：—');
+        effectiveEnvironment = data.environment_effective || null;
+        effectiveEnvironmentReceivedAt = performance.now();
+        if (consoleFeatures.automaticAi) automaticAiController.render(data);
+        if (consolePage === 'home') acControlController.render(data);
+        window.dispatchEvent(new CustomEvent('dreamshield:status', {detail: {available: true, data}}));
+        if (consoleFeatures.camera) renderLiveEnvironment();
+        return true;
+      } catch (error) {
+        window.dispatchEvent(new CustomEvent('dreamshield:status', {detail: {available: false}}));
+        effectiveEnvironment = null;
+        renderEnvironmentFallback();
+        updateField('lastError', 'textContent', error.message);
+        updateField('consoleStatusError', 'className', 'page-status');
+        updateField('consoleStatusError', 'textContent', `无法读取本地服务状态：${error.message}。请检查服务是否运行。`);
+        updateField('consoleStatusError', 'hidden', false);
+        updateField('saveEnvironmentRecording', 'disabled', true);
+        automaticAiController.setUnavailable(error.message);
+        acControlController.setUnavailable(error.message);
+        return false;
+      }
+    }
+
+    async function loadGallery() {
+      if (!consoleFeatures.galleryLimit) return;
+      try {
+        const data = await api(`/api/captures?limit=${consoleFeatures.galleryLimit}`);
+        const gallery = ui('gallery'); gallery.innerHTML = '';
+        if (!data.items.length) { gallery.innerHTML = '<p class="muted">尚无保存图片。</p>'; return; }
+        for (const item of data.items) {
+          const card = document.createElement('div'); card.className = 'thumb';
+          const link = document.createElement('a'); link.href = item.url; link.download = item.filename;
+          const image = document.createElement('img'); image.src = item.url; image.loading = 'lazy'; image.alt = item.filename;
+          const label = document.createElement('div'); label.textContent = `${item.source} · ${new Date(item.captured_at).toLocaleString('zh-CN',{hour12:false})}`;
+          link.append(image); card.append(link, label);
+          const reading = document.createElement('div');
+          const env = item.environment;
+          reading.textContent = item.environment_pairing?.status === 'nearby' && env?.valid
+            ? `${env.ambient_temperature_c.toFixed(2)} °C · ${env.relative_humidity_percent.toFixed(2)} %RH（邻近读数，非同步）`
+            : '未关联有效温湿度（图片已保存）';
+          reading.title = reading.textContent;
+          card.append(reading);
+          if (item.metadata_url) {
+            const metadata = document.createElement('a'); metadata.className = 'metadata-link';
+            metadata.href = item.metadata_url; metadata.target = '_blank'; metadata.rel = 'noopener';
+            metadata.textContent = '查看采集记录 JSON'; card.append(metadata);
+          }
+          gallery.appendChild(card);
+        }
+      } catch (error) { ui('gallery').innerHTML = `<p class="error">${error.message}</p>`; }
+    }
+
+    ui('cameraImage').addEventListener('load', () => {
+      if (!ui('cameraImage').getAttribute('src') || !ui('cameraImage').naturalWidth) return;
+      ui('cameraImage').hidden = false;
+      ui('cameraPlaceholder').hidden = true;
+    });
+    ui('cameraImage').addEventListener('error', () => {
+      showCameraPlaceholder('画面加载失败', '请检查设备连接，然后刷新或重新开始网页监控。');
+    });
+    ui('deviceUrl').addEventListener('input', () => {
+      showCameraPlaceholder('尚未加载画面', '设备地址已变化，请连接设备后刷新。');
+    });
+    ui('connectButton').addEventListener('click', refreshDevice);
+    ui('monitorButton').addEventListener('click', toggleMonitor);
+    ui('downloadButton').addEventListener('click', downloadSnapshot);
+    ui('saveButton').addEventListener('click', saveCapture);
+    ui('saveSchedule').addEventListener('click', saveSchedule);
+    ui('saveEnvironmentRecording').addEventListener('click', saveEnvironmentRecording);
+    ui('refreshEnvironmentHistory').addEventListener('click', loadEnvironmentHistory);
+    ui('refreshGallery').addEventListener('click', loadGallery);
+    ui('automaticAiHistoryDetails').addEventListener('toggle', () => {
+      if (ui('automaticAiHistoryDetails').open && consoleFeatures.automaticAi) void automaticAiController.loadHistory();
+    });
+    if (['home', 'settings'].includes(consolePage)) void policySettingsController.load();
+    if (consoleFeatures.galleryLimit) void loadGallery();
+    void pollAppStatus().then(loaded => { if (loaded && consoleFeatures.environmentHistory) return loadEnvironmentHistory(); });
+    if (consoleFeatures.statusPollMs) whileVisible(() => pollAppStatus(false), consoleFeatures.statusPollMs);
+    if (consoleFeatures.environmentHistory) whileVisible(loadEnvironmentHistory, 15000);
+  </script><script src="/static/mobile_connections.js"></script></body>
+</html>

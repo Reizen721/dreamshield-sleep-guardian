@@ -1,0 +1,12 @@
+Microsoft Edge WebView2 SDK, version 1.0.2365.46
+Files: Microsoft.Web.WebView2.Core.dll, Microsoft.Web.WebView2.WinForms.dll, WebView2Loader.dll
+Copyright Microsoft Corporation. All rights reserved.
+
+These are Microsoft WebView2 SDK runtime/distributable files, not DreamShield-authored code.
+Official package and SDK license references:
+https://www.nuget.org/packages/Microsoft.Web.WebView2/1.0.2365.46
+https://www.nuget.org/packages/Microsoft.Web.WebView2/1.0.2365.46/License
+https://learn.microsoft.com/microsoft-edge/webview2/concepts/distribution
+
+The Microsoft Edge WebView2 Evergreen Runtime is installed separately and is not included in this directory.
+The current offline build uses matching Microsoft SDK DLLs already installed with Microsoft Office Power Query.
