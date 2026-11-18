@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="dreamshield_primary">#6750A4</color>
+    <color name="dreamshield_surface">#FFFBFE</color>
+    <color name="launcher_background">#EADDFF</color>
+    <color name="dreamshield_launch_ink">#141A2E</color>
+</resources>

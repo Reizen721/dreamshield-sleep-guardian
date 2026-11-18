@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="AppTheme.Starting" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/dreamshield_launch_ink</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_splash_mark</item>
+        <item name="windowSplashScreenIconBackgroundColor">@color/dreamshield_launch_ink</item>
+        <item name="postSplashScreenTheme">@style/AppTheme</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowLightNavigationBar">false</item>
+        <item name="android:forceDarkAllowed">false</item>
+    </style>
+    <style name="AppTheme" parent="android:style/Theme.Material.Light.NoActionBar">
+        <item name="android:fontFamily">sans</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:windowLightNavigationBar">true</item>
+        <item name="android:colorAccent">@color/dreamshield_primary</item>
+        <item name="android:windowBackground">@color/dreamshield_surface</item>
+        <item name="android:windowActionModeOverlay">true</item>
+        <item name="android:forceDarkAllowed">false</item>
+    </style>
+</resources>

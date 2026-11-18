@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">梦盾</string>
+    <string name="sleep_widget_description">开始今晚或查看日记</string>
+    <string name="sleep_tile_label">梦盾 · 今晚</string>
+</resources>

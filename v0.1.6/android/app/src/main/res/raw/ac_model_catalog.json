@@ -1,0 +1,3170 @@
+{
+  "schema": 1,
+  "library": "IRremoteESP8266",
+  "library_version": "2.9.0",
+  "source_url": "https://github.com/crankyoldgit/IRremoteESP8266/blob/v2.9.0/SupportedProtocols.md",
+  "source_sha256": "1b7fdfb9d2218e498e7419cdad4e869fecf732140555677d509232c9dfd255cc",
+  "additional_profile_url": "https://github.com/crankyoldgit/IRremoteESP8266/pull/2298",
+  "selection_scope": "Phone-side model registration; does not enable or change a transmitter.",
+  "models": [
+    {
+      "id": "dreamshield_yapofb14_basic128",
+      "brand": "Gree",
+      "brand_label": "格力",
+      "model": "YAPOFB14",
+      "protocol": "YAPOFB14_BASIC128",
+      "source": "project",
+      "search": "格力 Gree YAPOFB14 YAP0FB14 128位 原遥控器"
+    },
+    {
+      "id": "ir290_82582ebee60a11e0",
+      "brand": "AEG",
+      "brand_label": "AEG",
+      "model": "Chillflex Pro AXP26U338CW A/C",
+      "protocol": "Electra",
+      "source": "library",
+      "search": "AEG  Chillflex Pro AXP26U338CW A/C Electra"
+    },
+    {
+      "id": "ir290_521f7eeb0076ff13",
+      "brand": "Airton",
+      "brand_label": "Airton",
+      "model": "RD1A1 remote",
+      "protocol": "Airton",
+      "source": "library",
+      "search": "Airton  RD1A1 remote Airton"
+    },
+    {
+      "id": "ir290_710092986f389ad1",
+      "brand": "Airton",
+      "brand_label": "Airton",
+      "model": "SMVH09B-2A2A3NH ref. 409730 A/C",
+      "protocol": "Airton",
+      "source": "library",
+      "search": "Airton  SMVH09B-2A2A3NH ref. 409730 A/C Airton"
+    },
+    {
+      "id": "ir290_09e680bbcd63e1d5",
+      "brand": "Airwell",
+      "brand_label": "Airwell",
+      "model": "DLS 21 DCI R410 AW A/C",
+      "protocol": "Airwell",
+      "source": "library",
+      "search": "Airwell  DLS 21 DCI R410 AW A/C Airwell"
+    },
+    {
+      "id": "ir290_119cc75910a443c2",
+      "brand": "Airwell",
+      "brand_label": "Airwell",
+      "model": "RC04 remote",
+      "protocol": "Airwell",
+      "source": "library",
+      "search": "Airwell  RC04 remote Airwell"
+    },
+    {
+      "id": "ir290_a5fcfa7ab331c0ae",
+      "brand": "Airwell",
+      "brand_label": "Airwell",
+      "model": "RC08W remote",
+      "protocol": "Airwell",
+      "source": "library",
+      "search": "Airwell  RC08W remote Airwell"
+    },
+    {
+      "id": "ir290_56bb64fba52538b6",
+      "brand": "Alaska",
+      "brand_label": "Alaska",
+      "model": "SAC9010QC A/C",
+      "protocol": "Teco",
+      "source": "library",
+      "search": "Alaska  SAC9010QC A/C Teco"
+    },
+    {
+      "id": "ir290_0f6964f490b37001",
+      "brand": "Alaska",
+      "brand_label": "Alaska",
+      "model": "SAC9010QC remote",
+      "protocol": "Teco",
+      "source": "library",
+      "search": "Alaska  SAC9010QC remote Teco"
+    },
+    {
+      "id": "ir290_96929f501df62ccc",
+      "brand": "Amana",
+      "brand_label": "Amana",
+      "model": "PBC093G00CC A/C",
+      "protocol": "Gree",
+      "source": "library",
+      "search": "Amana  PBC093G00CC A/C Gree"
+    },
+    {
+      "id": "ir290_674acfcdff578281",
+      "brand": "Amana",
+      "brand_label": "Amana",
+      "model": "YX1FF remote",
+      "protocol": "Gree",
+      "source": "library",
+      "search": "Amana  YX1FF remote Gree"
+    },
+    {
+      "id": "ir290_93b58cfb30ec9246",
+      "brand": "Amcor",
+      "brand_label": "Amcor",
+      "model": "ADR-853H A/C",
+      "protocol": "Amcor",
+      "source": "library",
+      "search": "Amcor  ADR-853H A/C Amcor"
+    },
+    {
+      "id": "ir290_52370f1c387db814",
+      "brand": "Amcor",
+      "brand_label": "Amcor",
+      "model": "TAC-444 remote",
+      "protocol": "Amcor",
+      "source": "library",
+      "search": "Amcor  TAC-444 remote Amcor"
+    },
+    {
+      "id": "ir290_79950f71329c3334",
+      "brand": "Amcor",
+      "brand_label": "Amcor",
+      "model": "TAC-495 remote",
+      "protocol": "Amcor",
+      "source": "library",
+      "search": "Amcor  TAC-495 remote Amcor"
+    },
+    {
+      "id": "ir290_28e7e8fe5d0fd9ea",
+      "brand": "Argo",
+      "brand_label": "Argo",
+      "model": "Ulisse 13 DCI Mobile Split A/C [WREM2 remote]",
+      "protocol": "Argo",
+      "source": "library",
+      "search": "Argo  Ulisse 13 DCI Mobile Split A/C [WREM2 remote] Argo"
+    },
+    {
+      "id": "ir290_154d552968b27c62",
+      "brand": "Argo",
+      "brand_label": "Argo",
+      "model": "Ulisse Eco Mobile Split A/C (Wifi) [WREM3 remote]",
+      "protocol": "Argo",
+      "source": "library",
+      "search": "Argo  Ulisse Eco Mobile Split A/C (Wifi) [WREM3 remote] Argo"
+    },
+    {
+      "id": "ir290_d72b0793ef5ea343",
+      "brand": "AUX",
+      "brand_label": "奥克斯",
+      "model": "KFR-35GW/BpNFW=3 A/C",
+      "protocol": "Electra",
+      "source": "library",
+      "search": "AUX 奥克斯 KFR-35GW/BpNFW=3 A/C Electra"
+    },
+    {
+      "id": "ir290_004b012ee4f3613c",
+      "brand": "AUX",
+      "brand_label": "奥克斯",
+      "model": "YKR-T/011 remote",
+      "protocol": "Electra",
+      "source": "library",
+      "search": "AUX 奥克斯 YKR-T/011 remote Electra"
+    },
+    {
+      "id": "ir290_91f5db294564174e",
+      "brand": "Beko",
+      "brand_label": "Beko",
+      "model": "BINR 070/071 split-type A/C",
+      "protocol": "Coolix",
+      "source": "library",
+      "search": "Beko  BINR 070/071 split-type A/C Coolix"
+    },
+    {
+      "id": "ir290_f79f0df235b9e98f",
+      "brand": "Beko",
+      "brand_label": "Beko",
+      "model": "RG57K7(B)/BGEF Remote",
+      "protocol": "Coolix",
+      "source": "library",
+      "search": "Beko  RG57K7(B)/BGEF Remote Coolix"
+    },
+    {
+      "id": "ir290_cc53ecc53d4350f1",
+      "brand": "Bosch",
+      "brand_label": "Bosch",
+      "model": "CL3000i-Set 26 E A/C",
+      "protocol": "Bosch",
+      "source": "library",
+      "search": "Bosch  CL3000i-Set 26 E A/C Bosch"
+    },
+    {
+      "id": "ir290_48ebbf49ba2d6b11",
+      "brand": "Bosch",
+      "brand_label": "Bosch",
+      "model": "RG10A(G2S)BGEF remote",
+      "protocol": "Bosch",
+      "source": "library",
+      "search": "Bosch  RG10A(G2S)BGEF remote Bosch"
+    },
+    {
+      "id": "ir290_933cae77051c04d4",
+      "brand": "Carrier",
+      "brand_label": "开利",
+      "model": "3021203 RR03-S-Remote (CARRIER_AC84)",
+      "protocol": "Carrier",
+      "source": "library",
+      "search": "Carrier 开利 3021203 RR03-S-Remote (CARRIER_AC84) Carrier"
+    },
+    {
+      "id": "ir290_1611060f86440cd6",
+      "brand": "Carrier",
+      "brand_label": "开利",
+      "model": "342WM100CT A/C (CARRIER_AC84)",
+      "protocol": "Carrier",
+      "source": "library",
+      "search": "Carrier 开利 342WM100CT A/C (CARRIER_AC84) Carrier"
+    },
+    {
+      "id": "ir290_2b161bc19b92e925",
+      "brand": "Carrier",
+      "brand_label": "开利",
+      "model": "40GKX0E2006 remote (CARRIER_AC128)",
+      "protocol": "Carrier",
+      "source": "library",
+      "search": "Carrier 开利 40GKX0E2006 remote (CARRIER_AC128) Carrier"
+    },
+    {
+      "id": "ir290_46337e8eff1e57cb",
+      "brand": "Carrier",
+      "brand_label": "开利",
+      "model": "42NQV025M2 / 38NYV025M2 A/C",
+      "protocol": "Toshiba",
+      "source": "library",
+      "search": "Carrier 开利 42NQV025M2 / 38NYV025M2 A/C Toshiba"
+    },
+    {
+      "id": "ir290_2c1d2cafe39158e2",
+      "brand": "Carrier",
+      "brand_label": "开利",
+      "model": "42NQV035M2 / 38NYV035M2 A/C",
+      "protocol": "Toshiba",
+      "source": "library",
+      "search": "Carrier 开利 42NQV035M2 / 38NYV035M2 A/C Toshiba"
+    },
+    {
+      "id": "ir290_64fcce7e7451dcf6",
+      "brand": "Carrier",
+      "brand_label": "开利",
+      "model": "42NQV050M2 / 38NYV050M2 A/C",
+      "protocol": "Toshiba",
+      "source": "library",
+      "search": "Carrier 开利 42NQV050M2 / 38NYV050M2 A/C Toshiba"
+    },
+    {
+      "id": "ir290_fb9880b8b3fb80bd",
+      "brand": "Carrier",
+      "brand_label": "开利",
+      "model": "42NQV060M2 / 38NYV060M2 A/C",
+      "protocol": "Toshiba",
+      "source": "library",
+      "search": "Carrier 开利 42NQV060M2 / 38NYV060M2 A/C Toshiba"
+    },
+    {
+      "id": "ir290_4651bbab41d18bf5",
+      "brand": "Carrier/Surrey",
+      "brand_label": "Carrier/Surrey",
+      "model": "42QG5A55970 remote",
+      "protocol": "Carrier",
+      "source": "library",
+      "search": "Carrier/Surrey  42QG5A55970 remote Carrier"
+    },
+    {
+      "id": "ir290_425214f75e123886",
+      "brand": "Carrier/Surrey",
+      "brand_label": "Carrier/Surrey",
+      "model": "53NGK009/012 Inverter",
+      "protocol": "Carrier",
+      "source": "library",
+      "search": "Carrier/Surrey  53NGK009/012 Inverter Carrier"
+    },
+    {
+      "id": "ir290_ec2f5cdc5452c0c6",
+      "brand": "Carrier/Surrey",
+      "brand_label": "Carrier/Surrey",
+      "model": "619EGX0090E0 A/C",
+      "protocol": "Carrier",
+      "source": "library",
+      "search": "Carrier/Surrey  619EGX0090E0 A/C Carrier"
+    },
+    {
+      "id": "ir290_c9f3f817e05ac491",
+      "brand": "Carrier/Surrey",
+      "brand_label": "Carrier/Surrey",
+      "model": "619EGX0120E0 A/C",
+      "protocol": "Carrier",
+      "source": "library",
+      "search": "Carrier/Surrey  619EGX0120E0 A/C Carrier"
+    },
+    {
+      "id": "ir290_2fdc9f0bae171341",
+      "brand": "Carrier/Surrey",
+      "brand_label": "Carrier/Surrey",
+      "model": "619EGX0180E0 A/C",
+      "protocol": "Carrier",
+      "source": "library",
+      "search": "Carrier/Surrey  619EGX0180E0 A/C Carrier"
+    },
+    {
+      "id": "ir290_4c6123918f05ae4f",
+      "brand": "Carrier/Surrey",
+      "brand_label": "Carrier/Surrey",
+      "model": "619EGX0220E0 A/C",
+      "protocol": "Carrier",
+      "source": "library",
+      "search": "Carrier/Surrey  619EGX0220E0 A/C Carrier"
+    },
+    {
+      "id": "ir290_0a6ac5ead8d91c39",
+      "brand": "Centek",
+      "brand_label": "Centek",
+      "model": "SCT-65Q09 A/C",
+      "protocol": "Electra",
+      "source": "library",
+      "search": "Centek  SCT-65Q09 A/C Electra"
+    },
+    {
+      "id": "ir290_4c69aa452f6e872b",
+      "brand": "Centek",
+      "brand_label": "Centek",
+      "model": "YKR-P/002E remote",
+      "protocol": "Electra",
+      "source": "library",
+      "search": "Centek  YKR-P/002E remote Electra"
+    },
+    {
+      "id": "ir290_7f4b1e2cdc227225",
+      "brand": "Comfee",
+      "brand_label": "Comfee",
+      "model": "MPD1-12CRN7 A/C (MIDEA)",
+      "protocol": "Midea",
+      "source": "library",
+      "search": "Comfee  MPD1-12CRN7 A/C (MIDEA) Midea"
+    },
+    {
+      "id": "ir290_546e82c8ba926a38",
+      "brand": "Cooper & Hunter",
+      "brand_label": "Cooper & Hunter",
+      "model": "CH-S09FTXG A/C",
+      "protocol": "Gree",
+      "source": "library",
+      "search": "Cooper & Hunter  CH-S09FTXG A/C Gree"
+    },
+    {
+      "id": "ir290_f39627de2fbf6b75",
+      "brand": "Cooper & Hunter",
+      "brand_label": "Cooper & Hunter",
+      "model": "YB1F2 remote",
+      "protocol": "Gree",
+      "source": "library",
+      "search": "Cooper & Hunter  YB1F2 remote Gree"
+    },
+    {
+      "id": "ir290_b830054b048ffda4",
+      "brand": "Corona",
+      "brand_label": "Corona",
+      "model": "AR-01 remote",
+      "protocol": "Corona",
+      "source": "library",
+      "search": "Corona  AR-01 remote Corona"
+    },
+    {
+      "id": "ir290_1e349c000720ae0c",
+      "brand": "Corona",
+      "brand_label": "Corona",
+      "model": "CSH-N2211 A/C",
+      "protocol": "Corona",
+      "source": "library",
+      "search": "Corona  CSH-N2211 A/C Corona"
+    },
+    {
+      "id": "ir290_45c9a116d93b7c10",
+      "brand": "Corona",
+      "brand_label": "Corona",
+      "model": "CSH-N2511 A/C",
+      "protocol": "Corona",
+      "source": "library",
+      "search": "Corona  CSH-N2511 A/C Corona"
+    },
+    {
+      "id": "ir290_b2c9ac96ae8e45ce",
+      "brand": "Corona",
+      "brand_label": "Corona",
+      "model": "CSH-N2811 A/C",
+      "protocol": "Corona",
+      "source": "library",
+      "search": "Corona  CSH-N2811 A/C Corona"
+    },
+    {
+      "id": "ir290_10430bf4f70230c8",
+      "brand": "Corona",
+      "brand_label": "Corona",
+      "model": "CSH-N4011 A/C",
+      "protocol": "Corona",
+      "source": "library",
+      "search": "Corona  CSH-N4011 A/C Corona"
+    },
+    {
+      "id": "ir290_c094146bd09b2071",
+      "brand": "Daewoo",
+      "brand_label": "Daewoo",
+      "model": "DSB-F0934ELH-V A/C",
+      "protocol": "Tcl",
+      "source": "library",
+      "search": "Daewoo  DSB-F0934ELH-V A/C Tcl"
+    },
+    {
+      "id": "ir290_b41128fca346a56d",
+      "brand": "Daewoo",
+      "brand_label": "Daewoo",
+      "model": "GYKQ-52E remote",
+      "protocol": "Tcl",
+      "source": "library",
+      "search": "Daewoo  GYKQ-52E remote Tcl"
+    },
+    {
+      "id": "ir290_f4e7be9b8c87dda1",
+      "brand": "Daichi",
+      "brand_label": "Daichi",
+      "model": "D-H A/C (HAIER_AC176)",
+      "protocol": "Haier",
+      "source": "library",
+      "search": "Daichi  D-H A/C (HAIER_AC176) Haier"
+    },
+    {
+      "id": "ir290_aa1761eac3b9bb04",
+      "brand": "Daikin",
+      "brand_label": "大金",
+      "model": "17 Series FTXB09AXVJU A/C (DAIKIN128)",
+      "protocol": "Daikin",
+      "source": "library",
+      "search": "Daikin 大金 17 Series FTXB09AXVJU A/C (DAIKIN128) Daikin"
+    },
+    {
+      "id": "ir290_c06ba8848d7583c1",
+      "brand": "Daikin",
+      "brand_label": "大金",
+      "model": "17 Series FTXB12AXVJU A/C (DAIKIN128)",
+      "protocol": "Daikin",
+      "source": "library",
+      "search": "Daikin 大金 17 Series FTXB12AXVJU A/C (DAIKIN128) Daikin"
+    },
+    {
+      "id": "ir290_60af90b229b92728",
+      "brand": "Daikin",
+      "brand_label": "大金",
+      "model": "17 Series FTXB24AXVJU A/C (DAIKIN128)",
+      "protocol": "Daikin",
+      "source": "library",
+      "search": "Daikin 大金 17 Series FTXB24AXVJU A/C (DAIKIN128) Daikin"
+    },
+    {
+      "id": "ir290_f8daeccd78bb3cbb",
+      "brand": "Daikin",
+      "brand_label": "大金",
+      "model": "ARC423A5 remote (DAIKIN160)",
+      "protocol": "Daikin",
+      "source": "library",
+      "search": "Daikin 大金 ARC423A5 remote (DAIKIN160) Daikin"
+    },
+    {
+      "id": "ir290_85353e55455b5677",
+      "brand": "Daikin",
+      "brand_label": "大金",
+      "model": "ARC433 remote (DAIKIN)",
+      "protocol": "Daikin",
+      "source": "library",
+      "search": "Daikin 大金 ARC433 remote (DAIKIN) Daikin"
+    },
+    {
+      "id": "ir290_07acd4059ea49bd6",
+      "brand": "Daikin",
+      "brand_label": "大金",
+      "model": "ARC433B69 remote (DAIKIN216)",
+      "protocol": "Daikin",
+      "source": "library",
+      "search": "Daikin 大金 ARC433B69 remote (DAIKIN216) Daikin"
+    },
+    {
+      "id": "ir290_14fadb7a3d364833",
+      "brand": "Daikin",
+      "brand_label": "大金",
+      "model": "ARC443A5 remote (DAIKIN)",
+      "protocol": "Daikin",
+      "source": "library",
+      "search": "Daikin 大金 ARC443A5 remote (DAIKIN) Daikin"
+    },
+    {
+      "id": "ir290_e3147bbb0787499c",
+      "brand": "Daikin",
+      "brand_label": "大金",
+      "model": "ARC466A12 remote (DAIKIN)",
+      "protocol": "Daikin",
+      "source": "library",
+      "search": "Daikin 大金 ARC466A12 remote (DAIKIN) Daikin"
+    },
+    {
+      "id": "ir290_ba88e19c9d94c8f9",
+      "brand": "Daikin",
+      "brand_label": "大金",
+      "model": "ARC466A33 remote (DAIKIN)",
+      "protocol": "Daikin",
+      "source": "library",
+      "search": "Daikin 大金 ARC466A33 remote (DAIKIN) Daikin"
+    },
+    {
+      "id": "ir290_75f04d15fefcefe2",
+      "brand": "Daikin",
+      "brand_label": "大金",
+      "model": "ARC466A67 remote (DAIKIN312)",
+      "protocol": "Daikin",
+      "source": "library",
+      "search": "Daikin 大金 ARC466A67 remote (DAIKIN312) Daikin"
+    },
+    {
+      "id": "ir290_5fb522a1f6c13963",
+      "brand": "Daikin",
+      "brand_label": "大金",
+      "model": "ARC477A1 remote (DAIKIN2)",
+      "protocol": "Daikin",
+      "source": "library",
+      "search": "Daikin 大金 ARC477A1 remote (DAIKIN2) Daikin"
+    },
+    {
+      "id": "ir290_07ff8f0839fabaa2",
+      "brand": "Daikin",
+      "brand_label": "大金",
+      "model": "ARC480A5 remote (DAIKIN152)",
+      "protocol": "Daikin",
+      "source": "library",
+      "search": "Daikin 大金 ARC480A5 remote (DAIKIN152) Daikin"
+    },
+    {
+      "id": "ir290_def3172d8b03ba94",
+      "brand": "Daikin",
+      "brand_label": "大金",
+      "model": "ARC484A4 remote (DAIKIN216)",
+      "protocol": "Daikin",
+      "source": "library",
+      "search": "Daikin 大金 ARC484A4 remote (DAIKIN216) Daikin"
+    },
+    {
+      "id": "ir290_be3df675b76de223",
+      "brand": "Daikin",
+      "brand_label": "大金",
+      "model": "BRC4C151 remote (DAIKIN176)",
+      "protocol": "Daikin",
+      "source": "library",
+      "search": "Daikin 大金 BRC4C151 remote (DAIKIN176) Daikin"
+    },
+    {
+      "id": "ir290_4a8259ea8b7c793f",
+      "brand": "Daikin",
+      "brand_label": "大金",
+      "model": "BRC4C153 remote (DAIKIN176)",
+      "protocol": "Daikin",
+      "source": "library",
+      "search": "Daikin 大金 BRC4C153 remote (DAIKIN176) Daikin"
+    },
+    {
+      "id": "ir290_8feacb32d8c7f987",
+      "brand": "Daikin",
+      "brand_label": "大金",
+      "model": "BRC4M150W16 remote (DAIKIN200)",
+      "protocol": "Daikin",
+      "source": "library",
+      "search": "Daikin 大金 BRC4M150W16 remote (DAIKIN200) Daikin"
+    },
+    {
+      "id": "ir290_8f2927e59ed5c6d2",
+      "brand": "Daikin",
+      "brand_label": "大金",
+      "model": "BRC52B63 remote (DAIKIN128)",
+      "protocol": "Daikin",
+      "source": "library",
+      "search": "Daikin 大金 BRC52B63 remote (DAIKIN128) Daikin"
+    },
+    {
+      "id": "ir290_3083ed9fb0e974ff",
+      "brand": "Daikin",
+      "brand_label": "大金",
+      "model": "DGS01 remote (DAIKIN64)",
+      "protocol": "Daikin",
+      "source": "library",
+      "search": "Daikin 大金 DGS01 remote (DAIKIN64) Daikin"
+    },
+    {
+      "id": "ir290_0da575ee5ad6f38f",
+      "brand": "Daikin",
+      "brand_label": "大金",
+      "model": "FFN-C/FCN-F Series A/C (DAIKIN64)",
+      "protocol": "Daikin",
+      "source": "library",
+      "search": "Daikin 大金 FFN-C/FCN-F Series A/C (DAIKIN64) Daikin"
+    },
+    {
+      "id": "ir290_a50a394ca96f925b",
+      "brand": "Daikin",
+      "brand_label": "大金",
+      "model": "FFQ35B8V1B A/C (DAIKIN176)",
+      "protocol": "Daikin",
+      "source": "library",
+      "search": "Daikin 大金 FFQ35B8V1B A/C (DAIKIN176) Daikin"
+    },
+    {
+      "id": "ir290_2a16b40f169fc84a",
+      "brand": "Daikin",
+      "brand_label": "大金",
+      "model": "FTE12HV2S A/C",
+      "protocol": "Daikin",
+      "source": "library",
+      "search": "Daikin 大金 FTE12HV2S A/C Daikin"
+    },
+    {
+      "id": "ir290_678b8186e2727184",
+      "brand": "Daikin",
+      "brand_label": "大金",
+      "model": "FTQ60TV16U2 A/C (DAIKIN216)",
+      "protocol": "Daikin",
+      "source": "library",
+      "search": "Daikin 大金 FTQ60TV16U2 A/C (DAIKIN216) Daikin"
+    },
+    {
+      "id": "ir290_76ed8c3c74b0e4ce",
+      "brand": "Daikin",
+      "brand_label": "大金",
+      "model": "FTWX35AXV1 A/C (DAIKIN64)",
+      "protocol": "Daikin",
+      "source": "library",
+      "search": "Daikin 大金 FTWX35AXV1 A/C (DAIKIN64) Daikin"
+    },
+    {
+      "id": "ir290_f3fe3d92043250d4",
+      "brand": "Daikin",
+      "brand_label": "大金",
+      "model": "FTXM-M A/C (DAIKIN)",
+      "protocol": "Daikin",
+      "source": "library",
+      "search": "Daikin 大金 FTXM-M A/C (DAIKIN) Daikin"
+    },
+    {
+      "id": "ir290_77ef596cabbd2f1f",
+      "brand": "Daikin",
+      "brand_label": "大金",
+      "model": "FTXM20R5V1B A/C (DAIKIN312)",
+      "protocol": "Daikin",
+      "source": "library",
+      "search": "Daikin 大金 FTXM20R5V1B A/C (DAIKIN312) Daikin"
+    },
+    {
+      "id": "ir290_79c9ada26a758cf0",
+      "brand": "Daikin",
+      "brand_label": "大金",
+      "model": "FTXZ25NV1B A/C (DAIKIN2)",
+      "protocol": "Daikin",
+      "source": "library",
+      "search": "Daikin 大金 FTXZ25NV1B A/C (DAIKIN2) Daikin"
+    },
+    {
+      "id": "ir290_c2015c728a1a0eb9",
+      "brand": "Daikin",
+      "brand_label": "大金",
+      "model": "FTXZ35NV1B A/C (DAIKIN2)",
+      "protocol": "Daikin",
+      "source": "library",
+      "search": "Daikin 大金 FTXZ35NV1B A/C (DAIKIN2) Daikin"
+    },
+    {
+      "id": "ir290_1c929033e9817d72",
+      "brand": "Daikin",
+      "brand_label": "大金",
+      "model": "FTXZ50NV1B A/C (DAIKIN2)",
+      "protocol": "Daikin",
+      "source": "library",
+      "search": "Daikin 大金 FTXZ50NV1B A/C (DAIKIN2) Daikin"
+    },
+    {
+      "id": "ir290_afc9134aa77c1fb9",
+      "brand": "Daikin",
+      "brand_label": "大金",
+      "model": "M Series A/C (DAIKIN)",
+      "protocol": "Daikin",
+      "source": "library",
+      "search": "Daikin 大金 M Series A/C (DAIKIN) Daikin"
+    },
+    {
+      "id": "ir290_3165a5763ba659e4",
+      "brand": "Danby",
+      "brand_label": "Danby",
+      "model": "DAC080BGUWDB (MIDEA)",
+      "protocol": "Midea",
+      "source": "library",
+      "search": "Danby  DAC080BGUWDB (MIDEA) Midea"
+    },
+    {
+      "id": "ir290_9e1944b1837c1f22",
+      "brand": "Danby",
+      "brand_label": "Danby",
+      "model": "DAC100BGUWDB (MIDEA)",
+      "protocol": "Midea",
+      "source": "library",
+      "search": "Danby  DAC100BGUWDB (MIDEA) Midea"
+    },
+    {
+      "id": "ir290_3816db47ad953fd0",
+      "brand": "Danby",
+      "brand_label": "Danby",
+      "model": "DAC120BGUWDB (MIDEA)",
+      "protocol": "Midea",
+      "source": "library",
+      "search": "Danby  DAC120BGUWDB (MIDEA) Midea"
+    },
+    {
+      "id": "ir290_c79c95de06c8af3c",
+      "brand": "Danby",
+      "brand_label": "Danby",
+      "model": "R09C/BCGE remote (MIDEA)",
+      "protocol": "Midea",
+      "source": "library",
+      "search": "Danby  R09C/BCGE remote (MIDEA) Midea"
+    },
+    {
+      "id": "ir290_3b1438e7cc5c6f8c",
+      "brand": "Delonghi",
+      "brand_label": "Delonghi",
+      "model": "PAC A95",
+      "protocol": "Delonghi",
+      "source": "library",
+      "search": "Delonghi  PAC A95 Delonghi"
+    },
+    {
+      "id": "ir290_c11db7610b586119",
+      "brand": "Durastar",
+      "brand_label": "Durastar",
+      "model": "RG10R(M2S)/BGEFU1 remote",
+      "protocol": "Bosch",
+      "source": "library",
+      "search": "Durastar  RG10R(M2S)/BGEFU1 remote Bosch"
+    },
+    {
+      "id": "ir290_8638a1495bd976ff",
+      "brand": "Duux",
+      "brand_label": "Duux",
+      "model": "Blizzard Smart 10K / DXMA04 A/C (TROTEC)",
+      "protocol": "Trotec",
+      "source": "library",
+      "search": "Duux  Blizzard Smart 10K / DXMA04 A/C (TROTEC) Trotec"
+    },
+    {
+      "id": "ir290_7dd209ecb1393d27",
+      "brand": "EcoClim",
+      "brand_label": "EcoClim",
+      "model": "HYSFR-P348 remote",
+      "protocol": "Ecoclim",
+      "source": "library",
+      "search": "EcoClim  HYSFR-P348 remote Ecoclim"
+    },
+    {
+      "id": "ir290_3a604a611d5157c5",
+      "brand": "EcoClim",
+      "brand_label": "EcoClim",
+      "model": "ZC200DPO A/C",
+      "protocol": "Ecoclim",
+      "source": "library",
+      "search": "EcoClim  ZC200DPO A/C Ecoclim"
+    },
+    {
+      "id": "ir290_249525385427fe5b",
+      "brand": "EKOKAI",
+      "brand_label": "EKOKAI",
+      "model": "A/C",
+      "protocol": "Gree",
+      "source": "library",
+      "search": "EKOKAI  A/C Gree"
+    },
+    {
+      "id": "ir290_7b65b540ba54e192",
+      "brand": "Electra",
+      "brand_label": "Electra",
+      "model": "Classic INV 17 / AXW12DCS A/C",
+      "protocol": "Electra",
+      "source": "library",
+      "search": "Electra  Classic INV 17 / AXW12DCS A/C Electra"
+    },
+    {
+      "id": "ir290_b6e523786e4ab99e",
+      "brand": "Electra",
+      "brand_label": "Electra",
+      "model": "YKR-M/003E remote",
+      "protocol": "Electra",
+      "source": "library",
+      "search": "Electra  YKR-M/003E remote Electra"
+    },
+    {
+      "id": "ir290_59afb009add0bcfb",
+      "brand": "Electrolux",
+      "brand_label": "伊莱克斯",
+      "model": "EACM CL/N3 series remote",
+      "protocol": "Tcl",
+      "source": "library",
+      "search": "Electrolux 伊莱克斯 EACM CL/N3 series remote Tcl"
+    },
+    {
+      "id": "ir290_4c8ce55d2ef68b73",
+      "brand": "Electrolux",
+      "brand_label": "伊莱克斯",
+      "model": "YKR-H/531E A/C",
+      "protocol": "Electra",
+      "source": "library",
+      "search": "Electrolux 伊莱克斯 YKR-H/531E A/C Electra"
+    },
+    {
+      "id": "ir290_ecdb5aedf5cd9d1a",
+      "brand": "Eurom",
+      "brand_label": "Eurom",
+      "model": "Polar 16CH",
+      "protocol": "Eurom",
+      "source": "library",
+      "search": "Eurom  Polar 16CH Eurom"
+    },
+    {
+      "id": "ir290_5858a03cbbb997e1",
+      "brand": "Frigidaire",
+      "brand_label": "Frigidaire",
+      "model": "FGPC102AB1 A/C",
+      "protocol": "Electra",
+      "source": "library",
+      "search": "Frigidaire  FGPC102AB1 A/C Electra"
+    },
+    {
+      "id": "ir290_f7309c0c8886d813",
+      "brand": "Fujitsu",
+      "brand_label": "富士通",
+      "model": "AGTV14LAC A/C (ARRAH2E)",
+      "protocol": "Fujitsu",
+      "source": "library",
+      "search": "Fujitsu 富士通 AGTV14LAC A/C (ARRAH2E) Fujitsu"
+    },
+    {
+      "id": "ir290_72d1adc80ab7f806",
+      "brand": "Fujitsu",
+      "brand_label": "富士通",
+      "model": "AR-DB1 remote (ARDB1)",
+      "protocol": "Fujitsu",
+      "source": "library",
+      "search": "Fujitsu 富士通 AR-DB1 remote (ARDB1) Fujitsu"
+    },
+    {
+      "id": "ir290_e1b8815908ad9e39",
+      "brand": "Fujitsu",
+      "brand_label": "富士通",
+      "model": "AR-DL10 remote (ARDB1)",
+      "protocol": "Fujitsu",
+      "source": "library",
+      "search": "Fujitsu 富士通 AR-DL10 remote (ARDB1) Fujitsu"
+    },
+    {
+      "id": "ir290_687611edcac10482",
+      "brand": "Fujitsu",
+      "brand_label": "富士通",
+      "model": "AR-RAC1E remote (ARRAH2E)",
+      "protocol": "Fujitsu",
+      "source": "library",
+      "search": "Fujitsu 富士通 AR-RAC1E remote (ARRAH2E) Fujitsu"
+    },
+    {
+      "id": "ir290_c8e0174186fad5fc",
+      "brand": "Fujitsu",
+      "brand_label": "富士通",
+      "model": "AR-RAE1E remote (ARRAH2E)",
+      "protocol": "Fujitsu",
+      "source": "library",
+      "search": "Fujitsu 富士通 AR-RAE1E remote (ARRAH2E) Fujitsu"
+    },
+    {
+      "id": "ir290_05df5b892e0b9911",
+      "brand": "Fujitsu",
+      "brand_label": "富士通",
+      "model": "AR-RAH1U remote (ARREB1E)",
+      "protocol": "Fujitsu",
+      "source": "library",
+      "search": "Fujitsu 富士通 AR-RAH1U remote (ARREB1E) Fujitsu"
+    },
+    {
+      "id": "ir290_6e0fd710e0beeaca",
+      "brand": "Fujitsu",
+      "brand_label": "富士通",
+      "model": "AR-RAH2E remote (ARRAH2E)",
+      "protocol": "Fujitsu",
+      "source": "library",
+      "search": "Fujitsu 富士通 AR-RAH2E remote (ARRAH2E) Fujitsu"
+    },
+    {
+      "id": "ir290_c989cc9a1db341af",
+      "brand": "Fujitsu",
+      "brand_label": "富士通",
+      "model": "AR-RAH2U remote (ARRAH2E)",
+      "protocol": "Fujitsu",
+      "source": "library",
+      "search": "Fujitsu 富士通 AR-RAH2U remote (ARRAH2E) Fujitsu"
+    },
+    {
+      "id": "ir290_362ae1d1c6194f78",
+      "brand": "Fujitsu",
+      "brand_label": "富士通",
+      "model": "AR-REB1E remote (ARREB1E)",
+      "protocol": "Fujitsu",
+      "source": "library",
+      "search": "Fujitsu 富士通 AR-REB1E remote (ARREB1E) Fujitsu"
+    },
+    {
+      "id": "ir290_da806390fb87e6bd",
+      "brand": "Fujitsu",
+      "brand_label": "富士通",
+      "model": "AR-REB4E remote (ARREB1E)",
+      "protocol": "Fujitsu",
+      "source": "library",
+      "search": "Fujitsu 富士通 AR-REB4E remote (ARREB1E) Fujitsu"
+    },
+    {
+      "id": "ir290_e9af5751989bae1c",
+      "brand": "Fujitsu",
+      "brand_label": "富士通",
+      "model": "AR-REG1U remote (ARRAH2E)",
+      "protocol": "Fujitsu",
+      "source": "library",
+      "search": "Fujitsu 富士通 AR-REG1U remote (ARRAH2E) Fujitsu"
+    },
+    {
+      "id": "ir290_8dc0fd851144743c",
+      "brand": "Fujitsu",
+      "brand_label": "富士通",
+      "model": "AR-REW1E remote (ARREW4E)",
+      "protocol": "Fujitsu",
+      "source": "library",
+      "search": "Fujitsu 富士通 AR-REW1E remote (ARREW4E) Fujitsu"
+    },
+    {
+      "id": "ir290_d2385202e49b4e54",
+      "brand": "Fujitsu",
+      "brand_label": "富士通",
+      "model": "AR-REW4E remote (ARREW4E)",
+      "protocol": "Fujitsu",
+      "source": "library",
+      "search": "Fujitsu 富士通 AR-REW4E remote (ARREW4E) Fujitsu"
+    },
+    {
+      "id": "ir290_b34e143a64163668",
+      "brand": "Fujitsu",
+      "brand_label": "富士通",
+      "model": "AR-RY4 remote (ARRY4)",
+      "protocol": "Fujitsu",
+      "source": "library",
+      "search": "Fujitsu 富士通 AR-RY4 remote (ARRY4) Fujitsu"
+    },
+    {
+      "id": "ir290_37cd0cfea827f90f",
+      "brand": "Fujitsu",
+      "brand_label": "富士通",
+      "model": "AST9RSGCW A/C (ARDB1)",
+      "protocol": "Fujitsu",
+      "source": "library",
+      "search": "Fujitsu 富士通 AST9RSGCW A/C (ARDB1) Fujitsu"
+    },
+    {
+      "id": "ir290_bad49ccab2e85db7",
+      "brand": "Fujitsu",
+      "brand_label": "富士通",
+      "model": "ASTB09LBC A/C (ARRY4)",
+      "protocol": "Fujitsu",
+      "source": "library",
+      "search": "Fujitsu 富士通 ASTB09LBC A/C (ARRY4) Fujitsu"
+    },
+    {
+      "id": "ir290_922d8219aab33af8",
+      "brand": "Fujitsu",
+      "brand_label": "富士通",
+      "model": "ASTG09K A/C (ARREW4E)",
+      "protocol": "Fujitsu",
+      "source": "library",
+      "search": "Fujitsu 富士通 ASTG09K A/C (ARREW4E) Fujitsu"
+    },
+    {
+      "id": "ir290_830f367b972654e0",
+      "brand": "Fujitsu",
+      "brand_label": "富士通",
+      "model": "ASTG18K A/C (ARREW4E)",
+      "protocol": "Fujitsu",
+      "source": "library",
+      "search": "Fujitsu 富士通 ASTG18K A/C (ARREW4E) Fujitsu"
+    },
+    {
+      "id": "ir290_e19581bccd70d676",
+      "brand": "Fujitsu",
+      "brand_label": "富士通",
+      "model": "ASU12RLF A/C (ARREB1E)",
+      "protocol": "Fujitsu",
+      "source": "library",
+      "search": "Fujitsu 富士通 ASU12RLF A/C (ARREB1E) Fujitsu"
+    },
+    {
+      "id": "ir290_136e89968617e7b1",
+      "brand": "Fujitsu",
+      "brand_label": "富士通",
+      "model": "ASU30C1 A/C (ARDB1)",
+      "protocol": "Fujitsu",
+      "source": "library",
+      "search": "Fujitsu 富士通 ASU30C1 A/C (ARDB1) Fujitsu"
+    },
+    {
+      "id": "ir290_a90fb543e2f823bb",
+      "brand": "Fujitsu",
+      "brand_label": "富士通",
+      "model": "ASYG09KETA-B A/C (ARREW4E)",
+      "protocol": "Fujitsu",
+      "source": "library",
+      "search": "Fujitsu 富士通 ASYG09KETA-B A/C (ARREW4E) Fujitsu"
+    },
+    {
+      "id": "ir290_b2e7c4b3c5afa353",
+      "brand": "Fujitsu",
+      "brand_label": "富士通",
+      "model": "ASYG30LFCA A/C (ARRAH2E)",
+      "protocol": "Fujitsu",
+      "source": "library",
+      "search": "Fujitsu 富士通 ASYG30LFCA A/C (ARRAH2E) Fujitsu"
+    },
+    {
+      "id": "ir290_c0a015c81cebc182",
+      "brand": "Fujitsu",
+      "brand_label": "富士通",
+      "model": "ASYG7LMCA A/C (ARREB1E)",
+      "protocol": "Fujitsu",
+      "source": "library",
+      "search": "Fujitsu 富士通 ASYG7LMCA A/C (ARREB1E) Fujitsu"
+    },
+    {
+      "id": "ir290_67b858ea6e5ea32f",
+      "brand": "Fujitsu General",
+      "brand_label": "富士通将军",
+      "model": "AOHG09LLC A/C (ARRAH2E)",
+      "protocol": "Fujitsu",
+      "source": "library",
+      "search": "Fujitsu General 富士通将军 AOHG09LLC A/C (ARRAH2E) Fujitsu"
+    },
+    {
+      "id": "ir290_e33f6c159ab0f870",
+      "brand": "Fujitsu General",
+      "brand_label": "富士通将军",
+      "model": "AR-JW17 remote (ARDB1)",
+      "protocol": "Fujitsu",
+      "source": "library",
+      "search": "Fujitsu General 富士通将军 AR-JW17 remote (ARDB1) Fujitsu"
+    },
+    {
+      "id": "ir290_1035f7938917cc90",
+      "brand": "Fujitsu General",
+      "brand_label": "富士通将军",
+      "model": "AR-JW19 remote (ARDB1)",
+      "protocol": "Fujitsu",
+      "source": "library",
+      "search": "Fujitsu General 富士通将军 AR-JW19 remote (ARDB1) Fujitsu"
+    },
+    {
+      "id": "ir290_3b37ff7506a57f30",
+      "brand": "Fujitsu General",
+      "brand_label": "富士通将军",
+      "model": "AR-JW2 remote (ARJW2)",
+      "protocol": "Fujitsu",
+      "source": "library",
+      "search": "Fujitsu General 富士通将军 AR-JW2 remote (ARJW2) Fujitsu"
+    },
+    {
+      "id": "ir290_c7fb0249c5447687",
+      "brand": "Fujitsu General",
+      "brand_label": "富士通将军",
+      "model": "AR-RCE1E remote (ARRAH2E)",
+      "protocol": "Fujitsu",
+      "source": "library",
+      "search": "Fujitsu General 富士通将军 AR-RCE1E remote (ARRAH2E) Fujitsu"
+    },
+    {
+      "id": "ir290_5fef50b949d59031",
+      "brand": "Fujitsu General",
+      "brand_label": "富士通将军",
+      "model": "ASHG09LLCA A/C (ARRAH2E)",
+      "protocol": "Fujitsu",
+      "source": "library",
+      "search": "Fujitsu General 富士通将军 ASHG09LLCA A/C (ARRAH2E) Fujitsu"
+    },
+    {
+      "id": "ir290_5585d3290db35a82",
+      "brand": "General Electric",
+      "brand_label": "General Electric",
+      "model": "6711AR2853M Remote (LG - GE6711AR2853M)",
+      "protocol": "LG",
+      "source": "library",
+      "search": "General Electric  6711AR2853M Remote (LG - GE6711AR2853M) LG"
+    },
+    {
+      "id": "ir290_4459f3e3fbde4460",
+      "brand": "General Electric",
+      "brand_label": "General Electric",
+      "model": "AG1BH09AW101 A/C (LG - GE6711AR2853M)",
+      "protocol": "LG",
+      "source": "library",
+      "search": "General Electric  AG1BH09AW101 A/C (LG - GE6711AR2853M) LG"
+    },
+    {
+      "id": "ir290_07b7fe914be3b15a",
+      "brand": "Goodweather",
+      "brand_label": "Goodweather",
+      "model": "ZH/JT-03 remote",
+      "protocol": "Goodweather",
+      "source": "library",
+      "search": "Goodweather  ZH/JT-03 remote Goodweather"
+    },
+    {
+      "id": "ir290_7700c1b1971a6cbd",
+      "brand": "Gree",
+      "brand_label": "格力",
+      "model": "VIR09HP115V1AH A/C",
+      "protocol": "Gree",
+      "source": "library",
+      "search": "Gree 格力 VIR09HP115V1AH A/C Gree"
+    },
+    {
+      "id": "ir290_2b2578d2c657e89e",
+      "brand": "Gree",
+      "brand_label": "格力",
+      "model": "VIR12HP230V1AH A/C",
+      "protocol": "Gree",
+      "source": "library",
+      "search": "Gree 格力 VIR12HP230V1AH A/C Gree"
+    },
+    {
+      "id": "ir290_7b8d4072ea5dcf9c",
+      "brand": "Gree",
+      "brand_label": "格力",
+      "model": "YAA1FBF remote",
+      "protocol": "Gree",
+      "source": "library",
+      "search": "Gree 格力 YAA1FBF remote Gree"
+    },
+    {
+      "id": "ir290_b62719587e28c981",
+      "brand": "Gree",
+      "brand_label": "格力",
+      "model": "YAN1F1 remote",
+      "protocol": "Gree",
+      "source": "library",
+      "search": "Gree 格力 YAN1F1 remote Gree"
+    },
+    {
+      "id": "ir290_00786efe09bb1c50",
+      "brand": "Gree",
+      "brand_label": "格力",
+      "model": "YAP0F8 remote",
+      "protocol": "Kelvinator",
+      "source": "library",
+      "search": "Gree 格力 YAP0F8 remote Kelvinator"
+    },
+    {
+      "id": "ir290_03b5890833ee47d6",
+      "brand": "Gree",
+      "brand_label": "格力",
+      "model": "YAPOF3 remote",
+      "protocol": "Kelvinator",
+      "source": "library",
+      "search": "Gree 格力 YAPOF3 remote Kelvinator"
+    },
+    {
+      "id": "ir290_3a6e969c3e21ddf2",
+      "brand": "Gree",
+      "brand_label": "格力",
+      "model": "YB1F2F remote",
+      "protocol": "Gree",
+      "source": "library",
+      "search": "Gree 格力 YB1F2F remote Gree"
+    },
+    {
+      "id": "ir290_c6ba5235e0ba3ffd",
+      "brand": "Gree",
+      "brand_label": "格力",
+      "model": "YX1F2F remote (YX1FSF)",
+      "protocol": "Gree",
+      "source": "library",
+      "search": "Gree 格力 YX1F2F remote (YX1FSF) Gree"
+    },
+    {
+      "id": "ir290_fc4f96f36c9d64c8",
+      "brand": "Green",
+      "brand_label": "Green",
+      "model": "YBOFB remote",
+      "protocol": "Gree",
+      "source": "library",
+      "search": "Green  YBOFB remote Gree"
+    },
+    {
+      "id": "ir290_34f40ff05ae6729c",
+      "brand": "Green",
+      "brand_label": "Green",
+      "model": "YBOFB2 remote",
+      "protocol": "Gree",
+      "source": "library",
+      "search": "Green  YBOFB2 remote Gree"
+    },
+    {
+      "id": "ir290_f341c351dba298a2",
+      "brand": "Haier",
+      "brand_label": "海尔",
+      "model": "HSU-09HMC203 A/C (HAIER_AC_YRW02)",
+      "protocol": "Haier",
+      "source": "library",
+      "search": "Haier 海尔 HSU-09HMC203 A/C (HAIER_AC_YRW02) Haier"
+    },
+    {
+      "id": "ir290_4d85698d5ad8c9f6",
+      "brand": "Haier",
+      "brand_label": "海尔",
+      "model": "HSU07-HEA03 remote (HAIER_AC)",
+      "protocol": "Haier",
+      "source": "library",
+      "search": "Haier 海尔 HSU07-HEA03 remote (HAIER_AC) Haier"
+    },
+    {
+      "id": "ir290_c9304cfdd756a5ce",
+      "brand": "Haier",
+      "brand_label": "海尔",
+      "model": "KFR-26GW/83@UI-Ge A/C (HAIER_AC160)",
+      "protocol": "Haier",
+      "source": "library",
+      "search": "Haier 海尔 KFR-26GW/83@UI-Ge A/C (HAIER_AC160) Haier"
+    },
+    {
+      "id": "ir290_0e5fca0317153277",
+      "brand": "Haier",
+      "brand_label": "海尔",
+      "model": "V9014557 M47 8D remote (HAIER_AC176)",
+      "protocol": "Haier",
+      "source": "library",
+      "search": "Haier 海尔 V9014557 M47 8D remote (HAIER_AC176) Haier"
+    },
+    {
+      "id": "ir290_afd738d5bc163a36",
+      "brand": "Haier",
+      "brand_label": "海尔",
+      "model": "YR-W02 remote (HAIER_AC_YRW02)",
+      "protocol": "Haier",
+      "source": "library",
+      "search": "Haier 海尔 YR-W02 remote (HAIER_AC_YRW02) Haier"
+    },
+    {
+      "id": "ir290_9ecca62f984f3f96",
+      "brand": "Hisense",
+      "brand_label": "海信",
+      "model": "AST-09UW4RVETG00A A/C (KELON168)",
+      "protocol": "Kelon",
+      "source": "library",
+      "search": "Hisense 海信 AST-09UW4RVETG00A A/C (KELON168) Kelon"
+    },
+    {
+      "id": "ir290_54390e5e42ebec71",
+      "brand": "Hitachi",
+      "brand_label": "日立",
+      "model": "KAZE-312KSDP A/C (HITACHI_AC1)",
+      "protocol": "Hitachi",
+      "source": "library",
+      "search": "Hitachi 日立 KAZE-312KSDP A/C (HITACHI_AC1) Hitachi"
+    },
+    {
+      "id": "ir290_d0772f8bb9c19595",
+      "brand": "Hitachi",
+      "brand_label": "日立",
+      "model": "LT0541-HTA remote  (HITACHI_AC1)",
+      "protocol": "Hitachi",
+      "source": "library",
+      "search": "Hitachi 日立 LT0541-HTA remote  (HITACHI_AC1) Hitachi"
+    },
+    {
+      "id": "ir290_402c7571d008d76f",
+      "brand": "Hitachi",
+      "brand_label": "日立",
+      "model": "PC-LH3B (HITACHI_AC3)",
+      "protocol": "Hitachi",
+      "source": "library",
+      "search": "Hitachi 日立 PC-LH3B (HITACHI_AC3) Hitachi"
+    },
+    {
+      "id": "ir290_634bf08a4c1c3a31",
+      "brand": "Hitachi",
+      "brand_label": "日立",
+      "model": "R-LT0541-HTA/Y.K.1.1-1 V2.3 remote (HITACHI_AC1)",
+      "protocol": "Hitachi",
+      "source": "library",
+      "search": "Hitachi 日立 R-LT0541-HTA/Y.K.1.1-1 V2.3 remote (HITACHI_AC1) Hitachi"
+    },
+    {
+      "id": "ir290_000f660660788f50",
+      "brand": "Hitachi",
+      "brand_label": "日立",
+      "model": "RAK-25NH5 A/C (HITACHI_AC264)",
+      "protocol": "Hitachi",
+      "source": "library",
+      "search": "Hitachi 日立 RAK-25NH5 A/C (HITACHI_AC264) Hitachi"
+    },
+    {
+      "id": "ir290_b57cd0a71e66fee3",
+      "brand": "Hitachi",
+      "brand_label": "日立",
+      "model": "RAR-2P2 remote (HITACHI_AC264)",
+      "protocol": "Hitachi",
+      "source": "library",
+      "search": "Hitachi 日立 RAR-2P2 remote (HITACHI_AC264) Hitachi"
+    },
+    {
+      "id": "ir290_f84c82c93c561585",
+      "brand": "Hitachi",
+      "brand_label": "日立",
+      "model": "RAR-3U3 remote (HITACHI_AC296)",
+      "protocol": "Hitachi",
+      "source": "library",
+      "search": "Hitachi 日立 RAR-3U3 remote (HITACHI_AC296) Hitachi"
+    },
+    {
+      "id": "ir290_dbbea6cf8a6e43f3",
+      "brand": "Hitachi",
+      "brand_label": "日立",
+      "model": "RAR-8P2 remote (HITACHI_AC424)",
+      "protocol": "Hitachi",
+      "source": "library",
+      "search": "Hitachi 日立 RAR-8P2 remote (HITACHI_AC424) Hitachi"
+    },
+    {
+      "id": "ir290_dfb5ed9b95956298",
+      "brand": "Hitachi",
+      "brand_label": "日立",
+      "model": "RAS-22NK A/C (HITACHI_AC344)",
+      "protocol": "Hitachi",
+      "source": "library",
+      "search": "Hitachi 日立 RAS-22NK A/C (HITACHI_AC344) Hitachi"
+    },
+    {
+      "id": "ir290_80ba7844935a3e7f",
+      "brand": "Hitachi",
+      "brand_label": "日立",
+      "model": "RAS-35THA6 remote",
+      "protocol": "Hitachi",
+      "source": "library",
+      "search": "Hitachi 日立 RAS-35THA6 remote Hitachi"
+    },
+    {
+      "id": "ir290_e4381df428164cc6",
+      "brand": "Hitachi",
+      "brand_label": "日立",
+      "model": "RAS-70YHA3 A/C (HITACHI_AC296)",
+      "protocol": "Hitachi",
+      "source": "library",
+      "search": "Hitachi 日立 RAS-70YHA3 A/C (HITACHI_AC296) Hitachi"
+    },
+    {
+      "id": "ir290_3e6da72d65b46a48",
+      "brand": "Hitachi",
+      "brand_label": "日立",
+      "model": "RAS-AJ25H A/C (HITACHI_AC424)",
+      "protocol": "Hitachi",
+      "source": "library",
+      "search": "Hitachi 日立 RAS-AJ25H A/C (HITACHI_AC424) Hitachi"
+    },
+    {
+      "id": "ir290_087bc059c300e75b",
+      "brand": "Hitachi",
+      "brand_label": "日立",
+      "model": "RF11T1 remote (HITACHI_AC344)",
+      "protocol": "Hitachi",
+      "source": "library",
+      "search": "Hitachi 日立 RF11T1 remote (HITACHI_AC344) Hitachi"
+    },
+    {
+      "id": "ir290_ecbc2c25c021ec48",
+      "brand": "Hitachi",
+      "brand_label": "日立",
+      "model": "Series VI A/C (Circa 2007) (HITACHI_AC1)",
+      "protocol": "Hitachi",
+      "source": "library",
+      "search": "Hitachi 日立 Series VI A/C (Circa 2007) (HITACHI_AC1) Hitachi"
+    },
+    {
+      "id": "ir290_ab86cb60cd02e1b0",
+      "brand": "Kaysun",
+      "brand_label": "Kaysun",
+      "model": "Casual CF A/C (MIDEA)",
+      "protocol": "Midea",
+      "source": "library",
+      "search": "Kaysun  Casual CF A/C (MIDEA) Midea"
+    },
+    {
+      "id": "ir290_46ccf7836ec9c9d9",
+      "brand": "Kelon",
+      "brand_label": "科龙",
+      "model": "AST-09UW4RVETG00A A/C (KELON168)",
+      "protocol": "Kelon",
+      "source": "library",
+      "search": "Kelon 科龙 AST-09UW4RVETG00A A/C (KELON168) Kelon"
+    },
+    {
+      "id": "ir290_cf33d62355e7a246",
+      "brand": "Kelon",
+      "brand_label": "科龙",
+      "model": "DG11R2-01 remote (KELON168)",
+      "protocol": "Kelon",
+      "source": "library",
+      "search": "Kelon 科龙 DG11R2-01 remote (KELON168) Kelon"
+    },
+    {
+      "id": "ir290_5226a29383a5a425",
+      "brand": "Kelon",
+      "brand_label": "科龙",
+      "model": "ON/OFF 9000-12000 (KELON)",
+      "protocol": "Kelon",
+      "source": "library",
+      "search": "Kelon 科龙 ON/OFF 9000-12000 (KELON) Kelon"
+    },
+    {
+      "id": "ir290_e43689312246883d",
+      "brand": "Kelon",
+      "brand_label": "科龙",
+      "model": "RCH-R0Y3 remote (KELON168)",
+      "protocol": "Kelon",
+      "source": "library",
+      "search": "Kelon 科龙 RCH-R0Y3 remote (KELON168) Kelon"
+    },
+    {
+      "id": "ir290_ccb202a5c8c902a9",
+      "brand": "Kelvinator",
+      "brand_label": "Kelvinator",
+      "model": "KSV26CRC A/C",
+      "protocol": "Kelvinator",
+      "source": "library",
+      "search": "Kelvinator  KSV26CRC A/C Kelvinator"
+    },
+    {
+      "id": "ir290_2929cc9c7bf8fb0d",
+      "brand": "Kelvinator",
+      "brand_label": "Kelvinator",
+      "model": "KSV26HRC A/C",
+      "protocol": "Kelvinator",
+      "source": "library",
+      "search": "Kelvinator  KSV26HRC A/C Kelvinator"
+    },
+    {
+      "id": "ir290_baee8ed8e6d41b5b",
+      "brand": "Kelvinator",
+      "brand_label": "Kelvinator",
+      "model": "KSV35CRC A/C",
+      "protocol": "Kelvinator",
+      "source": "library",
+      "search": "Kelvinator  KSV35CRC A/C Kelvinator"
+    },
+    {
+      "id": "ir290_65e3dd162d917574",
+      "brand": "Kelvinator",
+      "brand_label": "Kelvinator",
+      "model": "KSV35HRC A/C",
+      "protocol": "Kelvinator",
+      "source": "library",
+      "search": "Kelvinator  KSV35HRC A/C Kelvinator"
+    },
+    {
+      "id": "ir290_2678e23b426a6adc",
+      "brand": "Kelvinator",
+      "brand_label": "Kelvinator",
+      "model": "KSV53HRC A/C",
+      "protocol": "Kelvinator",
+      "source": "library",
+      "search": "Kelvinator  KSV53HRC A/C Kelvinator"
+    },
+    {
+      "id": "ir290_e9dd7386e4d5966d",
+      "brand": "Kelvinator",
+      "brand_label": "Kelvinator",
+      "model": "KSV62HRC A/C",
+      "protocol": "Kelvinator",
+      "source": "library",
+      "search": "Kelvinator  KSV62HRC A/C Kelvinator"
+    },
+    {
+      "id": "ir290_3d04a7db7d655a57",
+      "brand": "Kelvinator",
+      "brand_label": "Kelvinator",
+      "model": "KSV70CRC A/C",
+      "protocol": "Kelvinator",
+      "source": "library",
+      "search": "Kelvinator  KSV70CRC A/C Kelvinator"
+    },
+    {
+      "id": "ir290_70d5592f2f81e104",
+      "brand": "Kelvinator",
+      "brand_label": "Kelvinator",
+      "model": "KSV70HRC A/C",
+      "protocol": "Kelvinator",
+      "source": "library",
+      "search": "Kelvinator  KSV70HRC A/C Kelvinator"
+    },
+    {
+      "id": "ir290_5e7b4aa579d5ac5e",
+      "brand": "Kelvinator",
+      "brand_label": "Kelvinator",
+      "model": "KSV80HRC A/C",
+      "protocol": "Kelvinator",
+      "source": "library",
+      "search": "Kelvinator  KSV80HRC A/C Kelvinator"
+    },
+    {
+      "id": "ir290_2e49d599307d18ba",
+      "brand": "Kelvinator",
+      "brand_label": "Kelvinator",
+      "model": "YALIF Remote",
+      "protocol": "Kelvinator",
+      "source": "library",
+      "search": "Kelvinator  YALIF Remote Kelvinator"
+    },
+    {
+      "id": "ir290_afafae89aa5f5bfa",
+      "brand": "Keystone",
+      "brand_label": "Keystone",
+      "model": "RG57H4(B)BGEF remote (MIDEA)",
+      "protocol": "Midea",
+      "source": "library",
+      "search": "Keystone  RG57H4(B)BGEF remote (MIDEA) Midea"
+    },
+    {
+      "id": "ir290_0b33c938243e9397",
+      "brand": "Leberg",
+      "brand_label": "Leberg",
+      "model": "LBS-TOR07 A/C (TAC09CHSD)",
+      "protocol": "Tcl",
+      "source": "library",
+      "search": "Leberg  LBS-TOR07 A/C (TAC09CHSD) Tcl"
+    },
+    {
+      "id": "ir290_d42a50c8ae1a551c",
+      "brand": "Lennox",
+      "brand_label": "Lennox",
+      "model": "M22A indoor split A/C (MIDEA)",
+      "protocol": "Midea",
+      "source": "library",
+      "search": "Lennox  M22A indoor split A/C (MIDEA) Midea"
+    },
+    {
+      "id": "ir290_442b005ca49c056d",
+      "brand": "Lennox",
+      "brand_label": "Lennox",
+      "model": "M33A indoor split A/C (MIDEA)",
+      "protocol": "Midea",
+      "source": "library",
+      "search": "Lennox  M33A indoor split A/C (MIDEA) Midea"
+    },
+    {
+      "id": "ir290_0cbbcd4f1c7a3a1c",
+      "brand": "Lennox",
+      "brand_label": "Lennox",
+      "model": "M33B indoor split A/C (MIDEA)",
+      "protocol": "Midea",
+      "source": "library",
+      "search": "Lennox  M33B indoor split A/C (MIDEA) Midea"
+    },
+    {
+      "id": "ir290_6beab74a44679d41",
+      "brand": "Lennox",
+      "brand_label": "Lennox",
+      "model": "MCFA indoor split A/C (MIDEA)",
+      "protocol": "Midea",
+      "source": "library",
+      "search": "Lennox  MCFA indoor split A/C (MIDEA) Midea"
+    },
+    {
+      "id": "ir290_b63273a333bea386",
+      "brand": "Lennox",
+      "brand_label": "Lennox",
+      "model": "MCFB indoor split A/C (MIDEA)",
+      "protocol": "Midea",
+      "source": "library",
+      "search": "Lennox  MCFB indoor split A/C (MIDEA) Midea"
+    },
+    {
+      "id": "ir290_b0eb59feb0972cef",
+      "brand": "Lennox",
+      "brand_label": "Lennox",
+      "model": "MMDA indoor split A/C (MIDEA)",
+      "protocol": "Midea",
+      "source": "library",
+      "search": "Lennox  MMDA indoor split A/C (MIDEA) Midea"
+    },
+    {
+      "id": "ir290_476ec9067c753625",
+      "brand": "Lennox",
+      "brand_label": "Lennox",
+      "model": "MMDB indoor split A/C (MIDEA)",
+      "protocol": "Midea",
+      "source": "library",
+      "search": "Lennox  MMDB indoor split A/C (MIDEA) Midea"
+    },
+    {
+      "id": "ir290_016048f87fc3f3d3",
+      "brand": "Lennox",
+      "brand_label": "Lennox",
+      "model": "MWMA indoor split A/C (MIDEA)",
+      "protocol": "Midea",
+      "source": "library",
+      "search": "Lennox  MWMA indoor split A/C (MIDEA) Midea"
+    },
+    {
+      "id": "ir290_535a30b728aa39a8",
+      "brand": "Lennox",
+      "brand_label": "Lennox",
+      "model": "MWMA009S4-3P A/C (MIDEA)",
+      "protocol": "Midea",
+      "source": "library",
+      "search": "Lennox  MWMA009S4-3P A/C (MIDEA) Midea"
+    },
+    {
+      "id": "ir290_fa6281f6a8dd5c31",
+      "brand": "Lennox",
+      "brand_label": "Lennox",
+      "model": "MWMA012S4-3P A/C (MIDEA)",
+      "protocol": "Midea",
+      "source": "library",
+      "search": "Lennox  MWMA012S4-3P A/C (MIDEA) Midea"
+    },
+    {
+      "id": "ir290_bc833dcbbcfb7d3f",
+      "brand": "Lennox",
+      "brand_label": "Lennox",
+      "model": "MWMB indoor split A/C (MIDEA)",
+      "protocol": "Midea",
+      "source": "library",
+      "search": "Lennox  MWMB indoor split A/C (MIDEA) Midea"
+    },
+    {
+      "id": "ir290_aa6c7093fe6b4b49",
+      "brand": "Lennox",
+      "brand_label": "Lennox",
+      "model": "RG57A6/BGEFU1 remote (MIDEA)",
+      "protocol": "Midea",
+      "source": "library",
+      "search": "Lennox  RG57A6/BGEFU1 remote (MIDEA) Midea"
+    },
+    {
+      "id": "ir290_6f809b0f3ecc9a39",
+      "brand": "LG",
+      "brand_label": "LG",
+      "model": "6711A20083V remote (LG - LG6711A20083V)",
+      "protocol": "LG",
+      "source": "library",
+      "search": "LG LG 6711A20083V remote (LG - LG6711A20083V) LG"
+    },
+    {
+      "id": "ir290_47648b51d446811f",
+      "brand": "LG",
+      "brand_label": "LG",
+      "model": "A4UW30GFA2 A/C (LG2 - AKB74955603 & AKB73757604)",
+      "protocol": "LG",
+      "source": "library",
+      "search": "LG LG A4UW30GFA2 A/C (LG2 - AKB74955603 & AKB73757604) LG"
+    },
+    {
+      "id": "ir290_e2af864b510d3220",
+      "brand": "LG",
+      "brand_label": "LG",
+      "model": "AKB73315611 remote (LG2 - AKB74955603)",
+      "protocol": "LG",
+      "source": "library",
+      "search": "LG LG AKB73315611 remote (LG2 - AKB74955603) LG"
+    },
+    {
+      "id": "ir290_e6ae83562011c35f",
+      "brand": "LG",
+      "brand_label": "LG",
+      "model": "AKB73757604 remote (LG2 - AKB73757604)",
+      "protocol": "LG",
+      "source": "library",
+      "search": "LG LG AKB73757604 remote (LG2 - AKB73757604) LG"
+    },
+    {
+      "id": "ir290_83b8df6789c6441b",
+      "brand": "LG",
+      "brand_label": "LG",
+      "model": "AKB74395308 remote (LG2)",
+      "protocol": "LG",
+      "source": "library",
+      "search": "LG LG AKB74395308 remote (LG2) LG"
+    },
+    {
+      "id": "ir290_84708f78c68f431b",
+      "brand": "LG",
+      "brand_label": "LG",
+      "model": "AKB74955603 remote (LG2 - AKB74955603)",
+      "protocol": "LG",
+      "source": "library",
+      "search": "LG LG AKB74955603 remote (LG2 - AKB74955603) LG"
+    },
+    {
+      "id": "ir290_c04cd02ace8cda4c",
+      "brand": "LG",
+      "brand_label": "LG",
+      "model": "AKB75215403 remote (LG2)",
+      "protocol": "LG",
+      "source": "library",
+      "search": "LG LG AKB75215403 remote (LG2) LG"
+    },
+    {
+      "id": "ir290_19ee59b8a1b91268",
+      "brand": "LG",
+      "brand_label": "LG",
+      "model": "AMNW09GSJA0 A/C (LG2 - AKB74955603)",
+      "protocol": "LG",
+      "source": "library",
+      "search": "LG LG AMNW09GSJA0 A/C (LG2 - AKB74955603) LG"
+    },
+    {
+      "id": "ir290_6efbc792ffb29186",
+      "brand": "LG",
+      "brand_label": "LG",
+      "model": "AMNW24GTPA1 A/C (LG2 - AKB73757604)",
+      "protocol": "LG",
+      "source": "library",
+      "search": "LG LG AMNW24GTPA1 A/C (LG2 - AKB73757604) LG"
+    },
+    {
+      "id": "ir290_a8e4fc461c392a8a",
+      "brand": "LG",
+      "brand_label": "LG",
+      "model": "MS05SQ NW0 A/C (LG2 - AKB74955603)",
+      "protocol": "LG",
+      "source": "library",
+      "search": "LG LG MS05SQ NW0 A/C (LG2 - AKB74955603) LG"
+    },
+    {
+      "id": "ir290_0754d462794abc33",
+      "brand": "LG",
+      "brand_label": "LG",
+      "model": "S4-W12JA3AA A/C (LG2)",
+      "protocol": "LG",
+      "source": "library",
+      "search": "LG LG S4-W12JA3AA A/C (LG2) LG"
+    },
+    {
+      "id": "ir290_3ea6c2ee0c7362fb",
+      "brand": "LG",
+      "brand_label": "LG",
+      "model": "TS-H122ERM1 remote (LG - LG6711A20083V)",
+      "protocol": "LG",
+      "source": "library",
+      "search": "LG LG TS-H122ERM1 remote (LG - LG6711A20083V) LG"
+    },
+    {
+      "id": "ir290_e1b27550f6964871",
+      "brand": "Mabe",
+      "brand_label": "Mabe",
+      "model": "MMI18HDBWCA6MI8 A/C (HAIER_AC176)",
+      "protocol": "Haier",
+      "source": "library",
+      "search": "Mabe  MMI18HDBWCA6MI8 A/C (HAIER_AC176) Haier"
+    },
+    {
+      "id": "ir290_18f93f3cd8e8b81b",
+      "brand": "Mabe",
+      "brand_label": "Mabe",
+      "model": "V12843 HJ200223 remote (HAIER_AC176)",
+      "protocol": "Haier",
+      "source": "library",
+      "search": "Mabe  V12843 HJ200223 remote (HAIER_AC176) Haier"
+    },
+    {
+      "id": "ir290_4f2abfb4cd09a69b",
+      "brand": "Maxell",
+      "brand_label": "Maxell",
+      "model": "KKG9A-C1 remote",
+      "protocol": "Mirage",
+      "source": "library",
+      "search": "Maxell  KKG9A-C1 remote Mirage"
+    },
+    {
+      "id": "ir290_a3595a375e0bc868",
+      "brand": "Maxell",
+      "brand_label": "Maxell",
+      "model": "MX-CH18CF A/C",
+      "protocol": "Mirage",
+      "source": "library",
+      "search": "Maxell  MX-CH18CF A/C Mirage"
+    },
+    {
+      "id": "ir290_62cc0d8826c3d860",
+      "brand": "Midea",
+      "brand_label": "美的",
+      "model": "FS40-7AR Stand Fan (MIDEA24)",
+      "protocol": "Midea",
+      "source": "library",
+      "search": "Midea 美的 FS40-7AR Stand Fan (MIDEA24) Midea"
+    },
+    {
+      "id": "ir290_fe059c38c5908b82",
+      "brand": "Midea",
+      "brand_label": "美的",
+      "model": "MS12FU-10HRDN1-QRD0GW(B) A/C",
+      "protocol": "Coolix",
+      "source": "library",
+      "search": "Midea 美的 MS12FU-10HRDN1-QRD0GW(B) A/C Coolix"
+    },
+    {
+      "id": "ir290_a3e118cdecf70fa5",
+      "brand": "Midea",
+      "brand_label": "美的",
+      "model": "MSABAU-07HRFN1-QRD0GW A/C (circa 2016)",
+      "protocol": "Coolix",
+      "source": "library",
+      "search": "Midea 美的 MSABAU-07HRFN1-QRD0GW A/C (circa 2016) Coolix"
+    },
+    {
+      "id": "ir290_b0883cc4cdc1cad6",
+      "brand": "Midea",
+      "brand_label": "美的",
+      "model": "RG52D/BGE Remote",
+      "protocol": "Coolix",
+      "source": "library",
+      "search": "Midea 美的 RG52D/BGE Remote Coolix"
+    },
+    {
+      "id": "ir290_f50ac66e91ca517a",
+      "brand": "Mirage",
+      "brand_label": "Mirage",
+      "model": "VLU series A/C",
+      "protocol": "Mirage",
+      "source": "library",
+      "search": "Mirage  VLU series A/C Mirage"
+    },
+    {
+      "id": "ir290_f7275a7d216ce85f",
+      "brand": "Mitsubishi",
+      "brand_label": "三菱电机",
+      "model": "HC3000 Projector (MITSUBISHI2)",
+      "protocol": "Mitsubishi",
+      "source": "library",
+      "search": "Mitsubishi 三菱电机 HC3000 Projector (MITSUBISHI2) Mitsubishi"
+    },
+    {
+      "id": "ir290_030dde87f7ae6bf8",
+      "brand": "Mitsubishi",
+      "brand_label": "三菱电机",
+      "model": "KM14A 0179213 remote",
+      "protocol": "Mitsubishi",
+      "source": "library",
+      "search": "Mitsubishi 三菱电机 KM14A 0179213 remote Mitsubishi"
+    },
+    {
+      "id": "ir290_b495ac714d06b9b6",
+      "brand": "Mitsubishi",
+      "brand_label": "三菱电机",
+      "model": "MS-GK24VA A/C",
+      "protocol": "Mitsubishi",
+      "source": "library",
+      "search": "Mitsubishi 三菱电机 MS-GK24VA A/C Mitsubishi"
+    },
+    {
+      "id": "ir290_d42d264cf4799390",
+      "brand": "Mitsubishi",
+      "brand_label": "三菱电机",
+      "model": "TV (MITSUBISHI)",
+      "protocol": "Mitsubishi",
+      "source": "library",
+      "search": "Mitsubishi 三菱电机 TV (MITSUBISHI) Mitsubishi"
+    },
+    {
+      "id": "ir290_1fdab7c5fc77712b",
+      "brand": "Mitsubishi Electric",
+      "brand_label": "三菱电机",
+      "model": "001CP T7WE10714 remote (MITSUBISHI136)",
+      "protocol": "Mitsubishi",
+      "source": "library",
+      "search": "Mitsubishi Electric 三菱电机 001CP T7WE10714 remote (MITSUBISHI136) Mitsubishi"
+    },
+    {
+      "id": "ir290_9dd4c9af82a193a6",
+      "brand": "Mitsubishi Electric",
+      "brand_label": "三菱电机",
+      "model": "KPOA remote (MITSUBISHI112)",
+      "protocol": "Mitsubishi",
+      "source": "library",
+      "search": "Mitsubishi Electric 三菱电机 KPOA remote (MITSUBISHI112) Mitsubishi"
+    },
+    {
+      "id": "ir290_bee06633aded13c7",
+      "brand": "Mitsubishi Electric",
+      "brand_label": "三菱电机",
+      "model": "MLZ-RX5017AS A/C (MITSUBISHI_AC)",
+      "protocol": "Mitsubishi",
+      "source": "library",
+      "search": "Mitsubishi Electric 三菱电机 MLZ-RX5017AS A/C (MITSUBISHI_AC) Mitsubishi"
+    },
+    {
+      "id": "ir290_7e3dacd807f846cb",
+      "brand": "Mitsubishi Electric",
+      "brand_label": "三菱电机",
+      "model": "MSH-A24WV A/C (MITSUBISHI112)",
+      "protocol": "Mitsubishi",
+      "source": "library",
+      "search": "Mitsubishi Electric 三菱电机 MSH-A24WV A/C (MITSUBISHI112) Mitsubishi"
+    },
+    {
+      "id": "ir290_8ce74c8b982e3a22",
+      "brand": "Mitsubishi Electric",
+      "brand_label": "三菱电机",
+      "model": "MSZ-FHnnVE A/C (MITSUBISHI_AC)",
+      "protocol": "Mitsubishi",
+      "source": "library",
+      "search": "Mitsubishi Electric 三菱电机 MSZ-FHnnVE A/C (MITSUBISHI_AC) Mitsubishi"
+    },
+    {
+      "id": "ir290_f6e70c44ac2eae4e",
+      "brand": "Mitsubishi Electric",
+      "brand_label": "三菱电机",
+      "model": "MSZ-GV2519 A/C (MITSUBISHI_AC)",
+      "protocol": "Mitsubishi",
+      "source": "library",
+      "search": "Mitsubishi Electric 三菱电机 MSZ-GV2519 A/C (MITSUBISHI_AC) Mitsubishi"
+    },
+    {
+      "id": "ir290_b3dfaa6e61736764",
+      "brand": "Mitsubishi Electric",
+      "brand_label": "三菱电机",
+      "model": "MSZ-SF25VE3 A/C (MITSUBISHI_AC)",
+      "protocol": "Mitsubishi",
+      "source": "library",
+      "search": "Mitsubishi Electric 三菱电机 MSZ-SF25VE3 A/C (MITSUBISHI_AC) Mitsubishi"
+    },
+    {
+      "id": "ir290_c091a10eee4b9da5",
+      "brand": "Mitsubishi Electric",
+      "brand_label": "三菱电机",
+      "model": "MSZ-ZW4017S A/C (MITSUBISHI_AC)",
+      "protocol": "Mitsubishi",
+      "source": "library",
+      "search": "Mitsubishi Electric 三菱电机 MSZ-ZW4017S A/C (MITSUBISHI_AC) Mitsubishi"
+    },
+    {
+      "id": "ir290_260a2b7eb4856a3a",
+      "brand": "Mitsubishi Electric",
+      "brand_label": "三菱电机",
+      "model": "MUH-A24WV A/C (MITSUBISHI112)",
+      "protocol": "Mitsubishi",
+      "source": "library",
+      "search": "Mitsubishi Electric 三菱电机 MUH-A24WV A/C (MITSUBISHI112) Mitsubishi"
+    },
+    {
+      "id": "ir290_b31f10ef214e8dd0",
+      "brand": "Mitsubishi Electric",
+      "brand_label": "三菱电机",
+      "model": "PAR-FA32MA remote (MITSUBISHI136)",
+      "protocol": "Mitsubishi",
+      "source": "library",
+      "search": "Mitsubishi Electric 三菱电机 PAR-FA32MA remote (MITSUBISHI136) Mitsubishi"
+    },
+    {
+      "id": "ir290_8de7e729489b5547",
+      "brand": "Mitsubishi Electric",
+      "brand_label": "三菱电机",
+      "model": "PEAD-RP71JAA Ducted A/C (MITSUBISHI136)",
+      "protocol": "Mitsubishi",
+      "source": "library",
+      "search": "Mitsubishi Electric 三菱电机 PEAD-RP71JAA Ducted A/C (MITSUBISHI136) Mitsubishi"
+    },
+    {
+      "id": "ir290_b98bde9f7e00b04f",
+      "brand": "Mitsubishi Electric",
+      "brand_label": "三菱电机",
+      "model": "RH151 remote (MITSUBISHI_AC)",
+      "protocol": "Mitsubishi",
+      "source": "library",
+      "search": "Mitsubishi Electric 三菱电机 RH151 remote (MITSUBISHI_AC) Mitsubishi"
+    },
+    {
+      "id": "ir290_825ea52a863420cd",
+      "brand": "Mitsubishi Electric",
+      "brand_label": "三菱电机",
+      "model": "RH151/M21ED6426 remote (MITSUBISHI_AC)",
+      "protocol": "Mitsubishi",
+      "source": "library",
+      "search": "Mitsubishi Electric 三菱电机 RH151/M21ED6426 remote (MITSUBISHI_AC) Mitsubishi"
+    },
+    {
+      "id": "ir290_322ded7fb74a8a70",
+      "brand": "Mitsubishi Electric",
+      "brand_label": "三菱电机",
+      "model": "SG153/M21EDF426 remote (MITSUBISHI_AC)",
+      "protocol": "Mitsubishi",
+      "source": "library",
+      "search": "Mitsubishi Electric 三菱电机 SG153/M21EDF426 remote (MITSUBISHI_AC) Mitsubishi"
+    },
+    {
+      "id": "ir290_e1c49328fc9d59f4",
+      "brand": "Mitsubishi Electric",
+      "brand_label": "三菱电机",
+      "model": "SG15D remote (MITSUBISHI_AC)",
+      "protocol": "Mitsubishi",
+      "source": "library",
+      "search": "Mitsubishi Electric 三菱电机 SG15D remote (MITSUBISHI_AC) Mitsubishi"
+    },
+    {
+      "id": "ir290_0d7828eb31f1bf6f",
+      "brand": "Mitsubishi Heavy Industries",
+      "brand_label": "三菱重工",
+      "model": "RKX502A001C remote (88 bit)",
+      "protocol": "MitsubishiHeavy",
+      "source": "library",
+      "search": "Mitsubishi Heavy Industries 三菱重工 RKX502A001C remote (88 bit) MitsubishiHeavy"
+    },
+    {
+      "id": "ir290_8ef1ca3abc6a3a06",
+      "brand": "Mitsubishi Heavy Industries",
+      "brand_label": "三菱重工",
+      "model": "RLA502A700B remote (152 bit)",
+      "protocol": "MitsubishiHeavy",
+      "source": "library",
+      "search": "Mitsubishi Heavy Industries 三菱重工 RLA502A700B remote (152 bit) MitsubishiHeavy"
+    },
+    {
+      "id": "ir290_decce59be08cdde8",
+      "brand": "Mitsubishi Heavy Industries",
+      "brand_label": "三菱重工",
+      "model": "SRKxxZJ-S A/C (88 bit)",
+      "protocol": "MitsubishiHeavy",
+      "source": "library",
+      "search": "Mitsubishi Heavy Industries 三菱重工 SRKxxZJ-S A/C (88 bit) MitsubishiHeavy"
+    },
+    {
+      "id": "ir290_43a2ddb69dcfd449",
+      "brand": "Mitsubishi Heavy Industries",
+      "brand_label": "三菱重工",
+      "model": "SRKxxZM-S A/C (152 bit)",
+      "protocol": "MitsubishiHeavy",
+      "source": "library",
+      "search": "Mitsubishi Heavy Industries 三菱重工 SRKxxZM-S A/C (152 bit) MitsubishiHeavy"
+    },
+    {
+      "id": "ir290_3fefa9ad44d12f0a",
+      "brand": "Mitsubishi Heavy Industries",
+      "brand_label": "三菱重工",
+      "model": "SRKxxZMXA-S A/C (152 bit)",
+      "protocol": "MitsubishiHeavy",
+      "source": "library",
+      "search": "Mitsubishi Heavy Industries 三菱重工 SRKxxZMXA-S A/C (152 bit) MitsubishiHeavy"
+    },
+    {
+      "id": "ir290_52003592c864aef5",
+      "brand": "MrCool",
+      "brand_label": "MrCool",
+      "model": "RG57A6/BGEFU1 remote (MIDEA)",
+      "protocol": "Midea",
+      "source": "library",
+      "search": "MrCool  RG57A6/BGEFU1 remote (MIDEA) Midea"
+    },
+    {
+      "id": "ir290_894b399578947c79",
+      "brand": "Neoclima",
+      "brand_label": "Neoclima",
+      "model": "NS-09AHTI A/C",
+      "protocol": "Neoclima",
+      "source": "library",
+      "search": "Neoclima  NS-09AHTI A/C Neoclima"
+    },
+    {
+      "id": "ir290_1705aceedcefd381",
+      "brand": "Neoclima",
+      "brand_label": "Neoclima",
+      "model": "ZH/TY-01 remote",
+      "protocol": "Neoclima",
+      "source": "library",
+      "search": "Neoclima  ZH/TY-01 remote Neoclima"
+    },
+    {
+      "id": "ir290_e8b7f4818fc7d988",
+      "brand": "OGeneral",
+      "brand_label": "OGeneral",
+      "model": "AR-RCL1E remote (ARRAH2E)",
+      "protocol": "Fujitsu",
+      "source": "library",
+      "search": "OGeneral  AR-RCL1E remote (ARRAH2E) Fujitsu"
+    },
+    {
+      "id": "ir290_ba9244de7fe8baa4",
+      "brand": "Panasonic",
+      "brand_label": "松下",
+      "model": "A75C2295 remote (PANASONIC_AC32)",
+      "protocol": "Panasonic",
+      "source": "library",
+      "search": "Panasonic 松下 A75C2295 remote (PANASONIC_AC32) Panasonic"
+    },
+    {
+      "id": "ir290_ccbca68798c5ad4f",
+      "brand": "Panasonic",
+      "brand_label": "松下",
+      "model": "A75C2311 remote (PANASONIC_AC CKP/5)",
+      "protocol": "Panasonic",
+      "source": "library",
+      "search": "Panasonic 松下 A75C2311 remote (PANASONIC_AC CKP/5) Panasonic"
+    },
+    {
+      "id": "ir290_4e38f6b2113ee5f8",
+      "brand": "Panasonic",
+      "brand_label": "松下",
+      "model": "A75C2616-1 remote (PANASONIC_AC DKE/3)",
+      "protocol": "Panasonic",
+      "source": "library",
+      "search": "Panasonic 松下 A75C2616-1 remote (PANASONIC_AC DKE/3) Panasonic"
+    },
+    {
+      "id": "ir290_fcdaba43b085801e",
+      "brand": "Panasonic",
+      "brand_label": "松下",
+      "model": "A75C3704 remote (PANASONIC_AC DKE/3)",
+      "protocol": "Panasonic",
+      "source": "library",
+      "search": "Panasonic 松下 A75C3704 remote (PANASONIC_AC DKE/3) Panasonic"
+    },
+    {
+      "id": "ir290_79bb97c52f9a0f93",
+      "brand": "Panasonic",
+      "brand_label": "松下",
+      "model": "A75C3747 remote (PANASONIC_AC JKE/4)",
+      "protocol": "Panasonic",
+      "source": "library",
+      "search": "Panasonic 松下 A75C3747 remote (PANASONIC_AC JKE/4) Panasonic"
+    },
+    {
+      "id": "ir290_0912a6a84590018c",
+      "brand": "Panasonic",
+      "brand_label": "松下",
+      "model": "A75C4762 remote (PANASONIC_AC RKR/6)",
+      "protocol": "Panasonic",
+      "source": "library",
+      "search": "Panasonic 松下 A75C4762 remote (PANASONIC_AC RKR/6) Panasonic"
+    },
+    {
+      "id": "ir290_57d2cd3c9f5d9ca6",
+      "brand": "Panasonic",
+      "brand_label": "松下",
+      "model": "CKP series A/C (PANASONIC_AC CKP/5)",
+      "protocol": "Panasonic",
+      "source": "library",
+      "search": "Panasonic 松下 CKP series A/C (PANASONIC_AC CKP/5) Panasonic"
+    },
+    {
+      "id": "ir290_3fa67aaa7f0175c7",
+      "brand": "Panasonic",
+      "brand_label": "松下",
+      "model": "CS-E12QKEW A/C (PANASONIC_AC DKE/3)",
+      "protocol": "Panasonic",
+      "source": "library",
+      "search": "Panasonic 松下 CS-E12QKEW A/C (PANASONIC_AC DKE/3) Panasonic"
+    },
+    {
+      "id": "ir290_6915e2bce0cd08a0",
+      "brand": "Panasonic",
+      "brand_label": "松下",
+      "model": "CS-E7PKR A/C (PANASONIC_AC DKE/2)",
+      "protocol": "Panasonic",
+      "source": "library",
+      "search": "Panasonic 松下 CS-E7PKR A/C (PANASONIC_AC DKE/2) Panasonic"
+    },
+    {
+      "id": "ir290_0a59d83c34653540",
+      "brand": "Panasonic",
+      "brand_label": "松下",
+      "model": "CS-E9CKP series A/C (PANASONIC_AC32)",
+      "protocol": "Panasonic",
+      "source": "library",
+      "search": "Panasonic 松下 CS-E9CKP series A/C (PANASONIC_AC32) Panasonic"
+    },
+    {
+      "id": "ir290_3238ce872d748a35",
+      "brand": "Panasonic",
+      "brand_label": "松下",
+      "model": "CS-ME10CKPG A/C (PANASONIC_AC CKP/5)",
+      "protocol": "Panasonic",
+      "source": "library",
+      "search": "Panasonic 松下 CS-ME10CKPG A/C (PANASONIC_AC CKP/5) Panasonic"
+    },
+    {
+      "id": "ir290_9405848f89898dfc",
+      "brand": "Panasonic",
+      "brand_label": "松下",
+      "model": "CS-ME12CKPG A/C (PANASONIC_AC CKP/5)",
+      "protocol": "Panasonic",
+      "source": "library",
+      "search": "Panasonic 松下 CS-ME12CKPG A/C (PANASONIC_AC CKP/5) Panasonic"
+    },
+    {
+      "id": "ir290_474d278cba14f35d",
+      "brand": "Panasonic",
+      "brand_label": "松下",
+      "model": "CS-ME14CKPG A/C (PANASONIC_AC CKP/5)",
+      "protocol": "Panasonic",
+      "source": "library",
+      "search": "Panasonic 松下 CS-ME14CKPG A/C (PANASONIC_AC CKP/5) Panasonic"
+    },
+    {
+      "id": "ir290_d496112369e12c50",
+      "brand": "Panasonic",
+      "brand_label": "松下",
+      "model": "CS-YW9MKD A/C (PANASONIC_AC JKE/4)",
+      "protocol": "Panasonic",
+      "source": "library",
+      "search": "Panasonic 松下 CS-YW9MKD A/C (PANASONIC_AC JKE/4) Panasonic"
+    },
+    {
+      "id": "ir290_fb83cfda1fdcce00",
+      "brand": "Panasonic",
+      "brand_label": "松下",
+      "model": "CS-Z24RKR A/C (PANASONIC_AC RKR/6)",
+      "protocol": "Panasonic",
+      "source": "library",
+      "search": "Panasonic 松下 CS-Z24RKR A/C (PANASONIC_AC RKR/6) Panasonic"
+    },
+    {
+      "id": "ir290_3e0816fc04dbcf49",
+      "brand": "Panasonic",
+      "brand_label": "松下",
+      "model": "CS-Z9RKR A/C (PANASONIC_AC RKR/6)",
+      "protocol": "Panasonic",
+      "source": "library",
+      "search": "Panasonic 松下 CS-Z9RKR A/C (PANASONIC_AC RKR/6) Panasonic"
+    },
+    {
+      "id": "ir290_e2609a9066f76ef0",
+      "brand": "Panasonic",
+      "brand_label": "松下",
+      "model": "DKE series A/C (PANASONIC_AC DKE/3)",
+      "protocol": "Panasonic",
+      "source": "library",
+      "search": "Panasonic 松下 DKE series A/C (PANASONIC_AC DKE/3) Panasonic"
+    },
+    {
+      "id": "ir290_85d033da2f03c9b2",
+      "brand": "Panasonic",
+      "brand_label": "松下",
+      "model": "DKW series A/C (PANASONIC_AC DKE/3)",
+      "protocol": "Panasonic",
+      "source": "library",
+      "search": "Panasonic 松下 DKW series A/C (PANASONIC_AC DKE/3) Panasonic"
+    },
+    {
+      "id": "ir290_a2bb5bdc2cfd1766",
+      "brand": "Panasonic",
+      "brand_label": "松下",
+      "model": "JKE series A/C (PANASONIC_AC JKE/4)",
+      "protocol": "Panasonic",
+      "source": "library",
+      "search": "Panasonic 松下 JKE series A/C (PANASONIC_AC JKE/4) Panasonic"
+    },
+    {
+      "id": "ir290_4ca461b531d62963",
+      "brand": "Panasonic",
+      "brand_label": "松下",
+      "model": "NKE series A/C (PANASONIC_AC NKE/2)",
+      "protocol": "Panasonic",
+      "source": "library",
+      "search": "Panasonic 松下 NKE series A/C (PANASONIC_AC NKE/2) Panasonic"
+    },
+    {
+      "id": "ir290_7d754ccd28b477cd",
+      "brand": "Panasonic",
+      "brand_label": "松下",
+      "model": "PKR series A/C (PANASONIC_AC DKE/3)",
+      "protocol": "Panasonic",
+      "source": "library",
+      "search": "Panasonic 松下 PKR series A/C (PANASONIC_AC DKE/3) Panasonic"
+    },
+    {
+      "id": "ir290_692440162e3bf1d9",
+      "brand": "Panasonic",
+      "brand_label": "松下",
+      "model": "PN1122V remote (PANASONIC_AC DKE/3)",
+      "protocol": "Panasonic",
+      "source": "library",
+      "search": "Panasonic 松下 PN1122V remote (PANASONIC_AC DKE/3) Panasonic"
+    },
+    {
+      "id": "ir290_08a8572e7f5bf380",
+      "brand": "Panasonic",
+      "brand_label": "松下",
+      "model": "RKR series A/C (PANASONIC_AC RKR/6)",
+      "protocol": "Panasonic",
+      "source": "library",
+      "search": "Panasonic 松下 RKR series A/C (PANASONIC_AC RKR/6) Panasonic"
+    },
+    {
+      "id": "ir290_885633c2e06bc244",
+      "brand": "Panasonic",
+      "brand_label": "松下",
+      "model": "TV (PANASONIC)",
+      "protocol": "Panasonic",
+      "source": "library",
+      "search": "Panasonic 松下 TV (PANASONIC) Panasonic"
+    },
+    {
+      "id": "ir290_b2cc490ae1805fc6",
+      "brand": "Pioneer System",
+      "brand_label": "Pioneer System",
+      "model": "RG66B6(B)/BGEFU1 remote (MIDEA)",
+      "protocol": "Midea",
+      "source": "library",
+      "search": "Pioneer System  RG66B6(B)/BGEFU1 remote (MIDEA) Midea"
+    },
+    {
+      "id": "ir290_ff12aafc826c7905",
+      "brand": "Pioneer System",
+      "brand_label": "Pioneer System",
+      "model": "RUBO18GMFILCAD A/C (18K BTU) (MIDEA)",
+      "protocol": "Midea",
+      "source": "library",
+      "search": "Pioneer System  RUBO18GMFILCAD A/C (18K BTU) (MIDEA) Midea"
+    },
+    {
+      "id": "ir290_483a799d3f80f9c7",
+      "brand": "Pioneer System",
+      "brand_label": "Pioneer System",
+      "model": "RYBO12GMFILCAD A/C (12K BTU) (MIDEA)",
+      "protocol": "Midea",
+      "source": "library",
+      "search": "Pioneer System  RYBO12GMFILCAD A/C (12K BTU) (MIDEA) Midea"
+    },
+    {
+      "id": "ir290_ce3f325fb447a840",
+      "brand": "Pioneer System",
+      "brand_label": "Pioneer System",
+      "model": "UB018GMFILCFHD A/C (12K BTU) (MIDEA)",
+      "protocol": "Midea",
+      "source": "library",
+      "search": "Pioneer System  UB018GMFILCFHD A/C (12K BTU) (MIDEA) Midea"
+    },
+    {
+      "id": "ir290_11555c0a685f53db",
+      "brand": "Pioneer System",
+      "brand_label": "Pioneer System",
+      "model": "WS012GMFI22HLD A/C (12K BTU) (MIDEA)",
+      "protocol": "Midea",
+      "source": "library",
+      "search": "Pioneer System  WS012GMFI22HLD A/C (12K BTU) (MIDEA) Midea"
+    },
+    {
+      "id": "ir290_2607cd373ed51154",
+      "brand": "Pioneer System",
+      "brand_label": "Pioneer System",
+      "model": "WS018GMFI22HLD A/C (12K BTU) (MIDEA)",
+      "protocol": "Midea",
+      "source": "library",
+      "search": "Pioneer System  WS018GMFI22HLD A/C (12K BTU) (MIDEA) Midea"
+    },
+    {
+      "id": "ir290_bc5b5f141898c475",
+      "brand": "Rhoss",
+      "brand_label": "Rhoss",
+      "model": "Idrowall MPCV 20-30-35-40",
+      "protocol": "Rhoss",
+      "source": "library",
+      "search": "Rhoss  Idrowall MPCV 20-30-35-40 Rhoss"
+    },
+    {
+      "id": "ir290_560cec2173703555",
+      "brand": "RusClimate",
+      "brand_label": "RusClimate",
+      "model": "EACS/I-09HAR_X/N3 A/C",
+      "protocol": "Gree",
+      "source": "library",
+      "search": "RusClimate  EACS/I-09HAR_X/N3 A/C Gree"
+    },
+    {
+      "id": "ir290_43bebfeddd5d9b85",
+      "brand": "RusClimate",
+      "brand_label": "RusClimate",
+      "model": "YAW1F remote",
+      "protocol": "Gree",
+      "source": "library",
+      "search": "RusClimate  YAW1F remote Gree"
+    },
+    {
+      "id": "ir290_0b39c3791cf60fc4",
+      "brand": "Samsung",
+      "brand_label": "三星",
+      "model": "AH59-02692E Soundbar remote (SAMSUNG36)",
+      "protocol": "Samsung",
+      "source": "library",
+      "search": "Samsung 三星 AH59-02692E Soundbar remote (SAMSUNG36) Samsung"
+    },
+    {
+      "id": "ir290_03907277310f3a69",
+      "brand": "Samsung",
+      "brand_label": "三星",
+      "model": "AK59-00167A Bluray remote (SAMSUNG36)",
+      "protocol": "Samsung",
+      "source": "library",
+      "search": "Samsung 三星 AK59-00167A Bluray remote (SAMSUNG36) Samsung"
+    },
+    {
+      "id": "ir290_02b45eaaccade1c0",
+      "brand": "Samsung",
+      "brand_label": "三星",
+      "model": "AR09FSSDAWKNFA A/C (SAMSUNG_AC)",
+      "protocol": "Samsung",
+      "source": "library",
+      "search": "Samsung 三星 AR09FSSDAWKNFA A/C (SAMSUNG_AC) Samsung"
+    },
+    {
+      "id": "ir290_416d846a62bfe2a2",
+      "brand": "Samsung",
+      "brand_label": "三星",
+      "model": "AR09HSFSBWKN A/C (SAMSUNG_AC)",
+      "protocol": "Samsung",
+      "source": "library",
+      "search": "Samsung 三星 AR09HSFSBWKN A/C (SAMSUNG_AC) Samsung"
+    },
+    {
+      "id": "ir290_36d002e5f5325ebc",
+      "brand": "Samsung",
+      "brand_label": "三星",
+      "model": "AR12HSSDBWKNEU A/C (SAMSUNG_AC)",
+      "protocol": "Samsung",
+      "source": "library",
+      "search": "Samsung 三星 AR12HSSDBWKNEU A/C (SAMSUNG_AC) Samsung"
+    },
+    {
+      "id": "ir290_3307a1c35963611b",
+      "brand": "Samsung",
+      "brand_label": "三星",
+      "model": "AR12KSFPEWQNET A/C (SAMSUNG_AC)",
+      "protocol": "Samsung",
+      "source": "library",
+      "search": "Samsung 三星 AR12KSFPEWQNET A/C (SAMSUNG_AC) Samsung"
+    },
+    {
+      "id": "ir290_fc8651c06057c283",
+      "brand": "Samsung",
+      "brand_label": "三星",
+      "model": "AR12NXCXAWKXEU A/C (SAMSUNG_AC)",
+      "protocol": "Samsung",
+      "source": "library",
+      "search": "Samsung 三星 AR12NXCXAWKXEU A/C (SAMSUNG_AC) Samsung"
+    },
+    {
+      "id": "ir290_8d3f4432a4843f63",
+      "brand": "Samsung",
+      "brand_label": "三星",
+      "model": "AR12TXEAAWKNEU A/C (SAMSUNG_AC)",
+      "protocol": "Samsung",
+      "source": "library",
+      "search": "Samsung 三星 AR12TXEAAWKNEU A/C (SAMSUNG_AC) Samsung"
+    },
+    {
+      "id": "ir290_ad94f1c786ca4b44",
+      "brand": "Samsung",
+      "brand_label": "三星",
+      "model": "BN59-01178B TV remote (SAMSUNG)",
+      "protocol": "Samsung",
+      "source": "library",
+      "search": "Samsung 三星 BN59-01178B TV remote (SAMSUNG) Samsung"
+    },
+    {
+      "id": "ir290_a2da313a60f93b1a",
+      "brand": "Samsung",
+      "brand_label": "三星",
+      "model": "DB63-03556X003 remote",
+      "protocol": "Samsung",
+      "source": "library",
+      "search": "Samsung 三星 DB63-03556X003 remote Samsung"
+    },
+    {
+      "id": "ir290_7e858c8aaef6909c",
+      "brand": "Samsung",
+      "brand_label": "三星",
+      "model": "DB93-14195A remote (SAMSUNG_AC)",
+      "protocol": "Samsung",
+      "source": "library",
+      "search": "Samsung 三星 DB93-14195A remote (SAMSUNG_AC) Samsung"
+    },
+    {
+      "id": "ir290_683578381ebf0c1b",
+      "brand": "Samsung",
+      "brand_label": "三星",
+      "model": "DB93-16761C remote",
+      "protocol": "Samsung",
+      "source": "library",
+      "search": "Samsung 三星 DB93-16761C remote Samsung"
+    },
+    {
+      "id": "ir290_9a3776bde27dcec0",
+      "brand": "Samsung",
+      "brand_label": "三星",
+      "model": "DB96-24901C remote (SAMSUNG_AC)",
+      "protocol": "Samsung",
+      "source": "library",
+      "search": "Samsung 三星 DB96-24901C remote (SAMSUNG_AC) Samsung"
+    },
+    {
+      "id": "ir290_75baf5a298da41c6",
+      "brand": "Samsung",
+      "brand_label": "三星",
+      "model": "HW-J551 Soundbar (SAMSUNG36)",
+      "protocol": "Samsung",
+      "source": "library",
+      "search": "Samsung 三星 HW-J551 Soundbar (SAMSUNG36) Samsung"
+    },
+    {
+      "id": "ir290_8d521c15d7658195",
+      "brand": "Samsung",
+      "brand_label": "三星",
+      "model": "IEC-R03 remote",
+      "protocol": "Samsung",
+      "source": "library",
+      "search": "Samsung 三星 IEC-R03 remote Samsung"
+    },
+    {
+      "id": "ir290_174d077554cbc2cc",
+      "brand": "Samsung",
+      "brand_label": "三星",
+      "model": "UA55H6300 TV (SAMSUNG)",
+      "protocol": "Samsung",
+      "source": "library",
+      "search": "Samsung 三星 UA55H6300 TV (SAMSUNG) Samsung"
+    },
+    {
+      "id": "ir290_bdea2dd895dd0ddd",
+      "brand": "Samsung",
+      "brand_label": "三星",
+      "model": "UE40K5510AUXRU TV (SAMSUNG)",
+      "protocol": "Samsung",
+      "source": "library",
+      "search": "Samsung 三星 UE40K5510AUXRU TV (SAMSUNG) Samsung"
+    },
+    {
+      "id": "ir290_edd7b1c219669657",
+      "brand": "Sanyo",
+      "brand_label": "三洋",
+      "model": "LC7461 transmitter IC (SANYO_LC7461)",
+      "protocol": "Sanyo",
+      "source": "library",
+      "search": "Sanyo 三洋 LC7461 transmitter IC (SANYO_LC7461) Sanyo"
+    },
+    {
+      "id": "ir290_15aaf83fc05a4066",
+      "brand": "Sanyo",
+      "brand_label": "三洋",
+      "model": "RCS-2HS4E remote (SANYO_AC)",
+      "protocol": "Sanyo",
+      "source": "library",
+      "search": "Sanyo 三洋 RCS-2HS4E remote (SANYO_AC) Sanyo"
+    },
+    {
+      "id": "ir290_909df6007c4702cd",
+      "brand": "Sanyo",
+      "brand_label": "三洋",
+      "model": "RCS-2S4E remote (SANYO_AC)",
+      "protocol": "Sanyo",
+      "source": "library",
+      "search": "Sanyo 三洋 RCS-2S4E remote (SANYO_AC) Sanyo"
+    },
+    {
+      "id": "ir290_7c708c2af825622e",
+      "brand": "Sanyo",
+      "brand_label": "三洋",
+      "model": "RCS-4MHVPIS4EE remote (SANYO_AC152)",
+      "protocol": "Sanyo",
+      "source": "library",
+      "search": "Sanyo 三洋 RCS-4MHVPIS4EE remote (SANYO_AC152) Sanyo"
+    },
+    {
+      "id": "ir290_6b2bc0bb2ebeba38",
+      "brand": "Sanyo",
+      "brand_label": "三洋",
+      "model": "SA 8650B - disabled",
+      "protocol": "Sanyo",
+      "source": "library",
+      "search": "Sanyo 三洋 SA 8650B - disabled Sanyo"
+    },
+    {
+      "id": "ir290_5649b02b28eb9852",
+      "brand": "Sanyo",
+      "brand_label": "三洋",
+      "model": "SAP-K121AHA A/C (SANYO_AC)",
+      "protocol": "Sanyo",
+      "source": "library",
+      "search": "Sanyo 三洋 SAP-K121AHA A/C (SANYO_AC) Sanyo"
+    },
+    {
+      "id": "ir290_5ef20ebd7793c81c",
+      "brand": "Sanyo",
+      "brand_label": "三洋",
+      "model": "SAP-K242AH A/C (SANYO_AC)",
+      "protocol": "Sanyo",
+      "source": "library",
+      "search": "Sanyo 三洋 SAP-K242AH A/C (SANYO_AC) Sanyo"
+    },
+    {
+      "id": "ir290_bbe246f2fbe1dda1",
+      "brand": "Sanyo",
+      "brand_label": "三洋",
+      "model": "SAP-KMRV124EHE A/C (SANYO_AC152)",
+      "protocol": "Sanyo",
+      "source": "library",
+      "search": "Sanyo 三洋 SAP-KMRV124EHE A/C (SANYO_AC152) Sanyo"
+    },
+    {
+      "id": "ir290_94da2206b908d903",
+      "brand": "Sharp",
+      "brand_label": "夏普",
+      "model": "A5VEY A/C",
+      "protocol": "Kelvinator",
+      "source": "library",
+      "search": "Sharp 夏普 A5VEY A/C Kelvinator"
+    },
+    {
+      "id": "ir290_3c8e0c188da6ee78",
+      "brand": "Sharp",
+      "brand_label": "夏普",
+      "model": "AH-A12REVP-1 A/C (A903)",
+      "protocol": "Sharp",
+      "source": "library",
+      "search": "Sharp 夏普 AH-A12REVP-1 A/C (A903) Sharp"
+    },
+    {
+      "id": "ir290_3105b2c88e89e3db",
+      "brand": "Sharp",
+      "brand_label": "夏普",
+      "model": "AH-AxSAY A/C (A907)",
+      "protocol": "Sharp",
+      "source": "library",
+      "search": "Sharp 夏普 AH-AxSAY A/C (A907) Sharp"
+    },
+    {
+      "id": "ir290_95afe9f692dad16b",
+      "brand": "Sharp",
+      "brand_label": "夏普",
+      "model": "AH-PR13-GL A/C (A903)",
+      "protocol": "Sharp",
+      "source": "library",
+      "search": "Sharp 夏普 AH-PR13-GL A/C (A903) Sharp"
+    },
+    {
+      "id": "ir290_0dc3cac44c4a690e",
+      "brand": "Sharp",
+      "brand_label": "夏普",
+      "model": "AH-XP10NRY A/C (A903)",
+      "protocol": "Sharp",
+      "source": "library",
+      "search": "Sharp 夏普 AH-XP10NRY A/C (A903) Sharp"
+    },
+    {
+      "id": "ir290_9a86d841443b0a3e",
+      "brand": "Sharp",
+      "brand_label": "夏普",
+      "model": "AY-ZP40KR A/C (A907)",
+      "protocol": "Sharp",
+      "source": "library",
+      "search": "Sharp 夏普 AY-ZP40KR A/C (A907) Sharp"
+    },
+    {
+      "id": "ir290_99f8c7106dd30ed3",
+      "brand": "Sharp",
+      "brand_label": "夏普",
+      "model": "CRMC-820 JBEZ remote (A903)",
+      "protocol": "Sharp",
+      "source": "library",
+      "search": "Sharp 夏普 CRMC-820 JBEZ remote (A903) Sharp"
+    },
+    {
+      "id": "ir290_5d0fddb5fadf072a",
+      "brand": "Sharp",
+      "brand_label": "夏普",
+      "model": "CRMC-A705 JBEZ remote (A705)",
+      "protocol": "Sharp",
+      "source": "library",
+      "search": "Sharp 夏普 CRMC-A705 JBEZ remote (A705) Sharp"
+    },
+    {
+      "id": "ir290_e27836dac6aa0363",
+      "brand": "Sharp",
+      "brand_label": "夏普",
+      "model": "CRMC-A863 JBEZ remote (A903)",
+      "protocol": "Sharp",
+      "source": "library",
+      "search": "Sharp 夏普 CRMC-A863 JBEZ remote (A903) Sharp"
+    },
+    {
+      "id": "ir290_73bb046a36804af5",
+      "brand": "Sharp",
+      "brand_label": "夏普",
+      "model": "CRMC-A903JBEZ remote (A903)",
+      "protocol": "Sharp",
+      "source": "library",
+      "search": "Sharp 夏普 CRMC-A903JBEZ remote (A903) Sharp"
+    },
+    {
+      "id": "ir290_f95c57f8ae6d8a88",
+      "brand": "Sharp",
+      "brand_label": "夏普",
+      "model": "CRMC-A907 JBEZ remote (A907)",
+      "protocol": "Sharp",
+      "source": "library",
+      "search": "Sharp 夏普 CRMC-A907 JBEZ remote (A907) Sharp"
+    },
+    {
+      "id": "ir290_81d42d412b61c299",
+      "brand": "Sharp",
+      "brand_label": "夏普",
+      "model": "CRMC-A950 JBEZ (A907)",
+      "protocol": "Sharp",
+      "source": "library",
+      "search": "Sharp 夏普 CRMC-A950 JBEZ (A907) Sharp"
+    },
+    {
+      "id": "ir290_7cd0ddc9e9362540",
+      "brand": "Sharp",
+      "brand_label": "夏普",
+      "model": "LC-52D62U TV",
+      "protocol": "Sharp",
+      "source": "library",
+      "search": "Sharp 夏普 LC-52D62U TV Sharp"
+    },
+    {
+      "id": "ir290_b57d319a92da1b49",
+      "brand": "Sharp",
+      "brand_label": "夏普",
+      "model": "YB1FA remote",
+      "protocol": "Kelvinator",
+      "source": "library",
+      "search": "Sharp 夏普 YB1FA remote Kelvinator"
+    },
+    {
+      "id": "ir290_b16dfb876c53fdb7",
+      "brand": "Soleus Air",
+      "brand_label": "Soleus Air",
+      "model": "TTWM1-10-01 A/C",
+      "protocol": "Neoclima",
+      "source": "library",
+      "search": "Soleus Air  TTWM1-10-01 A/C Neoclima"
+    },
+    {
+      "id": "ir290_777ecca8ec205efa",
+      "brand": "Soleus Air",
+      "brand_label": "Soleus Air",
+      "model": "window A/C (YX1FSF)",
+      "protocol": "Gree",
+      "source": "library",
+      "search": "Soleus Air  window A/C (YX1FSF) Gree"
+    },
+    {
+      "id": "ir290_76e62dde08df66e7",
+      "brand": "Soleus Air",
+      "brand_label": "Soleus Air",
+      "model": "ZCF/TL-05 remote",
+      "protocol": "Neoclima",
+      "source": "library",
+      "search": "Soleus Air  ZCF/TL-05 remote Neoclima"
+    },
+    {
+      "id": "ir290_76bb380631021fd0",
+      "brand": "Subtropic",
+      "brand_label": "Subtropic",
+      "model": "SUB-07HN1_18Y A/C",
+      "protocol": "Electra",
+      "source": "library",
+      "search": "Subtropic  SUB-07HN1_18Y A/C Electra"
+    },
+    {
+      "id": "ir290_41601d4e3de66c25",
+      "brand": "Subtropic",
+      "brand_label": "Subtropic",
+      "model": "YKR-H/102E remote",
+      "protocol": "Electra",
+      "source": "library",
+      "search": "Subtropic  YKR-H/102E remote Electra"
+    },
+    {
+      "id": "ir290_0ae93d0b29cfcce5",
+      "brand": "TCL",
+      "brand_label": "TCL",
+      "model": "GYKQ-58(XM) remote (TCL96AC)",
+      "protocol": "Tcl",
+      "source": "library",
+      "search": "TCL TCL GYKQ-58(XM) remote (TCL96AC) Tcl"
+    },
+    {
+      "id": "ir290_adaee7d35351a932",
+      "brand": "TCL",
+      "brand_label": "TCL",
+      "model": "TAC-09CHSD/XA31I A/C (TAC09CHSD)",
+      "protocol": "Tcl",
+      "source": "library",
+      "search": "TCL TCL TAC-09CHSD/XA31I A/C (TAC09CHSD) Tcl"
+    },
+    {
+      "id": "ir290_2a09891716b954a6",
+      "brand": "Technibel",
+      "brand_label": "Technibel",
+      "model": "IRO PLUS",
+      "protocol": "Technibel",
+      "source": "library",
+      "search": "Technibel  IRO PLUS Technibel"
+    },
+    {
+      "id": "ir290_aabcc2bff5ae2f36",
+      "brand": "Teknopoint",
+      "brand_label": "Teknopoint",
+      "model": "Allegro SSA-09H A/C (GZ055BE1)",
+      "protocol": "Tcl",
+      "source": "library",
+      "search": "Teknopoint  Allegro SSA-09H A/C (GZ055BE1) Tcl"
+    },
+    {
+      "id": "ir290_4f29ab12e1aca813",
+      "brand": "Teknopoint",
+      "brand_label": "Teknopoint",
+      "model": "GZ-055B-E1 remote (GZ055BE1)",
+      "protocol": "Tcl",
+      "source": "library",
+      "search": "Teknopoint  GZ-055B-E1 remote (GZ055BE1) Tcl"
+    },
+    {
+      "id": "ir290_db5bd0f290e5a03f",
+      "brand": "Toshiba",
+      "brand_label": "东芝",
+      "model": "Akita EVO II",
+      "protocol": "Toshiba",
+      "source": "library",
+      "search": "Toshiba 东芝 Akita EVO II Toshiba"
+    },
+    {
+      "id": "ir290_ac2796df090e41e7",
+      "brand": "Toshiba",
+      "brand_label": "东芝",
+      "model": "RAS 18SKP-ES",
+      "protocol": "Toshiba",
+      "source": "library",
+      "search": "Toshiba 东芝 RAS 18SKP-ES Toshiba"
+    },
+    {
+      "id": "ir290_11592d1eb34d8e13",
+      "brand": "Toshiba",
+      "brand_label": "东芝",
+      "model": "RAS-2558V A/C",
+      "protocol": "Toshiba",
+      "source": "library",
+      "search": "Toshiba 东芝 RAS-2558V A/C Toshiba"
+    },
+    {
+      "id": "ir290_97200ea5dd834bd5",
+      "brand": "Toshiba",
+      "brand_label": "东芝",
+      "model": "RAS-25SKVP2-ND A/C",
+      "protocol": "Toshiba",
+      "source": "library",
+      "search": "Toshiba 东芝 RAS-25SKVP2-ND A/C Toshiba"
+    },
+    {
+      "id": "ir290_c2b42a4be117c16d",
+      "brand": "Toshiba",
+      "brand_label": "东芝",
+      "model": "RAS-B13N3KV2",
+      "protocol": "Toshiba",
+      "source": "library",
+      "search": "Toshiba 东芝 RAS-B13N3KV2 Toshiba"
+    },
+    {
+      "id": "ir290_68b9c809e8c9b91e",
+      "brand": "Toshiba",
+      "brand_label": "东芝",
+      "model": "RAS-B13N3KVP-E",
+      "protocol": "Toshiba",
+      "source": "library",
+      "search": "Toshiba 东芝 RAS-B13N3KVP-E Toshiba"
+    },
+    {
+      "id": "ir290_b6d354304576994c",
+      "brand": "Toshiba",
+      "brand_label": "东芝",
+      "model": "WC-L03SE",
+      "protocol": "Toshiba",
+      "source": "library",
+      "search": "Toshiba 东芝 WC-L03SE Toshiba"
+    },
+    {
+      "id": "ir290_20c7d7f0fadd1ab9",
+      "brand": "Toshiba",
+      "brand_label": "东芝",
+      "model": "WH-TA01JE remote",
+      "protocol": "Toshiba",
+      "source": "library",
+      "search": "Toshiba 东芝 WH-TA01JE remote Toshiba"
+    },
+    {
+      "id": "ir290_b8e776463ec08262",
+      "brand": "Toshiba",
+      "brand_label": "东芝",
+      "model": "WH-TA04NE",
+      "protocol": "Toshiba",
+      "source": "library",
+      "search": "Toshiba 东芝 WH-TA04NE Toshiba"
+    },
+    {
+      "id": "ir290_8ce40417162e1645",
+      "brand": "Toshiba",
+      "brand_label": "东芝",
+      "model": "WH-UB03NJ remote",
+      "protocol": "Toshiba",
+      "source": "library",
+      "search": "Toshiba 东芝 WH-UB03NJ remote Toshiba"
+    },
+    {
+      "id": "ir290_98212babf9e4fe4d",
+      "brand": "Transcold",
+      "brand_label": "Transcold",
+      "model": "M1-F-NO-6 A/C",
+      "protocol": "Transcold",
+      "source": "library",
+      "search": "Transcold  M1-F-NO-6 A/C Transcold"
+    },
+    {
+      "id": "ir290_50dcf78b1e390919",
+      "brand": "Tronitechnik",
+      "brand_label": "Tronitechnik",
+      "model": "KKG29A-C1 remote",
+      "protocol": "Mirage",
+      "source": "library",
+      "search": "Tronitechnik  KKG29A-C1 remote Mirage"
+    },
+    {
+      "id": "ir290_cc6468e82b0eee80",
+      "brand": "Tronitechnik",
+      "brand_label": "Tronitechnik",
+      "model": "Reykir 9000 A/C",
+      "protocol": "Mirage",
+      "source": "library",
+      "search": "Tronitechnik  Reykir 9000 A/C Mirage"
+    },
+    {
+      "id": "ir290_b7f7abe0fd2ded2f",
+      "brand": "Trotec",
+      "brand_label": "Trotec",
+      "model": "PAC 3200 A/C (TROTEC)",
+      "protocol": "Trotec",
+      "source": "library",
+      "search": "Trotec  PAC 3200 A/C (TROTEC) Trotec"
+    },
+    {
+      "id": "ir290_cd3ac76ed795380a",
+      "brand": "Trotec",
+      "brand_label": "Trotec",
+      "model": "PAC 3550 Pro A/C (TROTEC_3550)",
+      "protocol": "Trotec",
+      "source": "library",
+      "search": "Trotec  PAC 3550 Pro A/C (TROTEC_3550) Trotec"
+    },
+    {
+      "id": "ir290_a1772c8f8e36f0dd",
+      "brand": "Trotec",
+      "brand_label": "Trotec",
+      "model": "RG57H(B)/BGE remote (MIDEA)",
+      "protocol": "Midea",
+      "source": "library",
+      "search": "Trotec  RG57H(B)/BGE remote (MIDEA) Midea"
+    },
+    {
+      "id": "ir290_4e06e125f50acc83",
+      "brand": "Trotec",
+      "brand_label": "Trotec",
+      "model": "RG57H3(B)/BGCEF-M remote (MIDEA)",
+      "protocol": "Midea",
+      "source": "library",
+      "search": "Trotec  RG57H3(B)/BGCEF-M remote (MIDEA) Midea"
+    },
+    {
+      "id": "ir290_55fc286078994968",
+      "brand": "Trotec",
+      "brand_label": "Trotec",
+      "model": "TROTEC PAC 2100 X (MIDEA)",
+      "protocol": "Midea",
+      "source": "library",
+      "search": "Trotec  TROTEC PAC 2100 X (MIDEA) Midea"
+    },
+    {
+      "id": "ir290_a5e3d2ec7b2e1e77",
+      "brand": "Trotec",
+      "brand_label": "Trotec",
+      "model": "TROTEC PAC 3900 X (MIDEA)",
+      "protocol": "Midea",
+      "source": "library",
+      "search": "Trotec  TROTEC PAC 3900 X (MIDEA) Midea"
+    },
+    {
+      "id": "ir290_aa151fd4852a20cf",
+      "brand": "Truma",
+      "brand_label": "Truma",
+      "model": "40091-86700 remote",
+      "protocol": "Truma",
+      "source": "library",
+      "search": "Truma  40091-86700 remote Truma"
+    },
+    {
+      "id": "ir290_9295e97853bf3c2a",
+      "brand": "Truma",
+      "brand_label": "Truma",
+      "model": "Aventa A/C",
+      "protocol": "Truma",
+      "source": "library",
+      "search": "Truma  Aventa A/C Truma"
+    },
+    {
+      "id": "ir290_3dbf09852c6dd4e5",
+      "brand": "Ultimate",
+      "brand_label": "Ultimate",
+      "model": "Heat Pump",
+      "protocol": "Gree",
+      "source": "library",
+      "search": "Ultimate  Heat Pump Gree"
+    },
+    {
+      "id": "ir290_cd9cd266bb6c6cea",
+      "brand": "Vailland",
+      "brand_label": "Vailland",
+      "model": "VAI5-035WNI A/C",
+      "protocol": "Gree",
+      "source": "library",
+      "search": "Vailland  VAI5-035WNI A/C Gree"
+    },
+    {
+      "id": "ir290_459ff991b3249f0f",
+      "brand": "Vailland",
+      "brand_label": "Vailland",
+      "model": "YACIFB remote",
+      "protocol": "Gree",
+      "source": "library",
+      "search": "Vailland  YACIFB remote Gree"
+    },
+    {
+      "id": "ir290_a8d9e22112bbfc4a",
+      "brand": "Vestel",
+      "brand_label": "Vestel",
+      "model": "BIOX CXP-9 A/C (9K BTU)",
+      "protocol": "Vestel",
+      "source": "library",
+      "search": "Vestel  BIOX CXP-9 A/C (9K BTU) Vestel"
+    },
+    {
+      "id": "ir290_0d8611ff8b8b585c",
+      "brand": "Voltas",
+      "brand_label": "Voltas",
+      "model": "122LZF 4011252 Window A/C",
+      "protocol": "Voltas",
+      "source": "library",
+      "search": "Voltas  122LZF 4011252 Window A/C Voltas"
+    },
+    {
+      "id": "ir290_56d2f31302f359e3",
+      "brand": "Whirlpool",
+      "brand_label": "惠而浦",
+      "model": "DG11J1-04 remote",
+      "protocol": "Whirlpool",
+      "source": "library",
+      "search": "Whirlpool 惠而浦 DG11J1-04 remote Whirlpool"
+    },
+    {
+      "id": "ir290_c7133b02aeda78f3",
+      "brand": "Whirlpool",
+      "brand_label": "惠而浦",
+      "model": "DG11J1-3A remote",
+      "protocol": "Whirlpool",
+      "source": "library",
+      "search": "Whirlpool 惠而浦 DG11J1-3A remote Whirlpool"
+    },
+    {
+      "id": "ir290_5bfbf028570343a2",
+      "brand": "Whirlpool",
+      "brand_label": "惠而浦",
+      "model": "DG11J1-91 remote",
+      "protocol": "Whirlpool",
+      "source": "library",
+      "search": "Whirlpool 惠而浦 DG11J1-91 remote Whirlpool"
+    },
+    {
+      "id": "ir290_2df086f9826e564b",
+      "brand": "Whirlpool",
+      "brand_label": "惠而浦",
+      "model": "SPIS409L A/C",
+      "protocol": "Whirlpool",
+      "source": "library",
+      "search": "Whirlpool 惠而浦 SPIS409L A/C Whirlpool"
+    },
+    {
+      "id": "ir290_845ee096a21e0eae",
+      "brand": "Whirlpool",
+      "brand_label": "惠而浦",
+      "model": "SPIS412L A/C",
+      "protocol": "Whirlpool",
+      "source": "library",
+      "search": "Whirlpool 惠而浦 SPIS412L A/C Whirlpool"
+    },
+    {
+      "id": "ir290_386cd3908c64af7d",
+      "brand": "Whirlpool",
+      "brand_label": "惠而浦",
+      "model": "SPIW409L A/C",
+      "protocol": "Whirlpool",
+      "source": "library",
+      "search": "Whirlpool 惠而浦 SPIW409L A/C Whirlpool"
+    },
+    {
+      "id": "ir290_075176cebd14368f",
+      "brand": "Whirlpool",
+      "brand_label": "惠而浦",
+      "model": "SPIW412L A/C",
+      "protocol": "Whirlpool",
+      "source": "library",
+      "search": "Whirlpool 惠而浦 SPIW412L A/C Whirlpool"
+    },
+    {
+      "id": "ir290_882feef04f5a0b46",
+      "brand": "Whirlpool",
+      "brand_label": "惠而浦",
+      "model": "SPIW418L A/C",
+      "protocol": "Whirlpool",
+      "source": "library",
+      "search": "Whirlpool 惠而浦 SPIW418L A/C Whirlpool"
+    },
+    {
+      "id": "ir290_3044154bbb7963d1",
+      "brand": "York",
+      "brand_label": "约克",
+      "model": "GRYLH2A remote",
+      "protocol": "York",
+      "source": "library",
+      "search": "York 约克 GRYLH2A remote York"
+    },
+    {
+      "id": "ir290_da6d7995c8f77105",
+      "brand": "York",
+      "brand_label": "约克",
+      "model": "MHH07P17 A/C",
+      "protocol": "York",
+      "source": "library",
+      "search": "York 约克 MHH07P17 A/C York"
+    }
+  ]
+}

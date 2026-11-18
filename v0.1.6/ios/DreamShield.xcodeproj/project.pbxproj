@@ -1,0 +1,118 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B10000000000000000000001 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F10000000000000000000003 /* Assets.xcassets */; };
+		B10000000000000000000002 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = F10000000000000000000004 /* PrivacyInfo.xcprivacy */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C10000000000000000000001 = {isa = PBXContainerItemProxy; containerPortal = 010000000000000000000001 /* Project object */; proxyType = 1; remoteGlobalIDString = A10000000000000000000001; remoteInfo = DreamShield; };
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		F10000000000000000000001 /* DreamShield.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DreamShield.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F10000000000000000000002 /* DreamShieldTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DreamShieldTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F10000000000000000000003 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F10000000000000000000004 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		F10000000000000000000005 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		710000000000000000000003 /* Sources */ = {isa = PBXFileSystemSynchronizedRootGroup; path = Sources; sourceTree = "<group>"; };
+		710000000000000000000004 /* Tests */ = {isa = PBXFileSystemSynchronizedRootGroup; path = Tests; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		810000000000000000000001 = {isa = PBXFrameworksBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
+		810000000000000000000002 = {isa = PBXFrameworksBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		710000000000000000000001 = {isa = PBXGroup; children = (710000000000000000000003 /* Sources */, 710000000000000000000005 /* Resources */, F10000000000000000000005 /* Info.plist */, 710000000000000000000004 /* Tests */, 710000000000000000000002 /* Products */); sourceTree = "<group>"; };
+		710000000000000000000002 /* Products */ = {isa = PBXGroup; children = (F10000000000000000000001, F10000000000000000000002); name = Products; sourceTree = "<group>"; };
+		710000000000000000000005 /* Resources */ = {isa = PBXGroup; children = (F10000000000000000000003, F10000000000000000000004); path = Resources; sourceTree = "<group>"; };
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A10000000000000000000001 /* DreamShield */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 910000000000000000000002;
+			buildPhases = (310000000000000000000001, 810000000000000000000001, 210000000000000000000001);
+			buildRules = ();
+			dependencies = ();
+			fileSystemSynchronizedGroups = (710000000000000000000003 /* Sources */);
+			name = DreamShield;
+			packageProductDependencies = ();
+			productName = DreamShield;
+			productReference = F10000000000000000000001;
+			productType = "com.apple.product-type.application";
+		};
+		A10000000000000000000002 /* DreamShieldTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 910000000000000000000003;
+			buildPhases = (310000000000000000000002, 810000000000000000000002, 210000000000000000000002);
+			buildRules = ();
+			dependencies = (D10000000000000000000001);
+			fileSystemSynchronizedGroups = (710000000000000000000004 /* Tests */);
+			name = DreamShieldTests;
+			packageProductDependencies = ();
+			productName = DreamShieldTests;
+			productReference = F10000000000000000000002;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		010000000000000000000001 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {BuildIndependentTargetsInParallel = 1; LastSwiftUpdateCheck = 1600; LastUpgradeCheck = 1600; TargetAttributes = {A10000000000000000000001 = {CreatedOnToolsVersion = 16.0; }; A10000000000000000000002 = {CreatedOnToolsVersion = 16.0; TestTargetID = A10000000000000000000001; }; }; };
+			buildConfigurationList = 910000000000000000000001;
+			developmentRegion = zh_CN;
+			hasScannedForEncodings = 0;
+			knownRegions = (zh_CN, en, Base);
+			mainGroup = 710000000000000000000001;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 710000000000000000000002;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (A10000000000000000000001, A10000000000000000000002);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		210000000000000000000001 = {isa = PBXResourcesBuildPhase; buildActionMask = 2147483647; files = (B10000000000000000000001, B10000000000000000000002); runOnlyForDeploymentPostprocessing = 0; };
+		210000000000000000000002 = {isa = PBXResourcesBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		310000000000000000000001 = {isa = PBXSourcesBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
+		310000000000000000000002 = {isa = PBXSourcesBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D10000000000000000000001 = {isa = PBXTargetDependency; target = A10000000000000000000001; targetProxy = C10000000000000000000001; };
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		E10000000000000000000001 /* Debug */ = {isa = XCBuildConfiguration; buildSettings = {ALWAYS_SEARCH_USER_PATHS = NO; CLANG_ENABLE_MODULES = YES; CLANG_ENABLE_OBJC_ARC = YES; CLANG_WARN_DOCUMENTATION_COMMENTS = YES; CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES; COPY_PHASE_STRIP = NO; DEBUG_INFORMATION_FORMAT = dwarf; ENABLE_STRICT_OBJC_MSGSEND = YES; ENABLE_TESTABILITY = YES; GCC_C_LANGUAGE_STANDARD = gnu17; GCC_NO_COMMON_BLOCKS = YES; GCC_OPTIMIZATION_LEVEL = 0; IPHONEOS_DEPLOYMENT_TARGET = 17.0; ONLY_ACTIVE_ARCH = YES; SDKROOT = iphoneos; SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)"; SWIFT_OPTIMIZATION_LEVEL = "-Onone"; }; name = Debug; };
+		E10000000000000000000002 /* Release */ = {isa = XCBuildConfiguration; buildSettings = {ALWAYS_SEARCH_USER_PATHS = NO; CLANG_ENABLE_MODULES = YES; CLANG_ENABLE_OBJC_ARC = YES; CLANG_WARN_DOCUMENTATION_COMMENTS = YES; CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES; COPY_PHASE_STRIP = NO; DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym"; ENABLE_NS_ASSERTIONS = NO; ENABLE_STRICT_OBJC_MSGSEND = YES; GCC_C_LANGUAGE_STANDARD = gnu17; GCC_NO_COMMON_BLOCKS = YES; IPHONEOS_DEPLOYMENT_TARGET = 17.0; SDKROOT = iphoneos; SWIFT_COMPILATION_MODE = wholemodule; SWIFT_OPTIMIZATION_LEVEL = "-O"; VALIDATE_PRODUCT = YES; }; name = Release; };
+		E10000000000000000000003 /* Debug */ = {isa = XCBuildConfiguration; buildSettings = {ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon; ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor; CODE_SIGN_STYLE = Automatic; CURRENT_PROJECT_VERSION = 2; DEVELOPMENT_TEAM = ""; ENABLE_PREVIEWS = YES; GENERATE_INFOPLIST_FILE = NO; INFOPLIST_FILE = Info.plist; LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks"; MARKETING_VERSION = 0.1.1; PRODUCT_BUNDLE_IDENTIFIER = com.dreamshield.ios; PRODUCT_NAME = "$(TARGET_NAME)"; SUPPORTED_PLATFORMS = "iphoneos iphonesimulator"; SUPPORTS_MACCATALYST = NO; SWIFT_EMIT_LOC_STRINGS = YES; SWIFT_STRICT_CONCURRENCY = minimal; SWIFT_VERSION = 5.0; TARGETED_DEVICE_FAMILY = "1,2"; }; name = Debug; };
+		E10000000000000000000004 /* Release */ = {isa = XCBuildConfiguration; buildSettings = {ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon; ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor; CODE_SIGN_STYLE = Automatic; CURRENT_PROJECT_VERSION = 2; DEVELOPMENT_TEAM = ""; ENABLE_PREVIEWS = YES; GENERATE_INFOPLIST_FILE = NO; INFOPLIST_FILE = Info.plist; LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks"; MARKETING_VERSION = 0.1.1; PRODUCT_BUNDLE_IDENTIFIER = com.dreamshield.ios; PRODUCT_NAME = "$(TARGET_NAME)"; SUPPORTED_PLATFORMS = "iphoneos iphonesimulator"; SUPPORTS_MACCATALYST = NO; SWIFT_EMIT_LOC_STRINGS = YES; SWIFT_STRICT_CONCURRENCY = minimal; SWIFT_VERSION = 5.0; TARGETED_DEVICE_FAMILY = "1,2"; }; name = Release; };
+		E10000000000000000000005 /* Debug */ = {isa = XCBuildConfiguration; buildSettings = {BUNDLE_LOADER = "$(TEST_HOST)"; CODE_SIGN_STYLE = Automatic; CURRENT_PROJECT_VERSION = 2; DEVELOPMENT_TEAM = ""; GENERATE_INFOPLIST_FILE = YES; LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks"; MARKETING_VERSION = 0.1.1; PRODUCT_BUNDLE_IDENTIFIER = com.dreamshield.ios.tests; PRODUCT_NAME = "$(TARGET_NAME)"; SUPPORTED_PLATFORMS = "iphoneos iphonesimulator"; SWIFT_STRICT_CONCURRENCY = minimal; SWIFT_VERSION = 5.0; TARGETED_DEVICE_FAMILY = "1,2"; TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DreamShield.app/DreamShield"; }; name = Debug; };
+		E10000000000000000000006 /* Release */ = {isa = XCBuildConfiguration; buildSettings = {BUNDLE_LOADER = "$(TEST_HOST)"; CODE_SIGN_STYLE = Automatic; CURRENT_PROJECT_VERSION = 2; DEVELOPMENT_TEAM = ""; GENERATE_INFOPLIST_FILE = YES; LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks"; MARKETING_VERSION = 0.1.1; PRODUCT_BUNDLE_IDENTIFIER = com.dreamshield.ios.tests; PRODUCT_NAME = "$(TARGET_NAME)"; SUPPORTED_PLATFORMS = "iphoneos iphonesimulator"; SWIFT_STRICT_CONCURRENCY = minimal; SWIFT_VERSION = 5.0; TARGETED_DEVICE_FAMILY = "1,2"; TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DreamShield.app/DreamShield"; }; name = Release; };
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		910000000000000000000001 = {isa = XCConfigurationList; buildConfigurations = (E10000000000000000000001, E10000000000000000000002); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
+		910000000000000000000002 = {isa = XCConfigurationList; buildConfigurations = (E10000000000000000000003, E10000000000000000000004); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
+		910000000000000000000003 = {isa = XCConfigurationList; buildConfigurations = (E10000000000000000000005, E10000000000000000000006); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
+/* End XCConfigurationList section */
+	};
+	rootObject = 010000000000000000000001 /* Project object */;
+}

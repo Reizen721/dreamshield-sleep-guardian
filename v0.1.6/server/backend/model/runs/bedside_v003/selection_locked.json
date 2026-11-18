@@ -1,0 +1,12 @@
+{
+  "frozen_at": "2026-11-12T07:41:57.462319+00:00",
+  "chosen_model": "fusion_50",
+  "guard_secondary": "v1_random_forest",
+  "guard": {
+    "min_top_score": 0.6,
+    "min_margin": 0.15,
+    "require_top_two_agreement": true
+  },
+  "basis": "development only",
+  "execution_allowed": false
+}

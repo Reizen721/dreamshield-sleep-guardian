@@ -1,0 +1,21 @@
+# Local tools, generated outputs, and machine-specific configuration.
+.gradle/
+.idea/
+**/build/
+local.properties
+*.iml
+dist/
+
+# Publisher credentials are never source or distributable artifacts.
+keystore.properties
+*.keystore
+*.jks
+*.p12
+*.pfx
+*.pem
+*.key
+.env
+.env.*
+
+# Offline Java test output.
+*.class

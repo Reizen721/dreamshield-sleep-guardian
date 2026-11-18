@@ -1,0 +1,38 @@
+.thermal-model-section{grid-column:1/-1;border-top:1px solid var(--line);padding-top:26px;scroll-margin-top:20px}
+.model-limit{max-width:85ch;color:var(--muted);font-size:14px;margin:0 0 22px}
+.model-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:32px}
+.model-layout>div{min-width:0}.model-check{display:flex;gap:12px;align-items:center;min-height:44px;cursor:pointer;margin-bottom:4px}
+.model-check input{width:20px;height:20px;min-height:20px;flex:0 0 20px;accent-color:var(--cyan);padding:0}
+.model-controls .button-row{margin-top:16px}.model-controls .button-row .button{flex:1 1 auto}
+.model-output{border-left:1px solid var(--line);padding:0 0 0 26px}.model-source{font-size:13px;color:var(--muted);margin:0 0 10px}.model-answer{font-size:clamp(23px,3vw,30px);line-height:1.4;font-weight:700;margin:0 0 12px;overflow-wrap:anywhere}.model-explanation{font-size:14px;color:var(--muted);margin:0;max-width:45ch}.model-facts{display:grid;grid-template-columns:1fr 1fr;gap:16px 24px;padding-top:20px;margin-top:20px;border-top:1px solid var(--line)}.model-facts dt{color:var(--muted);font-size:12px}.model-facts dd{margin:4px 0 0;font-size:14px;overflow-wrap:anywhere;font-variant-numeric:tabular-nums}
+@media(max-width:760px){.model-layout{grid-template-columns:1fr;gap:22px}.model-output{padding-left:18px}.model-controls .button-row .button{min-width:120px}}
+
+/* Desktop observation workspace: keep the image and its judgement together. */
+.thermal-navigation{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 26px;padding:0 0 18px;border-bottom:1px solid var(--line)}
+.thermal-navigation a{color:var(--muted);text-decoration:none;padding:10px 14px;border-radius:10px;min-height:44px;font-size:14px}
+.thermal-navigation a:hover,.thermal-navigation a[aria-current]{color:var(--text);background:var(--panel);box-shadow:inset 0 0 0 1px var(--line)}
+.layout{grid-template-columns:minmax(0,1.15fr) minmax(340px,1fr);align-items:start}
+.thermal-model-section{grid-column:auto;border:1px solid var(--line);border-radius:16px;padding:24px;background:var(--panel)}
+.thermal-model-section .model-layout{display:flex;flex-direction:column;gap:24px}
+.model-output{border-left:1px solid var(--line);padding-left:18px}
+.model-output[data-tone="uncertain"]{border-color:var(--amber)}
+.model-output[data-tone="stale"],.model-output[data-tone="waiting"]{border-color:var(--line)}
+.model-output[data-tone="offline"]{border-color:var(--red)}
+.model-facts{margin-top:12px;padding-top:12px;gap:10px}
+.model-limit{margin-bottom:16px;font-size:13px}.model-controls .field-note{margin-bottom:12px}
+.preview-section>.preview-actions{margin:0 0 14px}
+.setup-section{grid-column:1/-1;max-width:none}.setup-section form{max-width:760px}
+.setup-section .capture-actions{max-width:760px}
+@media(max-width:960px){.layout{grid-template-columns:minmax(0,1fr)}.thermal-model-section{grid-column:1}.thermal-model-section .model-layout{display:grid;grid-template-columns:1fr 1fr}}
+@media(max-width:640px){.thermal-model-section{padding:18px}.thermal-model-section .model-layout{display:flex}.thermal-navigation{gap:2px}.thermal-navigation a{padding:10px}.model-answer{font-size:25px}}
+/* Closed-loop controls extend the established console, including narrow windows. */
+.loop-columns{display:grid;grid-template-columns:minmax(260px,1fr) minmax(0,1.2fr);gap:32px;margin-top:24px}
+.thermal-loop select{width:100%;min-height:44px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--text);padding:10px;font:inherit}
+.thermal-loop .model-check{display:flex;align-items:flex-start;gap:10px;margin:16px 0;line-height:1.6}
+.thermal-loop .model-check input{width:auto;margin-top:6px;flex:none}
+.thermal-loop [hidden]{display:none!important}
+.thermal-loop details{margin:20px 0}.thermal-loop summary{cursor:pointer;padding:8px 0}
+.loop-observation h3{margin:0 0 12px;font-size:22px}.loop-observation p{line-height:1.7;overflow-wrap:anywhere}
+.loop-facts{display:grid;grid-template-columns:90px minmax(0,1fr);gap:16px 18px;line-height:1.7;margin:24px 0}
+.loop-facts dt{color:var(--muted)}.loop-facts dd{margin:0;overflow-wrap:anywhere}
+@media(max-width:760px){.loop-columns{grid-template-columns:1fr;gap:28px}.loop-facts{grid-template-columns:75px minmax(0,1fr);gap:14px}}

@@ -1,0 +1,119 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.plugin.compose'
+}
+
+// Signing is opt-in: ordinary release builds intentionally produce unsigned artifacts.
+// Keep the publisher's keystore outside the project; never use the SDK debug certificate.
+def enableReleaseSigning = providers.gradleProperty('enableReleaseSigning').orElse('false').get().toBoolean()
+def releaseSigning = [:]
+if (enableReleaseSigning) {
+    def signingProperties = new Properties()
+    def signingPropertiesFile = rootProject.file('keystore.properties')
+    if (signingPropertiesFile.isFile()) {
+        signingPropertiesFile.withInputStream { signingProperties.load(it) }
+    }
+    [storeFile: 'DREAMSHIELD_KEYSTORE_FILE', storePassword: 'DREAMSHIELD_STORE_PASSWORD',
+     keyAlias: 'DREAMSHIELD_KEY_ALIAS', keyPassword: 'DREAMSHIELD_KEY_PASSWORD'].each { key, envName ->
+        releaseSigning[key] = providers.environmentVariable(envName).orNull ?: signingProperties.getProperty(key)
+        if (!releaseSigning[key]) throw new GradleException("Release signing requires ${envName} or keystore.properties entry ${key}.")
+    }
+    def signingFile = new File(releaseSigning.storeFile)
+    if (!signingFile.isAbsolute() || !signingFile.isFile()) {
+        throw new GradleException('The release keystore must be an existing absolute file path outside this project.')
+    }
+    signingFile = signingFile.canonicalFile
+    if (signingFile.toPath().startsWith(rootProject.projectDir.canonicalFile.toPath())) {
+        throw new GradleException('Store the release keystore outside the source project and its distribution archives.')
+    }
+    if (signingFile.name.equalsIgnoreCase('debug.keystore') || releaseSigning.keyAlias.equalsIgnoreCase('androiddebugkey')) {
+        throw new GradleException('A debug keystore or androiddebugkey alias cannot sign a release.')
+    }
+    releaseSigning.storeFile = signingFile
+}
+
+android {
+    namespace 'com.dreamshield.app'
+    compileSdk 37
+
+    defaultConfig {
+        applicationId 'com.dreamshield.app'
+        minSdk 29
+        targetSdk 37
+        versionCode 22
+        versionName '0.6.1'
+    }
+    signingConfigs {
+        if (enableReleaseSigning) {
+            create('publisher') {
+                storeFile releaseSigning.storeFile
+                storePassword releaseSigning.storePassword
+                keyAlias releaseSigning.keyAlias
+                keyPassword releaseSigning.keyPassword
+            }
+        }
+    }
+    buildTypes {
+        debug { debuggable true }
+        release {
+            debuggable false
+            jniDebuggable false
+            minifyEnabled false
+            if (enableReleaseSigning) signingConfig signingConfigs.publisher
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    buildFeatures { buildConfig true; compose true }
+    // The native app never packages or loads the earlier HTML interface.
+    sourceSets { main { assets.srcDirs = [] } }
+    lint {
+        abortOnError true
+        checkReleaseBuilds true
+    }
+    testOptions {
+        unitTests.includeAndroidResources = true
+        unitTests.all {
+            if (name.toLowerCase().contains('release')) {
+                filter { excludeTestsMatching 'com.dreamshield.app.NativeSleepSmokeTest' }
+            }
+            jvmArgs '--add-opens=java.base/java.lang=ALL-UNNAMED',
+                '--add-opens=java.base/java.lang.reflect=ALL-UNNAMED',
+                '--add-opens=java.base/java.util=ALL-UNNAMED',
+                '--add-opens=java.base/java.io=ALL-UNNAMED',
+                '--add-opens=java.base/java.net=ALL-UNNAMED',
+                '--add-opens=java.base/java.security=ALL-UNNAMED',
+                '--add-opens=java.base/java.text=ALL-UNNAMED',
+                '--add-opens=java.base/jdk.internal.access=ALL-UNNAMED',
+                '--add-opens=java.desktop/java.awt.font=ALL-UNNAMED',
+                '--add-opens=jdk.compiler/com.sun.tools.javac.api=ALL-UNNAMED'
+            maxHeapSize = '2048m'
+        }
+    }
+}
+
+kotlin { compilerOptions { jvmTarget = org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_17 } }
+
+androidComponents {
+    beforeVariants(selector().withBuildType('release')) { variant ->
+        variant.hostTests.get(com.android.build.api.variant.HostTestBuilder.UNIT_TEST_TYPE).enable = true
+    }
+}
+
+dependencies {
+    implementation 'com.google.protobuf:protobuf-javalite:3.25.5'
+    implementation 'com.google.crypto.tink:tink-android:1.12.0'
+    testImplementation 'junit:junit:4.13.2'
+    testImplementation 'org.robolectric:robolectric:4.17'
+    testImplementation 'androidx.compose.ui:ui-test-junit4:1.9.0'
+    debugImplementation 'androidx.compose.ui:ui-test-manifest:1.9.0'
+    implementation 'androidx.core:core-splashscreen:1.2.0'
+    implementation 'androidx.activity:activity-compose:1.10.1'
+    implementation 'androidx.compose.ui:ui:1.9.0'
+    implementation 'androidx.compose.foundation:foundation:1.9.0'
+    implementation 'androidx.compose.animation:animation:1.9.0'
+    implementation 'androidx.compose.material3:material3:1.4.0'
+    implementation 'androidx.health.connect:connect-client:1.1.0'
+}
